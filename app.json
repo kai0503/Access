@@ -1,0 +1,104 @@
+{
+  "pages": [
+    "pages/login/index",
+    "pages/information/information",
+    "pages/my/info/index",
+    "pages/index/index",
+    "pages/wxpersonnel/wxpersonnel",
+    "pages/Outsourcing/Outsourcing",
+    "pages/my/message/list/index",
+    "pages/notification/notification",
+    "pages/wxindex/wxindex",
+    "pages/item/item",
+    "pages/shangchaun/shangchaun",
+    "pages/my/index",
+    "pages/personnel/personnel",
+    "pages/mockexam/mockexam",
+    "pages/xuexi/index",
+    "pages/my/log/index",
+    "pages/papar/papar",
+    "pages/index/video/index",
+    "pages/seefile/index",
+    "pages/my/message/info/index",
+    "pages/examination/index",
+    "pages/result/result",
+    "pages/fraction/fraction"
+  ],
+  "subPackages": [
+    {
+      "root": "subpackages",
+      "name": "分包A",
+      "pages": [
+        "pages/logon/logon",
+        "pages/visitor/visitor",
+        "pages/Certificate/Certificate",
+        "pages/Details/Details",
+        "pages/zldetails/zldetails",
+        "pages/review/index",
+        "pages/Wrong/index",
+        "pages/practice/index",
+        "pages/frequency/index",
+        "pages/questions/index",
+        "pages/sign/index"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "新疆教育",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#6e6d6b",
+    "selectedColor": "#ff9966",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/assets/tabBar/sy.png",
+        "selectedIconPath": "/assets/tabBar/sys.png"
+      },
+      {
+        "pagePath": "pages/personnel/personnel",
+        "text": "学习资料",
+        "iconPath": "/assets/tabBar/kechengone.png",
+        "selectedIconPath": "/assets/tabBar/kechengtwo.png"
+      },
+      {
+        "pagePath": "pages/information/information",
+        "text": "考试",
+        "iconPath": "/assets/tabBar/ks.png",
+        "selectedIconPath": "/assets/tabBar/kss.png"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "text": "个人中心",
+        "iconPath": "/assets/tabBar/gerenone.png",
+        "selectedIconPath": "/assets/tabBar/gerentwo.png"
+      }
+    ]
+  },
+  "plugins": {
+    "tencentvideo": {
+      "version": "2.1.15",
+      "provider": "wxa75efa648b60994b"
+    }
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-collapse": "@vant/weapp/collapse/index",
+    "van-collapse-item": "@vant/weapp/collapse-item/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-uploader": "@vant/weapp/uploader/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-datetime-picker": "@vant/weapp/datetime-picker/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index"
+  }
+}

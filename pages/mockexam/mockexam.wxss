@@ -1,0 +1,179 @@
+/* pages/test/test.wxss */
+page {
+  background-color: #fff;
+}
+.page {
+  padding: 20rpx;
+}
+.page__bd {
+  padding: 20rpx;
+}
+.my-choosebox {
+  display: block;
+  margin-bottom: 20rpx;
+}
+.toindex-btn {
+  margin-top: 20rpx;
+  display:inline-block;
+  line-height:2.3;
+  font-size:13px;
+  padding:0 1.34em;
+  color: red;
+  float: right;
+}
+.page .radio-group, .page .checkbox-group {
+  display: block;
+}
+.canvasId {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%);
+  z-index: 1;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  margin-bottom: 66px;
+}
+
+.handCenter {
+  border: 1px solid red;
+}
+
+.handWriting {
+  width: 100%;
+}
+
+.preview {
+  width: 375px;
+  height: 152px;
+}
+
+
+.form-item {
+  background-color: #fff;
+  border-bottom: 2rpx solid #ebebeb;
+  padding: 20rpx 30rpx;
+  min-height: 100rpx;
+  font-size: 32rpx;
+  position: relative;
+}
+.flex {
+  display: flex;
+}
+.br5 {
+  border-radius: 10rpx;
+}
+.bg-white {
+  background-color: #ffffff;
+}
+.pd15 {
+  padding: 30rpx;
+}
+.flex-vertical-center {
+  align-items: center;
+}
+.border-b {
+  position: relative;
+}
+.form-wrap .label {
+  color: #8c8d8e;
+  min-width:  200rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  padding-left: 16rpx;
+}
+.required {
+  position: relative;
+}
+.required::before {
+  content: "*";
+  position: absolute;
+  left: -20rpx;
+  top: 0;
+  color: red;
+}
+.color-lightblack {
+  color: #575859;
+}
+.flex-con{ -webkit-box-flex: 1; -webkit-flex: 1; flex: 1;}
+.fs16 {
+  font-size: 32rpx;
+}
+.fake-placeholder {
+  color: #757575;
+  font-size: 32rpx;
+}
+/** modal **/
+.modal-wrap {
+  width: 100%;
+  height: 484rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0rpx;
+  z-index: 999;
+  box-shadow: 0 0 60rpx #d4d6d7;
+}
+.signature-wrap {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 20rpx 20rpx 0 0;
+}
+.signature-title-wrap {
+  position: relative;
+}
+.font19{
+  font-size: 30rpx;
+}
+.inblock{
+  display: inline-block;
+}
+.aui-icon-close {
+  position: absolute;
+  left: 30rpx;
+  top: 30rpx;
+  font-weight: bold;
+}
+#signature {
+  width: 100%;
+  height: 260rpx;
+  margin-bottom: 20rpx;
+}
+#imgSignature {
+  width: 400rpx;
+  height: 140rpx;
+}
+/* pages/canvas-test2/canvas-test2.wxss */
+.canvasId {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%);
+  z-index: 1;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  margin-bottom: 66px;
+}
+
+.handCenter {
+  border: 1px solid red;
+}
+
+.handWriting {
+  width: 100%;
+}
+
+.preview {
+  width: 375px;
+  height: 152px;
+}
+.ct{
+  font-size: 80rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: red;
+}
+

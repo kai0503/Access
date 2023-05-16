@@ -1,0 +1,11 @@
+<!--pages/index/video/index.wxml-->
+<view class="box">
+  <!-- http://101.42.116.137/upload/demo123.mp4 -->
+  <video src="{{video}}"  bindtimeupdate="bianhua"  autoplay="{{true}}" bindfullscreenchange="fullScreen"  bindended="closeVideo" custom-cache="{{false}}" initial-time="{{rands}}" wx:if="{{query}}" show-progress='{{false}}' enable-progress-gesture="{{false}}"></video>
+  
+  <video src="{{video}}"bindtimeupdate="bianhua"  autoplay="{{false}}" bindfullscreenchange="fullScreen"  bindended="closeVideo" custom-cache="{{false}}" show-progress='{{false}}' enable-progress-gesture="{{false}}" wx:else></video>
+  <!-- <view class="flex padding flex-direction">
+    <button bindtap="toexamin" hover-class="other-button-hover" class="cu-btn line-red round lg margin-top" wx:if="{{question}}"> 开始考试 </button>
+      </view> -->
+</view>
+

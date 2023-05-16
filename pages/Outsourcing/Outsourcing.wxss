@@ -1,0 +1,76 @@
+.box{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 20rpx;
+  font-size: 32rpx;
+}
+.box text{
+  flex-grow: 1;
+}
+.boxs{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  background-color: white;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+.boxs text{
+  flex-grow: 1;
+  text-align: center;
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+.mask{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  z-index: 9000;
+  opacity: 0.7;
+}
+
+.modalDlg{
+  width: 680rpx;
+  height: 620rpx;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 9999;
+  margin: -370rpx 35rpx;
+  background-color: #fff;
+  border-radius: 36rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50rpx;
+}
+
+.text{
+  margin-top: 30rpx;
+padding-left: 50rpx;
+  font-size: 40rpx;
+  width: 100%;
+}
+.zt{
+  margin-left: 50rpx;
+}
+image{
+  width: 150rpx;
+  height: 150rpx;
+  position: absolute;
+
+  top: 750rpx;
+}

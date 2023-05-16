@@ -1,0 +1,23 @@
+
+<view class="box">
+<view>
+<view class="item">
+<view>
+<van-icon name="wap-nav" color="red" size="60rpx"/></view>
+<view style="margin-left: 30rpx;">答题课堂</view>
+</view>
+</view>
+
+<view class="ke"  wx:for="{{lists}}" wx:key="index" wx:for-item="item">
+  <view class="ketang" bindtap="{{isClick ? 'govideo' : ''}}" data-bean="{{item}}">
+<view class="keone">
+<image src="../../assets/carousel/xxtb.png" style="width: 200rpx;height: 150rpx;"></image>
+</view>
+<view class="ketwo">
+<view style="margin: 10rpx 0 5rpx 10rpx;font-size: 29rpx; color: #959597;">学科:{{item.name}}</view>
+<view style="margin: 20rpx 0 5rpx 10rpx;font-size: 29rpx; color: #959597;width:370rpx">试卷:{{item.describe}}<text style="right: 10rpx;position: absolute;">时间:{{item.time}}分钟</text></view>
+</view>
+</view>
+</view> 
+<view class="zanwu" wx:if="{{code!=0}}">暂无用户考试试卷</view>
+</view>

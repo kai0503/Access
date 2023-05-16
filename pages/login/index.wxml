@@ -1,0 +1,53 @@
+<view style="height: 100vh;">
+  <view class="title">
+<image class="title_image" src="../../assets/carousel/bjj.png"></image>
+</view>
+
+<!-- <view class="item">
+  <view class="box">
+    <van-cell-group>
+  <van-field
+    model:value="{{nickName}}"
+    required
+    clearable
+    label="用户名"
+    right-icon="question-o"
+    placeholder="请输入用户名"
+  />
+
+  <van-field
+    model:value="{{password}}"
+    type="password"
+    label="密码"
+    placeholder="请输入密码"
+    required
+  />
+</van-cell-group>
+<radio-group class="radio-group" bindchange="radioChange">
+      <label class="radio my-choosebox">
+         <radio value="1"/> 
+        <text class="margin-left-xs">外协单位</text>
+      </label>
+      <label class="radio my-choosebox" style="margin-left: 150rpx;">
+         <radio value="2"   /> 
+        <text class="margin-left-xs">普通员工/外协员工</text>
+      </label>
+    </radio-group> 
+<button bindtap="addUsers" style="width: 90%;background-color: #409eff;color: white;margin-top: 50rpx;">登录</button>
+<view class="zc"><text bindtap="ygzc">员工注册</text><text bindtap="wxzc">外协单位注册</text></view>
+<view class="w_x" bindtap="w_x" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+    门禁访问登录
+  </view>
+  </view>
+</view> -->
+<view class="item">
+ <text class="login_title">登录</text>
+ <view class="login_input"><input type="number" value="{{nickName}}" bindchange="getName"  placeholder="请输入您的手机号"/></view>
+ <view class="login_inputs"><input value="{{password}}" bindchange="getpass" type="password" placeholder="请输入密码"/></view>
+    <button bindtap="addUsers" style="width: 90%;background-color: #01AFEB;color: white;margin-top: 50rpx;">登录</button>
+    <!-- <view class="zc"><text bindtap="ygzc">员工注册</text></view> -->
+</view>
+<view class="w_x" bindtap="w_x" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+    门禁访客登录
+  </view>
+</view>

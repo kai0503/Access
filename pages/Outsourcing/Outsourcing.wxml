@@ -1,0 +1,23 @@
+<view>
+  <view class="box">
+    <text>项目名称</text>
+    <text>开始时间</text>
+    <text>结束时间</text>
+  </view>
+  <view class="boxs" wx:for="{{list}}" wx:key="*this" bindtap="submit" data-index="{{index}}">
+    <text style="overflow:hidden;text-overflow: ellipsis;width: 130rpx;">{{item.name}}</text>
+    <text>{{item.starttime}}</text>
+    <text>{{item.endtime}}</text>
+  <image src="../../assets/carousel/y.png" style="position: absolute;width: 30rpx;height: 30rpx;top: 100rpx;right: 10rpx;"  ></image>
+  </view>
+  <view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+ 
+<view class="modalDlg" wx:if="{{showModal}}">
+  <image src="../../assets/carousel/x.png" bindtap="go"></image>
+    <view class="text">项目名称:<text class="zt" >{{info.name}}</text></view>
+    <view class="text">项目负责人:<text class="zt">{{info.projectcustinfo}}</text></view>
+    <view class="text">联系电话:<text class="zt">{{info.phone}}</text></view>
+    <view class="text">开始时间:<text class="zt">{{info.starttime}}</text></view>
+    <view class="text">结束时间:<text class="zt">{{info.endtime}}</text></view>
+</view>
+</view>

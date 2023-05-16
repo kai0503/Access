@@ -1,0 +1,33 @@
+.box{
+  width: 100%;
+}
+.item_one{
+  width: 95%;
+  background-color: white;
+ 
+  position: relative;
+  left: 50%;
+  top: 50rpx;
+  transform: translate(-50%,0);
+  border-radius: 39rpx;
+}
+.one_title{
+  font-size: 45rpx;
+  background-image: linear-gradient(to right, #DAE1FE , #B8C6FC);
+  color: #6A87FA;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding-left: 30rpx;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.one_cont{
+  width: 100%;
+  display: flex;
+  margin-top: 30rpx;
+  margin-bottom: 50rpx;
+}
+.one_cont button{
+  width: 30%;
+  margin-bottom: 20rpx;
+}

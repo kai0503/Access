@@ -1,0 +1,136 @@
+
+<view class="box">
+<view>
+  <swiper indicator-dots="false" autoplay="true" interval="5000" duration="1000" 	circular="true">
+   <block wx:for="{{imglist}}"  data-index="{{index}}">
+      <swiper-item>
+      <image src="{{item}}" class="slide-image" bindtap="preview" data-index="{{index}}"></image>
+      </swiper-item>
+     </block>
+    </swiper>
+</view>
+ <view wx:if="{{stafftype==1}}">
+  <view>
+<view style="font-size: 45rpx;margin-top:20rpx;margin-left: 20rpx;font-weight: 600;border-left: 3px solid #2F76FF;padding-left: 20rpx;">厂内信息:</view>
+<view style="position: relative;" class="box_on">
+<view class="box_one" style="background-color: #D8EBFF;">
+ <view class="one_ziti">{{nbnum||0}}</view>
+  <view class="one_title">厂内人数</view>
+
+</view>
+<view class="box_one" style="background-color: #FFF2DE;">
+ <view class="one_ziti">{{wxnum||0}}</view>
+  <view class="one_title">外协人数</view>
+
+</view>
+<view class="box_one" style="background-color: #FFEFF1;">
+ <view class="one_ziti">{{allnum||0}}</view>
+  <view class="one_title">总人数</view>
+
+</view>
+<view class="box_one" style="background-color: #DFE4FF;">
+ <view class="one_ziti">{{vehicleno||0}}</view>
+  <view class="one_title">车辆数量</view>
+
+</view>
+</view>
+<view style="font-size: 45rpx;margin-top:20rpx;margin-left: 20rpx;font-weight: 600;border-left: 3px solid #2F76FF;padding-left: 20rpx;">雷达预警:</view>
+</view>
+<view class="whole" style="margin-top: 20rpx;">
+  <view class="whole_one">
+    <picker mode="date" value="{{startdate}}" start="2015-09-01" end="2099-09-01" bindchange="startDateChange">
+			<view class="picker">
+				{{startdate}}
+			</view>
+		</picker>
+  </view>
+  <view class="whole_two"><text>至</text></view>
+  <view class="whole_three">
+    <picker mode="date" value="{{enddate}}" start="2015-09-01" end="2099-09-01" bindchange="endDateChange"> 
+			<view class="picker">
+				{{enddate}}
+			</view>
+		</picker>
+  </view>
+</view>
+<view class="title"> 
+<text class="title_one">报警信息</text>
+<text class="title_two">报警时间</text>
+<text class="title_three">报警地点</text>
+</view>
+<view style="width: 100%;height:470rpx;">
+					<view class="scroll_box">
+						<swiper class="swiper"  vertical="true" display-multiple-items="{{d_num}}"   wx:if="{{listsss.length>0}}">
+      <block wx:for="{{listsss}}" wx:key="index">
+							<swiper-item>
+									<ul class="td">
+										<li >{{item.alarmcontent}}</li>
+										<li style="padding-top: 5rpx;">{{item.inputdate}}</li>
+										<li>{{item.position}}</li>
+									</ul>
+							</swiper-item>
+      </block>
+						</swiper>
+					</view>
+        </view>
+        <view wx:if="{{flag==true}}" class="zanwu">暂无报警信息,请重新查询</view>
+ </view>
+ <view wx:elif="{{stafftype!=1}}">
+  <view>
+<view style="font-size: 40rpx;margin-top:20rpx;margin-left: 20rpx;">厂内信息:</view>
+<view style="position: relative;">
+<image src="../../assets/carousel/ry1.png" style="width:50%;height: 260rpx;"></image>
+<view style="position: absolute;top: 50rpx;left: 40rpx;font-size: 70rpx;color: white;">场内人数</view>
+<view style="position: absolute;top: 170rpx;left: 160rpx;font-size: 60rpx;color: white;">{{nbnum||0}}</view>
+<image src="../../assets/carousel/ry2.png" style="width: 50%;height: 260rpx;"></image>
+<view style="position: absolute;top: 50rpx;left: 430rpx;font-size: 70rpx;color: white;">外协人数</view>
+<view style="position: absolute;top: 170rpx;left: 520rpx;font-size: 60rpx;color: white;">{{wxnum||0}}</view>
+<image src="../../assets/carousel/ry3.png" style="width: 50%;height: 260rpx;"></image>
+<view style="position: absolute;top: 300rpx;right: 460rpx;font-size: 70rpx;color: white;">总人数</view>
+<view style="position: absolute;top: 420rpx;right: 520rpx;font-size: 60rpx;color: white;">{{allnum||0}}</view>
+<image src="../../assets/carousel/ry3.png" style="width: 50%;height: 260rpx;"></image> 
+<view style="position: absolute;top: 320rpx;right: 50rpx;font-size: 70rpx;color: white;">领导到岗</view>
+<view style="position: absolute;top: 420rpx;right: 180rpx;font-size: 60rpx;color: white;">{{vehicleno||0}}</view>
+</view>
+<view style="font-size: 40rpx;margin-top:20rpx;margin-left: 20rpx;">报警信息:</view>
+</view>
+<view class="whole">
+  <view class="whole_one">
+    <picker mode="date" value="{{startdate}}" start="2015-09-01" end="2099-09-01" bindchange="startDateChange">
+			<view class="picker">
+				{{startdate}}
+			</view>
+		</picker>
+  </view>
+  <view class="whole_two"><text>至</text></view>
+  <view class="whole_three">
+    <picker mode="date" value="{{enddate}}" start="2015-09-01" end="2099-09-01" bindchange="endDateChange"> 
+			<view class="picker">
+				{{enddate}}
+			</view>
+		</picker>
+  </view>
+</view>
+<view class="title"> 
+<text class="title_one">报警信息</text>
+<text class="title_two">报警时间</text>
+<text class="title_three">报警地点</text>
+</view>
+<view style="width: 100%;height:470rpx;">
+					<view class="scroll_box">
+						<swiper class="swiper"  vertical="true" display-multiple-items="{{d_num}}"   wx:if="{{listsss.length>0}}">
+      <block  wx:for="{{listsss}}" wx:key="index" >
+							<swiper-item >
+									<ul class="td">
+										<li >{{item.alarmcontent}}</li>
+										<li style="padding-top: 5rpx;">{{item.inputdate}}</li>
+										<li>{{item.position}}</li>
+									</ul>
+							</swiper-item>
+      </block>
+						</swiper>
+					</view>
+        </view>
+        <view wx:if="{{flag==true}}" class="zanwus">暂无报警信息,请重新查询</view>
+</view>
+</view>

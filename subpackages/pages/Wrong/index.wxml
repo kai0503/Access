@@ -1,0 +1,5 @@
+<view class="box">
+<view><button  bindtap="gomn" class="btn_mn">考前练习错题</button></view>
+<view><button  bindtap="gocuoti" class="btn_ks">正式考试错题</button></view>
+
+</view> 

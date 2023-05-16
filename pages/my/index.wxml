@@ -1,0 +1,44 @@
+<!--pages/my/index.wxml-->
+<view class="userinfo">
+  <block>
+  <image src="../../assets/carousel/beijing.png" class="title_image"></image>
+    <view class="userinfo-nickname">
+    <view>
+    <image src="../../assets/carousel/tx.png" style="width: 100rpx;height: 100rpx;border-radius: 50%;"></image>
+    </view>
+    <view class="nickname_user">
+    <view>{{nickName}}</view>
+    <!-- <view style="font-weight: bold;" bindtap="logOut">点击登录</view>   -->
+    <view style="font-size: 25rpx;margin-top: 10rpx;">欢迎来到此平台</view>
+    <!-- <view style="font-size: 25rpx;margin-top: 10rpx;">当前状态:未学习</view> -->
+    </view>
+    </view>
+  </block>
+</view>
+<view>
+  <i-cell-group i-class="my-group-margin">
+    <i-cell title="个人资料" is-link url="/pages/my/info/index">
+      <i-icon type="setup_fill" slot="icon" size="20" />
+    </i-cell>
+    <i-cell title="发起通知" is-link url="/pages/notification/notification"  wx:if="{{stafftype==2}}">
+      <i-icon type="message_fill" slot="icon" size="20" />
+    </i-cell>
+  <view>
+    <i-cell title="考试记录" is-link url="/pages/xuexi/index">
+      <i-icon type="flashlight_fill" slot="icon" size="20" />
+    </i-cell>
+    <i-cell title="考试次数" is-link url="../../subpackages/pages/frequency/index" wx:if="{{stafftype==2}}" style="border-bottom: 10px solid red;">
+      <i-icon type="flashlight_fill" slot="icon" size="20" />
+    </i-cell>
+    <!-- <i-cell title="扫一扫" bindtap="QR">
+    </i-cell> -->
+    <view class="sys" bindtap="QR"><image src="../../assets/carousel/sys.png"></image><text>扫一扫</text></view>
+  </view>
+  </i-cell-group>
+</view>
+
+<view class="mn" wx:if="{{stafftype==2}}"><text>开启考前练习</text> <switch  checked="{{isChecked1}}" bindchange="changeSwitch1" /></view>
+<view class="copyright">大连金马衡器有限公司 提供技术支持</view>
+
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
+<i-message id="message" />

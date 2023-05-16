@@ -1,0 +1,21 @@
+
+<view class="item">
+  <image src="../../assets/carousel/wx.png" class="box"></image>
+   
+</view>
+<view class="box1">
+  <button bindtap='test'>外协单位</button>
+</view>
+<view class="box2">
+  <button bindtap='test1'>外协项目</button>
+</view>
+<view class="box3">
+  <button bindtap='test2'>外协人员</button>
+</view>
+<!-- <view class="box4">
+  <image src="../../assets/carousel/wx4.png"  bindtap='test3'></image>
+</view> -->
+<view class="box4">
+<button bindtap='test3'>我的项目</button>
+</view>
+

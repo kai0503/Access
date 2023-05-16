@@ -1,0 +1,12 @@
+<view class="box">
+ <view class="shijuan">试卷名称:{{papername}}</view>
+ <view class="ks">考试人:{{username}}</view>
+ <view wx:for="{{questionList}}" wx:key="index" wx:for-item="item">
+  <view class="timu">{{index+1}}.{{item.questionstem}}</view>
+ <view class="daan" wx:for="{{item.options}}"  wx:for-item="value" wx:key="index">
+ <view>{{value}}</view>
+ </view>
+ <view class="xx" wx:if="{{item.yj==true}}" style="color: red;">你的答案为:<text>{{item.erroranswer}}</text><text class="cw">正确答案为:{{item.answer}}</text></view>
+ <view class="xx" wx:if="{{item.yj==false}}">你的答案为:<text>{{item.erroranswer}}</text><text class="cw">正确答案为:{{item.answer}}</text></view>
+ </view>
+</view>

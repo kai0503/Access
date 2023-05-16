@@ -1,0 +1,63 @@
+<!-- <view class="box">
+
+<view class="item" >
+<view>姓名:<text>{{name}}</text></view>
+<view style="margin-top: 20rpx;">签到时间:<text style="color: #959595;">{{creattime}}</text></view>
+</view>
+<view class="qd" bindtap="qd" wx:if="{{issign==''}}">
+签到
+</view>
+<view class="yqd" wx:if="{{issign!=''}}">
+已签到
+</view>
+</view> -->
+<view class="box">
+<view class="item">
+  <view class="box_one">
+<view class="one_title">1.检查人</view>
+<view class="one_ipt"><input type="text"  placeholder="系统自动生成" /></view>
+</view>
+<view class="box_one">
+<view class="one_title">2.检查部门</view>
+<view class="one_ipt"><input type="text"  placeholder="系统自动生成" /></view>
+</view>
+<view class="box_one">
+<view class="one_title">3.检查日期</view>
+<view class="one_ipt"><input type="text"  placeholder="系统自动生成" /></view>
+</view>
+<view class="box_one">
+  <view class="one_title">4.检查项目</view>
+  <view class="box_xm">
+  <view class="xm_title">1.现场设备是否正常?</view>
+  <view><view class="xm_d {{isActive==1?'active':'xm_d'}}" bindtap="xm_d">√</view><view class="xm_c" class="xm_d {{isActive==2?'actives':'xm_c'}}" bindtap="xm_c">×</view></view>
+  </view>
+  <view class="box_xm">
+  <view class="xm_title">2.现场消防是否正常?</view>
+  <view><view class="xm_d {{isActives==1?'active':'xm_d'}}" bindtap="xm_ds">√</view><view class="xm_c" class="xm_d {{isActives==2?'actives':'xm_c'}}" bindtap="xm_cs">×</view></view>
+  </view>
+  <view class="box_xm">
+  <view class="xm_title">3.现场安全措施是否正常?</view>
+  <view><view class="xm_d {{isActivess==1?'active':'xm_d'}}" bindtap="xm_dss">√</view><view class="xm_c" class="xm_d {{isActivess==2?'actives':'xm_c'}}" bindtap="xm_css">×</view></view>
+  </view>
+  <view class="box_xm">
+  <view class="xm_title">4.设备与地面卫生是否正常?</view>
+  <view><view class="xm_d {{isActivesss==1?'active':'xm_d'}}" bindtap="xm_dsss">√</view><view class="xm_c" class="xm_d {{isActivesss==2?'actives':'xm_c'}}" bindtap="xm_csss">×</view></view>
+  </view>
+  <view class="box_xm">
+  <view class="xm_title">5.现场是否存在温度异常?</view>
+  <view><view class="xm_d {{isActivessss==1?'active':'xm_d'}}" bindtap="xm_dssss">√</view><view class="xm_c" class="xm_d {{isActivessss==2?'actives':'xm_c'}}" bindtap="xm_cssss">×</view></view>
+  </view>
+</view>
+<view class="box_one">
+<view class="one_title">5.存在问题</view>
+<view class="one_ipt">
+  <view class="section">
+  <textarea bindblur="bindTextAreaBlur" auto-height placeholder="请根据问题实际情况手动填写" 	bindblur="getval" />
+</view>
+</view>
+</view>
+<view class="box_one" style="margin-top:120rpx" bindtap="postval">
+ <button>提交</button>
+</view>
+</view>
+</view>

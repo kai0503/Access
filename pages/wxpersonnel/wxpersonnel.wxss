@@ -1,0 +1,168 @@
+.dw{
+  background-color: #fff;
+padding-top: 20rpx;
+height: 400rpx;
+}
+.dw_title{
+  margin-left: 25rpx;
+margin-top: 20rpx;
+font-size: 35rpx;
+  font-weight: bold;
+}
+.dw input{
+  width: 95%;height: 70rpx;line-height: 70rpx;border: 1px solid #CCCCCC;
+  margin: 20rpx auto;
+  border-radius: 10rpx;
+  padding-left: 20rpx;
+}
+.dw_titles{
+  margin-top: 40rpx;
+  margin-left: 20rpx;
+  font-size: 35rpx;
+  font-weight: bold;
+}
+
+
+
+
+.inputPlaceholder{
+  width: 720rpx;
+  height: 80rpx;
+  line-height: 60rpx;
+  border: 1px solid #DEDEDE;
+  padding: 18rpx 40rpx 8rpx 20rpx;
+  margin-left: 16rpx;
+  color: #000;
+  border-radius: 10rpx;
+  position: relative;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space:nowrap;
+
+}
+.jiantou1{
+  position: absolute;
+  right: 60rpx;
+  top: 10rpx;
+  width: 60rpx;
+  height: 60rpx;
+  z-index:999;
+
+}
+.jiantou1 image{
+  width: 60rpx;
+  height: 60rpx;
+  
+}
+.content{
+  width: 720rpx;
+  max-height: 400rpx;
+  position: absolute;
+  top: 62rpx;
+  left: 16rpx;
+   background: #FFFFFF;
+  box-shadow: 0px 0px 10px 1px rgba(209, 209, 209, 0.35);
+  padding: 20rpx;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.content>view{
+  padding: 10rpx 0;
+}
+.active{
+  color: #56D88A;
+}
+.inputtext{
+  position: relative;
+  top: -8rpx;
+}
+.list-msg{
+  position: relative;
+  top: -90rpx;
+}
+.submit{
+  width: 90%;
+  margin-top: 270rpx;
+  position: relative;
+  color: white;
+  background-color: #01AFEB;
+bottom: 40rpx;
+font-size: 40rpx;
+}
+.bot{
+  width: 740rpx;
+  background-color: white;
+  height:160rpx;
+  line-height: 60rpx;
+  font-size: 29rpx;
+  margin-top: 30rpx;
+  padding-bottom: 180rpx;
+  border-bottom: 10px solid #F7F7F7;
+}
+.itexs{
+  margin-left: 20rpx;
+
+  border: 1px solid rgb(199, 186, 186);
+  font-size: 29rpx;
+  border-radius: 10rpx;
+  padding-left: 10rpx;
+  color: #000;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.jy{
+  margin-left: 25rpx;
+  margin-top: 20rpx;
+  font-size: 35rpx;
+    font-weight: bold;
+}
+.box{
+  width: 750rpx;
+
+}
+.bgtxt text{
+  margin-left: 25rpx;
+  margin-top: 20rpx;
+  font-size: 35rpx;
+    font-weight: bold;
+
+}
+.weui-input{
+  width: 95%;height: 70rpx;line-height: 70rpx;border: 1px solid #CCCCCC;
+  margin: 20rpx auto;
+  border-radius: 10rpx;
+  padding-left: 20rpx;
+}
+.add{
+  width: 750rpx;
+  height: 100rpx;
+   background-color:white; 
+   border-bottom: 1px solid red;
+}
+.addimg{
+  width: 100rpx;
+  height: 100rpx;
+ position: relative;
+ left: 50%;
+ top: 50%;
+ transform: translate(-50%,-70%);
+}
+.addtext{
+  position: relative;
+  left: 50%;
+  top: 30%;
+  transform: translate(-42%,-25%);
+  width: 300rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  background-color: #178BEE;
+  border-radius: 40rpx;
+  color: white;
+  font-size: 40rpx;
+}
+.imgth{
+  width: 60rpx;
+  height: 60rpx;
+  right: 60rpx;
+}

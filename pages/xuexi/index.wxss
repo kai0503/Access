@@ -1,0 +1,58 @@
+/* pages/xuexi/index.wxss */
+.box{
+  width: 100%;
+}
+.item{
+  width: 95%;
+  background-color: #fff;
+  height: 320rpx;
+  line-height: 60rpx;
+  margin: 30rpx auto;
+  border-radius: 30rpx;
+  box-shadow: 1rpx 1rpx 8rpx 5rpx #e9e7e7;
+  justify-content: center;
+  position: relative;
+}
+.its{
+  width: 100%;
+  display: flex;
+  align-items: center;
+position: relative;
+}
+.itemone{
+  margin-left: 10rpx;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.itemtwo{
+  margin-right: 30rpx;
+}
+.items{
+  padding-left: 10rpx;
+  margin-top: 30rpx;
+  display: flex;
+  align-items: center;
+  padding-bottom: 30rpx;
+}
+.xuexi{
+  padding-left: 40rpx;
+
+}
+.xuexi_one{
+  font-size: 45rpx;
+  text-overflow: ellipsis; /* 溢出显示省略号 */
+  overflow: hidden; /* 溢出隐藏 */
+  white-space: nowrap;  /* 强制不换行 */
+}
+.xuexi_two,.xuexi_three{
+  color:#A4A4A4;
+}
+.zanwu{
+  width: 100%;
+  font-size: 45rpx;
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  text-align: center;
+}

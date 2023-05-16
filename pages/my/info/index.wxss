@@ -1,0 +1,100 @@
+
+
+.box{
+  width: 95%;
+  margin: 30% 50%;
+  transform: translate(-50%,-30%);
+}
+  .title{
+    width: 100%;
+    height: 800rpx;
+    position: relative;
+  }
+  .title_image{
+    width: 100%;
+  height: 100%;
+  position: absolute;
+  background-size: 100% 100%;
+  }
+  .item{
+    width: 95%;
+    background-color: #fff;
+    position: relative;
+    top: -650rpx;
+    height: 100%;
+  margin-left: 50%;
+  transform: translate(-50%,0);
+  border-radius: 30rpx;
+  }
+
+
+  .login_title{
+    width: 200rpx;
+    height: 200rpx;
+   position: relative;
+  border-radius: 50%;
+  top: -130rpx;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 999;
+  }
+  .login_title image{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+  .zl_name{
+    width: 90%;
+    background-color: #F4F6F8;
+    margin-left: 50%;
+    transform: translate(-50%);
+    display: flex;
+     height: 110rpx;
+    align-items: center;
+    top: -50rpx;
+    position: relative;
+    border-radius: 15rpx;
+  }
+  .zl_names{
+    width: 90%;
+    background-color: #F4F6F8;
+    margin-left: 50%;
+    transform: translate(-50%);
+    display: flex;
+     height: 110rpx;
+    align-items: center;
+  top: -50rpx;
+  position: relative;
+margin-top: 30rpx;
+border-radius: 15rpx;
+  }
+  .zl_name image,.zl_names image{
+    width: 40rpx;
+    height: 40rpx;
+    margin-left: 20rpx;
+  }
+  .zl_mz{
+    margin-left: 20rpx;
+    font-size: 30rpx;
+    width: 40%;
+  }
+  .zl_input{
+    width: 70%;
+    background-color: #F4F6F8;
+   height: 70rpx;
+  padding-top: 15rpx;
+  padding-left: 0rpx;
+  border-radius: 15rpx;
+  font-size: 30rpx;
+  
+  }
+  /* .login_input{
+    width: 90%;
+    background-color: #F4F6F8;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin-top: -60rpx;
+    margin-left: 50%;
+  transform: translate(-50%,0);
+  border-radius: 15rpx;
+  } */

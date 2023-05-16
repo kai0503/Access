@@ -1,0 +1,10 @@
+<view>
+ <view class="box" wx:if="{{examstatus==1}}">
+  <image src="../../../assets/carousel/shz.png"></image>
+<view>您已申请访问,等待管理员审核</view>
+</view> 
+ <view class="box" wx:else="{{examstatus==2}}">
+  <image src="../../../assets/carousel/shcg.png"></image>
+<view>审核成功</view>
+</view> 
+</view>

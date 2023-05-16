@@ -1,0 +1,6 @@
+<view class="box">
+<view class="item">
+  <input type="number" placeholder="请输入考试次数" class="ipt" value="{{value}}" bindchange="radioChange"/>
+<button bindtap="btn">提交</button>
+</view>
+</view>

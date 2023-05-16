@@ -1,0 +1,9 @@
+<!-- camera.wxml相机大小需要从重新设置 -->
+<camera
+ device-position="front"
+ flash="off"
+ binderror="error"
+ style="width: 100%; height: 400px;"
+></camera>
+<!-- 拍照按钮 -->
+<button type="primary" bindtap="takePhoto"> 拍照 </button>

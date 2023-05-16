@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "i-panel": "../../../components/iView/panel/index",
+    "i-input": "../../../components/iView/input/index"
+  },
+  "navigationBarTitleText": "注册"
+}

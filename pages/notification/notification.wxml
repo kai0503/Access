@@ -1,0 +1,20 @@
+<view style="background-color:white;height: 100vh;padding-top: 160rpx;">
+  <view style="border-bottom: 1px solid red;border-radius: 20rpx;width: 95%;margin-left: 3%;">
+    <i-panel >
+    <i-input value="{{values}}" name="realName" maxlength="-1"  bindchange="radioChange" placeholder="请输入发送内容"/>
+  </i-panel>
+  </view>
+  <view class="btns">
+    <button class="btn" bindtap="btns">发起通知</button>
+  <button class="btnss" bindtap="btnss">取消通知</button>
+  </view>
+  <view class="text">
+    <view class="test">当前显示内容</view>
+  </view>
+  <view style="font-size: 500rpx;margin-top: 50rpx;">
+    <van-notice-bar  left-icon="volume-o" text="{{message}}" color="#1989fa" background="#ecf9ff" font-size="1000rpx"></van-notice-bar>
+  </view>
+  <view class="tz_btn">
+  <button bindtap="btn_one">上传安全交底</button><button bindtap="btn_two">上传二维码</button>
+  </view>
+</view>

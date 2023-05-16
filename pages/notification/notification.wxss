@@ -1,0 +1,49 @@
+.btn{
+  width: 300rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  margin: 50rpx auto;
+  background-color: blue;
+  font-size: 50rpx;
+  border-radius: 30rpx;
+  color: white;
+}
+.btnss{
+  width: 300rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  margin: 50rpx auto;
+  background-color: green;
+  font-size: 50rpx;
+  border-radius: 30rpx;
+  color: white;
+}
+.btns{
+  display: flex;
+}
+.text{
+  margin-left:200rpx;
+  margin-top: 200rpx;
+}
+.test{
+  font-size: 50rpx;
+}
+.content{
+  font-size: 40rpx;
+  margin-top: 100rpx;
+}
+.gd{
+  font-size: 160rpx;
+}
+:root:root{
+  --van-notice-bar-font-size:500rpx;
+  --van-notice-bar-text-color:"white"
+}
+.tz_btn{
+  margin-top: 120rpx;
+  display: flex;
+}
+.tz_btn button{
+  width: 40%;
+
+}

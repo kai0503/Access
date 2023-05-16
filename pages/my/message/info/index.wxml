@@ -1,0 +1,17 @@
+<view class="takephoto">
+  <!-- <navigator open-type="navigateBack" hover-class="none" class="goBack">取消</navigator> -->
+  <view class="distinguishing">
+    <image src="" />
+  </view>
+  <view class="camera">
+    <canvas class="progress_bg" canvas-id="canvasProgressbg"></canvas>
+    <canvas class="progress_canvas" canvas-id="canvasProgress"></canvas>
+    <camera id='camera' device-position="front" bindinitdone="startdrawCanvas" flash="off" binderror="error">
+      <cover-view class='cameraGai'>
+         <!-- <cover-image src='../../../../assets/carousel/rs.png' class='cover-image'></cover-image> -->
+      </cover-view>
+    </camera>
+  </view>
+   <view class="complete" bindtap="complateDis" wx:if="{{complete}}">重新验证</view>
+  <i-message id="message" />
+</view>

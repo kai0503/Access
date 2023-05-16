@@ -1,0 +1,24 @@
+/* pages/index/video/index.wxss */
+.box{
+  width: 750rpx;
+}
+video{
+  width: 100%;
+}
+.show{
+  display:show;
+}
+.hide{
+  display:none;
+}
+.item{
+margin-left: 50%;
+margin-top: 20rpx;
+transform: translate(-40%);
+  font-size: 50rpx;
+}
+.weui-cell__hd{
+  float: left;
+  background-color: red;
+  margin-left: 0rpx;
+}

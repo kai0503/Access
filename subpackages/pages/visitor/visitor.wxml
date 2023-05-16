@@ -1,0 +1,63 @@
+<view>
+  <view class="title">
+<image class="title_image" src="../../../assets/carousel/bjj.png"></image>
+</view>
+<view class="item">
+  <view class="box">
+    <van-cell-group>
+      <van-field
+    model:value="{{Name}}"
+    required
+    clearable
+    label="用户姓名"
+    right-icon="question-o"
+    placeholder="请输入用户名"
+  />
+  <van-field
+    model:value="{{phone}}"
+    required
+    clearable
+    label="用户手机号"
+    right-icon="question-o"
+    placeholder="请输入用户名"
+  />
+  <van-field
+    model:value="{{Receptionist}}"
+    type="text"
+    label="接待人员"
+    placeholder="请输入接待人员姓名"
+    required
+  />
+  <van-field
+    model:value="{{information}}"
+    type="text"
+    label="车辆信息"
+    placeholder="请输入车辆车牌号 例如:京A88888"
+    required
+  />
+</van-cell-group>
+  <view class="weui-uploader">
+    <view class='pics' wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
+        <image class='weui-uploader__img' src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg">
+           <!-- <icon class="icon-small" type="cancel" size="23" data-index="{{index}}" bindtap="deleteImg"></icon>  -->
+           <!-- <icon class="icon-small" type="success" size="23" data-index="{{index}}" bindtap="deleteImg"></icon>  -->
+        </image>
+        <image  src="../../../assets/carousel/x.png" style="width: 50rpx;height: 50rpx;position: absolute;right: 0rpx;" ata-index="{{index}}" bindtap="deleteImg"></image>
+    </view>
+
+    <view class="tp_cont {{tj_ycang?'':'hide'}}" bindtap="chooseImg">
+      <view class="tp_add">上传人脸照片</view>
+    </view>
+
+</view>
+<!-- <view class="imgBox" style="padding-left: 150rpx;">
+    <view><text>上传人脸照片</text></view>
+    <view class="imgContant">
+        <van-uploader accept="image" max-count="9" bind:after-read="afterRead" bind:delete="deleteClick" file-list="{{ fileList }}"  />
+    </view>
+   
+</view> -->
+<button bindtap="addUsers" style="width: 90%;background-color: #409eff;color: white;margin-top: 50rpx;">注册</button>
+  </view>
+</view>
+</view>

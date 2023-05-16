@@ -1,0 +1,34 @@
+<view class="box">
+<view class="item_one">
+<view class="one_title">公司级考试题库</view>
+<view class="one_cont">
+<button bindtap="gd">单选</button>
+<button bindtap="gx">多选</button>
+<button bindtap="gp">判断</button>
+</view>
+</view>
+<view class="item_one">
+<view class="one_title" style="background-image: linear-gradient(to right, #FFEAD5 , #FECE9D);">部门级考试题库</view>
+<view class="one_cont">
+  <button bindtap="bd">单选</button>
+<button bindtap="bx">多选</button>
+<button bindtap="bp">判断</button>
+</view>
+</view>
+<view class="item_one">
+<view class="one_title">班组级考试题库</view>
+<view class="one_cont">
+  <button bindtap="zd">单选</button>
+<button bindtap="zx">多选</button>
+<button bindtap="zp">判断</button>
+</view>
+</view>
+<view class="item_one">
+<view class="one_title">安规级考试题库</view>
+<view class="one_cont">
+  <button bindtap="ad">单选</button>
+<button bindtap="ax">多选</button>
+<button bindtap="ap">判断</button>
+</view>
+</view>
+</view>

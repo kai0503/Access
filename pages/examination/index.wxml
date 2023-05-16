@@ -1,0 +1,34 @@
+<view class="box">
+  <view class='quest_container' wx:for="{{quests}}" wx:key="id" wx:for-index="outterIndex" data-outidx='{{outterIndex}}' data-idx="{{index}}" bindchange="radioChange">
+  <text style="font-size:45rpx;font-weight:bold">{{outterIndex+1}}.{{item.questionstem}}</text><text wx:if="{{item.type==2}}" style="color:green;font-size:40rpx">判断</text><text wx:if="{{item.type==0}}" style="color:green;font-size:40rpx">单选</text><text wx:if="{{item.type==1}}" style="color:green;font-size:40rpx">多选</text> <text wx:if="{{item.type==3}}" style="color:green;font-size:40rpx">填空(答案用,隔开)</text><text wx:if="{{item.type==4}}" style="color:green;font-size:40rpx">简答</text>   
+  <input type="text"  style="border-bottom: 1px solid black;" wx:if="{{item.type==3||item.type==4}}"   bindchange="radioChange" data-field="{{item.id}}"/>
+  <view wx:for="{{item.options}}" wx:key="content" bindtap="answerSelected" data-outidx='{{outterIndex}}' data-idx="{{index}}" class="item {{item.selected?'active':''}}">
+    <text style="font-size: 45rpx;line-height: 70rpx;">{{item.name}}</text>
+  </view>
+</view>
+<view class="submit_btn" bindtap="{{isClick ? 'submit' : ''}}" style="position: relative;z-index: 1;">提交</view>
+</view>
+<view class="mask" catchtouchmove="preventTouchMove" wx:if="{{show}}"></view>
+<transition name="fade">
+    <view wx:if="{{show}}" class="modal-wrap flex flex-vertical flex-justify-end" style="position: relative;z-index:99999;bottom: 900rpx;height: 700rpx;">
+      <view class="signature-wrap">
+        <view class="signature-title-wrap">
+          <van-icon name="cross" class="aui-icon-close" bindtap="close"/>
+          <text class="pd15 font19 inblock">请绘制您的签名</text>
+        </view>
+        <view class="handCenter">
+<canvas class="handWriting" disable-scroll="true" bindtouchstart="uploadScaleStart" bindtouchmove="uploadScaleMove"
+    bindtouchend="uploadScaleEnd" bindtap="mouseDown" canvas-id="handWriting">
+</canvas>
+</view>
+<view class="handBtn" style="padding-left: 100rpx;padding-top: 10rpx;"> 
+  <button catchtap="retDraw" class="delBtn" style="width: 200rpx;float: left;">重写</button>  
+  <button catchtap="{{isClick ? 'subCanvas' : ''}}" class="subBtn" style="width: 200rpx;float: left;margin-left: 100rpx;">完成</button>  
+</view>
+<!-- <view class="preview">  
+<image wx:if="{{tmpPath}}" style="width:100%;height:100%;" src="{{tmpPath}}"></image>
+</view> -->
+       
+      </view>
+    </view>
+</transition>

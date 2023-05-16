@@ -1,0 +1,27 @@
+.box{
+  width: 100%;
+  display: flex;justify-content: space-between;
+  padding: 20rpx;
+  background-color: white;
+  height: 100vh;
+  padding-top: 100rpx;
+}
+.box view{
+      width: 45%;
+}
+
+.btn_ks{
+  background-color: #FA5151;
+  font-size: 37rpx;
+  color: white;
+  font-weight: bold;
+  border-radius: 15rpx;
+}
+.btn_mn{
+  background-color: #FEE9E9;
+  color: #FA5E5E;
+  font-weight: bold;
+  border-radius: 15rpx;
+  font-size: 37rpx;
+  border: 1px solid #FA5E5E;
+}

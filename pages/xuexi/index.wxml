@@ -1,0 +1,18 @@
+<!--pages/xuexi/index.wxml-->
+<view class="box">
+<view class="item" wx:for="{{list}}" wx:key="index" bindtap="gohuigu" data-bean="{{item}}">
+<view class="its" style="padding-top: 30rpx;">
+<image src="../../assets/carousel/xxtb.png" style="width: 100rpx;height: 100rpx;"></image>
+<view class="itemone">{{item.name}}</view>
+<!-- <view class="itemtwo"><van-button round type="info">继续观看</van-button></view> -->
+<view style="position: absolute;right: 20rpx;color: red;font-size: 40rpx;" wx:if="{{item.qualified==0}}">考试不合格</view>
+<view style="position: absolute;right: 20rpx;color: green;font-size: 40rpx;" wx:else>考试合格</view>
+</view>
+<view class="xuexi">
+  <view class="xuexi_one">{{item.papername}}</view>
+<view class="xuexi_two">{{item.describe}}</view>
+<view class="xuexi_three"><text>{{item.creatdate}}</text ><text style="position:absolute;right:40rpx;color: red;font-size: 40rpx;"><text style="color: #000;">得分</text>:{{item.detailscore}}</text></view>
+</view>
+</view> 
+<view class="zanwu" wx:if="{{code==-1}}">暂无考试记录,请去参加考试</view>
+</view>

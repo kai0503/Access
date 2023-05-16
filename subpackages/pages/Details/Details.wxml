@@ -1,0 +1,53 @@
+<view>
+  <i-panel title="证书名称:">
+    <i-input value="{{name}}" name="realName" maxlength="-1"  bindchange="radioChangename"/>
+  </i-panel>
+  <i-panel title="证书类别:">
+    <i-input value="{{classification}}" name="realName" maxlength="-1" bindchange="radioChangeclassification"/>
+  </i-panel>
+  <i-panel title="操作项目:">
+    <i-input value="{{item}}" name="realName" maxlength="-1" bindchange="radioChangeitem"/>
+  </i-panel>
+  <i-panel title="发证机关:">
+    <i-input value="{{mechanism}}" name="realName" maxlength="-1" bindchange="radioChangemechanism"/>
+  </i-panel>
+  <view class="cu-form-group margin-top">
+    <view class="title">生效时间</view>
+    <picker mode="date" value="{{startdate}}" start="2015-09-01" end="2099-09-01" bindchange="startDateChange">
+			<view class="picker">
+				{{startdate}}
+			</view>
+		</picker>
+  </view>
+  <view class="cu-form-group margin-top">
+    <view class="title">失效时间</view>
+    <picker mode="date" value="{{enddate}}" start="2015-09-01" end="2099-09-01" bindchange="endDateChange">
+			<view class="picker">
+				{{enddate}}
+			</view>
+		</picker>
+  </view>
+  <view class="weui-uploader">
+    <view class='pics' wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
+        <image class='weui-uploader__img' src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg">
+           <!-- <icon class="icon-small" type="cancel" size="23" data-index="{{index}}" bindtap="deleteImg"></icon>  -->
+           <!-- <icon class="icon-small" type="success" size="23" data-index="{{index}}" bindtap="deleteImg"></icon>  -->
+        </image>
+        <image  src="../../../assets/carousel/x.png" style="width: 50rpx;height: 50rpx;position: absolute;right: 0rpx;" ata-index="{{index}}" bindtap="deleteImg"></image>
+    </view>
+    <view class="tp_cont {{tj_ycang?'':'hide'}}" bindtap="chooseImg">
+   
+      <view class="tp_add"><text style="display: block;">+</text>上传证书图片</view>
+    </view>
+
+</view>
+  <!-- <view class="imgBox" style="padding-left: 150rpx;">
+    <view><text>上传外协资质报告</text></view>
+    <view class="imgContant">
+        <van-uploader accept="image" max-count="9" bind:after-read="afterRead" bind:delete="deleteClick" file-list="{{ fileList }}"  />
+    </view>
+   
+</view> -->
+<view> <button class="btn" bindtap="upload">上传</button></view>
+<!-- <image wx:for="{{fileList}}" :src="item" wx:key="index" wx:if="{{fileList.length>0}}"></image> -->
+</view>

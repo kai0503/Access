@@ -1,0 +1,7 @@
+/* pages/user/message/index.wxss */
+camera{
+  position: relative;
+  top: 90%;
+
+
+}

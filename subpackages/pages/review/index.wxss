@@ -1,0 +1,40 @@
+/* subpackages/pages/review/index.wxss */
+.box{
+  width: 100%;
+  background-color: white;
+  padding-top: 50rpx;
+}
+.timu{
+  margin-top: 20rpx;
+  font-size: 40rpx;
+  padding-left: 40rpx;
+}
+.daan{
+  margin-top: 20rpx;
+  padding-left: 80rpx;
+  font-size: 35rpx;
+}
+.daan>view{
+  margin-top: 15rpx;
+}
+.xx{
+  font-size: 35rpx;
+  padding-left: 40rpx;
+  margin-top: 20rpx;
+  color: green;
+}
+.cw{
+ position: absolute;
+ right: 20rpx;
+}
+.shijuan{
+  font-size: 40rpx;
+  text-align: center;
+  font-weight: bold;
+}
+.ks{
+  font-size: 35rpx;
+  text-align: center;
+  margin-top: 20rpx;
+  font-weight: bold;
+}

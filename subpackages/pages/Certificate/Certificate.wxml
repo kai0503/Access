@@ -1,0 +1,20 @@
+<view style="height: 100vh;">
+  <!-- <view class="tj_img"  bindtap="goDetails"><image src="../../../assets/carousel/tz.png"></image></view> -->
+  <view class="titles" bindtap="goDetails">添加证书</view>
+<view style="margin-top: 200rpx;" wx:if="{{list.length!=0}}">
+  <view class="box" wx:for="{{list}}" wx:key="index" >
+<view class="box_image" data-bean="{{item}}" bindtap="chooseImg">
+   <image src="{{item.img}}" wx:if="{{item.img}}"></image> 
+  <view wx:else>暂无证书照片</view>
+</view>
+<view class="box_title">
+<view style="font-weight: bold;">证书名称:{{item.name}}</view>
+<view><text>有效时间:</text><text>{{item.staretime}}~{{item.endtime}}</text></view>
+<view><text>证书类别:</text><text>{{item.zytype}}</text></view>
+<view><text>操作项目:</text><text>{{item.operational}}</text></view>
+<view><text>发证机关:</text><text>{{item.fzjg}}</text></view>
+</view>
+</view>
+</view>
+<view class="zanwu" wx:else>暂无证书,请添加相关证书</view>
+</view>

@@ -1,0 +1,7 @@
+<view class="box">
+  <!-- http://101.42.116.137/upload/demo123.mp4 -->
+  <txv-video vid="{{video}}"  bindtimeupdate="bianhua"  autoplay="{{true}}" bindfullscreenchange="fullScreen"  bindended="closeVideo" custom-cache="{{false}}" initial-time="{{rands}}" wx:if="{{query}}" show-progress='{{false}}' enableProgressGesture="{{false}}" defn="{{shd}}"></txv-video>
+  
+  <txv-video vid="{{video}}" bindtimeupdate="bianhua"  autoplay="{{false}}" bindfullscreenchange="fullScreen"  bindended="closeVideo" custom-cache="{{false}}" show-progress='{{false}}' enableProgressGesture="{{false}}" wx:else></txv-video>
+  <!-- <txv-video vid="f0341z3gzst" bindtimeupdate="bianhua"  autoplay="{{false}}" bindfullscreenchange="fullScreen"  bindended="closeVideo" custom-cache="{{false}}" show-progress='{{false}}'></txv-video> -->
+</view>

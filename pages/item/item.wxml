@@ -1,0 +1,35 @@
+
+<view>
+<button bindtap="go">跳转</button>
+  <i-panel title="所属单位">
+    <i-input value="{{unit}}" name="realName" maxlength="-1"  bindchange="radioChange"/>
+  </i-panel>
+  <i-panel title="项目名称">
+    <i-input value="{{item}}" name="realName" maxlength="-1" bindchange="radioChangeitem"/>
+  </i-panel>
+  <i-panel title="项目负责人">
+    <i-input value="{{person}}" name="realName" maxlength="-1" bindchange="radioChangeperson"/>
+  </i-panel>
+  <i-panel title="联系电话">
+    <i-input value="{{phone}}" name="realName" maxlength="-1" bindchange="radioChangephone"/>
+  </i-panel>
+  <view class="cu-form-group margin-top">
+    <view class="title">生效时间</view>
+    <picker mode="date" value="{{startdate}}" start="2015-09-01" end="2099-09-01" bindchange="startDateChange">
+			<view class="picker">
+				{{startdate}}
+			</view>
+		</picker>
+  </view>
+  
+  <view class="cu-form-group margin-top">
+    <view class="title">失效时间</view>
+    <picker mode="date" value="{{enddate}}" start="2015-09-01" end="2099-09-01" bindchange="endDateChange">
+			<view class="picker">
+				{{enddate}}
+			</view>
+		</picker>
+  </view>
+<view> <button class="btn" bindtap="getuser">上传</button></view>
+<!-- <image wx:for="{{fileList}}" :src="item" wx:key="index" wx:if="{{fileList.length>0}}"></image> -->
+</view>

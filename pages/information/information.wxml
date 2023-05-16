@@ -1,0 +1,39 @@
+<view class="box">
+<view class="item_one" bindtap="yiji">
+<view class="one_title">
+ <h2>公司考试</h2>
+ <view class="title_ks">公司组织考试</view>
+</view>
+<view class="one_ziti">
+<view>前往考试 ></view>
+</view>
+</view>
+<view class="item_one" style="background-image: linear-gradient(to left, #FFF8E3, #FDE0C1);" bindtap="erji">
+<view class="one_title">
+ <h2>部门考试</h2>
+ <view class="title_ks">部门组织考试</view>
+</view>
+<view class="one_ziti">
+<view>前往考试 ></view>
+</view>
+</view>
+<view class="item_one" style="background-image: linear-gradient(to left, #FFF3E3, #FFE2CE);" bindtap="sanji">
+<view class="one_title">
+ <h2>班组考试</h2>
+ <view class="title_ks">班组组织考试</view>
+</view>
+<view class="one_ziti">
+<view>前往考试 ></view>
+</view>
+</view>
+<view class="item_one" style="background-image: linear-gradient(to left, #FFF3E3, #FFE2CE);" bindtap="siji">
+<view class="one_title">
+ <h2>安规考试</h2>
+ <view class="title_ks">安规组织考试</view>
+</view>
+<view class="one_ziti">
+<view>前往考试 ></view>
+</view>
+</view>
+<view style="width: 100%;" class="ct"><button class="c_ctb" bindtap="gocuoti">错题本</button><button class="c_lx" bindtap="golianxi" wx:if="{{flag==0}}">考前练习</button></view>
+</view>

@@ -1,0 +1,142 @@
+/* .box{
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+}
+.item{
+  width: 95%;
+  background-color: #fafafa;
+  padding-bottom: 10rpx;
+  margin-left: 50%;
+position: relative;
+top: 50rpx;
+padding-top: 20rpx;
+  transform: translate(-50%,0);
+  border-radius: 15rpx;
+  font-size: 40rpx;
+ 
+
+}
+.qd{
+  width: 300rpx;
+  height: 300rpx;
+  margin-top: 30%;
+  background-color: #547BF4;
+  color: white;
+  font-size: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-left: 50%;
+  transform: translate(-50%,0);
+}
+.yqd{
+  width: 300rpx;
+  height: 300rpx;
+  margin-top: 25%;
+  background-color: #D6D6D6;
+  color: white;
+  font-size: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-left: 50%;
+  transform: translate(-50%,0);
+} */
+
+.box{
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+}
+.item{
+  width: 690rpx;
+  margin-left: 50%;
+  transform: translate(-50%,0);
+}
+.box_one{
+  padding: 25rpx 30rpx;
+}
+.one_title{
+  font-size: 28rpx;
+  color: #7986A0;
+}
+.one_ipt{
+width: 100%;
+height: 70rpx;
+line-height: 70rpx;
+margin-top: 20rpx;
+}
+.one_ipt input{
+  width: 100%;
+  height: 70rpx;
+line-height: 70rpx;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: #F7F9FC;
+border-radius: 14rpx 14rpx 14rpx 14rpx;
+padding-left: 20rpx;
+font-size: 28rpx;
+font-family: PingFang SC-Medium, PingFang SC;
+font-weight: 400;
+color: #C1C1C1;
+}
+.box_xm{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30rpx;
+}
+.box_xm view{
+  display: flex;
+  
+}
+.xm_d,.xm_c{
+  width: 50rpx;
+  height: 40rpx;
+  padding-left: 15rpx;
+  padding-top: 6rpx;
+  font-size: 20rpx;
+  color: #7986A0;
+  background: #F7F9FC;
+}
+.xm_d{
+  margin-right: 10rpx;
+}
+.active {
+  position: relative;
+  color: white;
+  font-weight: 600;
+background-color: blue;
+color: white;
+}
+.actives {
+  position: relative;
+  color: white;
+  font-weight: 600;
+background-color: red;
+color: white;
+}
+.xm_title{
+  font-size: 24rpx;
+font-family: PingFang SC-Medium, PingFang SC;
+font-weight: 400;
+color: #666666;
+}
+.section{
+  height: 206rpx;
+  background: #F7F9FC;
+border-radius: 14rpx 14rpx 14rpx 14rpx;
+opacity: 1;
+border: 2rpx solid rgba(0,0,0,0.08);
+padding: 30rpx 20rpx
+}
+button{
+  width: 602rpx;
+height: 84rpx;
+background: #FA5151;
+border-radius: 21rpx 21rpx 21rpx 21rpx;
+opacity: 1;
+color: white;
+}
