@@ -95,8 +95,8 @@ color: #C1C1C1;
 .xm_d,.xm_c{
   width: 50rpx;
   height: 40rpx;
-  padding-left: 15rpx;
-  padding-top: 6rpx;
+  padding-left: 20rpx;
+  padding-top: 8rpx;
   font-size: 20rpx;
   color: #7986A0;
   background: #F7F9FC;
@@ -117,9 +117,10 @@ color: white;
   font-weight: 600;
 background-color: red;
 color: white;
+border-radius: 5rpx;
 }
 .xm_title{
-  font-size: 24rpx;
+  font-size: 28rpx;
 font-family: PingFang SC-Medium, PingFang SC;
 font-weight: 400;
 color: #666666;
@@ -130,7 +131,7 @@ color: #666666;
 border-radius: 14rpx 14rpx 14rpx 14rpx;
 opacity: 1;
 border: 2rpx solid rgba(0,0,0,0.08);
-padding: 30rpx 20rpx
+padding: 20rpx 20rpx
 }
 button{
   width: 602rpx;
@@ -140,3 +141,53 @@ border-radius: 21rpx 21rpx 21rpx 21rpx;
 opacity: 1;
 color: white;
 }
+
+
+
+
+
+.weui-uploader{
+
+ background-color: white;
+}
+.tp_add{
+ width: 152rpx;
+ height: 152rpx;
+ border-radius: 10rpx;
+ opacity: 1;
+ border: 2rpx dashed #999999;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ font-size: 22rpx;
+ margin-top: 50rpx;
+}
+.pics {
+ float:left;
+ position:relative;
+ margin-right:15px;
+ margin-bottom:15px;
+ }
+ .pics image{
+   width: 152rpx;
+   height: 152rpx;
+ }
+ .delete-btn{
+   width: 20rpx;
+   height: 20rpx;
+   position: absolute;
+   top: -15rpx;
+   right: -5rpx;
+ }
+ .weui-uploader{
+   padding: 10rpx;
+ }
+
+ icon{
+   position: absolute;
+    top: 5rpx;
+    right: 3rpx;
+   z-index: 999;
+
+ color: #000000;
+  }

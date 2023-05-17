@@ -41,6 +41,7 @@ Page({
     })
   },
   QR(){
+   
     wx.scanCode({
       success:(res)=>{
         console.log(res)
