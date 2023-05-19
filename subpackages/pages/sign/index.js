@@ -106,7 +106,7 @@ Page({
   })
   },
   postval(){
-     //  console.log(this.data.isActive,this.data.isActives,this.data.isActivess,this.data.isActivesss,this.data.isActivessss,this.data.value)
+       console.log(this.data.isActive,this.data.isActives,this.data.isActivess,this.data.isActivesss,this.data.isActivessss,this.data.value)
        if(this.data.isActive==null||this.data.isActives==null||this.data.isActivess==null||this.data.isActivesss==null||this.data.isActivessss==null){
         wx.showToast({
          title: '请完善检查项目选项',
@@ -134,6 +134,11 @@ Page({
              title:res.data.msg,
              icon:'success'
            })
+          setTimeout(()=>{
+            wx.navigateBack({
+              delta: 1,
+            })
+          },2000)
            }
           }
         })

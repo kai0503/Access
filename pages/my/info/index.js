@@ -15,15 +15,17 @@ Page({
     categoryOneArrs:[],
     value:'',
     tg:'',
-    hgFlag:''
+    hgFlag:'',
+    orgname:''
   },
   onLoad: function() {
-    this.getbm()
+    //this.getbm()
     this.setData({
-      userid:wx.getStorageSync('userid')
+      userid:wx.getStorageSync('userid'),
+      orgname:wx.getStorageSync('wxuser').orgname
     })
     this.getpersonal()
-  
+
   },
   getbm(){
     wx.request({
@@ -182,30 +184,32 @@ Page({
 
 },  
 radioChangzy(e){
+console.log(e)
 this.setData({
-  zy:e.detail.value
+  classname:e.detail.value
 })
 },
-radioChangclassname(e){
-  this.setData({
-    classname:e.detail.value
-  })
-},
+radioChangzys(e){
+ console.log(e)
+ this.setData({
+  zy:e.detail.value
+ })
+ },
+// radioChangclassname(e){
+//   this.setData({
+//     classname:e.detail.value
+//   })
+// },
 goCertificate(){
   wx.navigateTo({
     url: '../../../subpackages/pages/Certificate/Certificate',
   })
 },
 postpersonal(){
- // console.log(this.data.categoryOneMcc,this.data.zy,this.data.classname)
-  if(this.data.categoryOneMcc==''){
+  console.log(this.data.zy,this.data.classname)
+   if(this.data.zy==''){
     wx.showToast({
-      title: '请完善你的部门信息',
-      icon:'none'
-    })
-  }else if(this.data.zy==''){
-    wx.showToast({
-      title: '请填写你的专业',
+      title: '请填写你的工种',
       icon:'none'
     })
   }else if(this.data.classname==''){
@@ -219,7 +223,7 @@ postpersonal(){
       method:'POST',
       data:{
        userid:this.data.userid,
-       bm:this.data.categoryOneMcc,
+       //bm:this.data.zy,
        zy:this.data.zy,
        bz:this.data.classname,
        U:'U'

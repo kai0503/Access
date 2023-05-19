@@ -89,7 +89,7 @@
 <view style="position: absolute;top: 300rpx;right: 460rpx;font-size: 70rpx;color: white;">总人数</view>
 <view style="position: absolute;top: 420rpx;right: 520rpx;font-size: 60rpx;color: white;">{{allnum||0}}</view>
 <image src="../../assets/carousel/ry3.png" style="width: 50%;height: 260rpx;"></image> 
-<view style="position: absolute;top: 320rpx;right: 50rpx;font-size: 70rpx;color: white;">领导到岗</view>
+<view style="position: absolute;top: 320rpx;right: 50rpx;font-size: 70rpx;color: white;">车辆数量</view>
 <view style="position: absolute;top: 420rpx;right: 180rpx;font-size: 60rpx;color: white;">{{vehicleno||0}}</view>
 </view>
 <view style="font-size: 40rpx;margin-top:20rpx;margin-left: 20rpx;">报警信息:</view>

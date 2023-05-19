@@ -31,7 +31,6 @@ Page({
         },
         success:(res)=>{
           console.log(res)
-        
           let  reg=RegExp(/jpg|png/)
         res.data.data.paper.forEach(item=>{
           if(item.answer!=item.erroranswer){
