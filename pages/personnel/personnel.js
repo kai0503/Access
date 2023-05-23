@@ -11,7 +11,8 @@ Page({
     listssss:[],
     listsssss:[],
     code:'',
-    iscomplete:[]
+    iscomplete:[],
+    kjends:[]
   },
   getuser(){
     wx.request({
@@ -21,13 +22,16 @@ Page({
        userid:wx.getStorageSync('userid')
       },
       success:res=>{
-      console.log(res)
+    //  console.log(res.data)
       let arr=[]
       let arrs=[]
       let arrss=[]
       let arrsss=[]
       if(res.data.code==0){
        res.data.data.kj.forEach(item=>{
+       // console.log(item.duration)
+        item.duration=item.duration/60
+       // console.log(item.duration)
          if(item.thumbnail!=null){ 
            item.thumbnail=app.globalData.url.concat((item.thumbnail.replace(/\\/,"/"))) 
          }
@@ -44,6 +48,7 @@ Page({
           arrsss.push(item)
          }
         })
+       // console.log(res)
           this.setData({
               lists:res.data.data,
               listss:arr,
@@ -51,8 +56,10 @@ Page({
               listssss:arrss,
               listsssss:arrsss,
               code:res.data.code,
-              iscomplete:res.data.data.iscomplete
+              iscomplete:res.data.data.iscomplete,
+              kjends:res.data.data.kjends
           })
+      // console.log(this.data.kjends)
       }else {
         this.setData({
           code:res.data.code,
@@ -63,7 +70,7 @@ Page({
     })
     },
     govideo(e){
-     console.log(e.currentTarget.dataset.bean.examlevel)
+    // console.log(e.currentTarget.dataset.bean.examlevel)
           wx.navigateTo({
             url: '../../subpackages/pages/zldetails/zldetails?kjid='+e.currentTarget.dataset.bean.id+'&examlevel='+e.currentTarget.dataset.bean.examlevel,
           })
@@ -105,7 +112,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
   },
 
   /**

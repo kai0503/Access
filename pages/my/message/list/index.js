@@ -13,7 +13,8 @@ Page({
     base64: "",
     msg:"",
     data:'',
-    flag:true
+    flag:true,
+    pd:''
   },
   uploadFimg(){
      wx.request({
@@ -24,7 +25,7 @@ Page({
           imgurl:this.data.data
        },
        success:(res)=>{
-         console.log(res)
+         console.log(res,'11111111111')
        }
      })
   },
@@ -54,13 +55,26 @@ Page({
          console.log(result,'222222222222222222')
       if(result.code==0){
         // 上传完成需要更新 fileList
-      
-     
-      this.setData({
+      if(this.data.pd==0){
+       this.setData({
+        data:result.data.substring(result.data.lastIndexOf("/",result.data.lastIndexOf("/")-1)+1)
+      })
+      }else{
+       this.setData({
         data:result.data.substr(result.data.lastIndexOf("/") + 1)
       })
-     // console.log(this.data.data)
-      this.uploadFimg()
+      }
+    // console.log(result.data.substr(result.data.lastIndexOf("/") + 1))
+    // console.log(result.data.substring(result.data.lastIndexOf("/",result.data.lastIndexOf("/")-1)+1))
+    
+   if(this.data.pd==0){
+    console.log('update')
+    this.update()
+   }else{
+    console.log('uploadFimg')
+    this.uploadFimg()
+   }
+      
     //  this.data.fileList.push(file.url)
       wx.hideLoading();//停止loading
      }else{
@@ -87,7 +101,7 @@ Page({
          src:res.tempImagePath //获取图片
        })
 
-      // console.log(res.tempImagePath)
+      console.log(res.tempImagePath)
        if(this.data.flag==true){
        
         this.setData({
@@ -159,7 +173,7 @@ Page({
         wx.switchTab({
           url: '/pages/index/index',
          })
-       },1000)
+       },2000)
       }else {
         wx.showToast({
           title: '请再次录取人脸',
@@ -186,7 +200,31 @@ Page({
       content: '先授权登陆，再拍照注册哦！网络可能故障，如果不成功，请再试一下！',
     })
   },
-
+  update(){
+   wx.request({
+     url: app.globalData.url+"api/user/userImgUp",
+     method:'POST',
+     data:{
+       imgpath:this.data.data,
+       userid:wx.getStorageSync('userid'),
+     },
+     success:(res)=>{
+       console.log(res,'22222222222')
+       // if(res.data.code==0){
+       //   wx.showToast({
+       //     title: '人脸照片修改成功',
+       //     icon:'success',
+       //   })
+       //   //this.getpersonal()
+       // }else{ 
+       //  wx.showToast({
+       //   title: '人脸照片修改失败',
+       //   icon:'error',
+       // })
+       // }  
+     }
+   })
+},
 
 
 
@@ -194,7 +232,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+         console.log(options.pd)
+         this.setData({
+          pd:options.pd
+         })
   },
 
   /**

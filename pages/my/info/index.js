@@ -68,7 +68,7 @@ Page({
               res.data.data.custinfo.worktype='安装工,技术工'
              }
             }
-          console.log(res.data.data.worktype)
+          console.log(res.data.data)
             this.setData({
               form:res.data.data.custinfo,
               zy:res.data.data.custinfo.zy,
@@ -85,66 +85,69 @@ Page({
   },
   updateimg(){
    var that = this;
-   wx.chooseImage({
-     count: 1, // 默认9
-    sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-    sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-    success: function (res) {
-     // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-     var tempFilePaths = res.tempFilePaths;
-     var imgs = that.data.imgs;
-     // console.log(tempFilePaths + '----');
-     for (var i = 0; i < tempFilePaths.length; i++) {
-      if (imgs.length >= 9) {
-       that.setData({
-        imgs: imgs
-       });
-       return false;
-      } else {
-       imgs.push(tempFilePaths[i]);
-     //  console.log(tempFilePaths[i]);
-      }
-     }
-     that.setData({
-      imgs: imgs
-     });
-       wx.uploadFile({
-           url: app.globalData.url+'api/upload/importImg', //接受图片的接口地址
-           filePath: tempFilePaths[0],
-           name: 'file',
-           formData: {
-               'user': 'test'
-           },
-           success(res) {
-             var result = JSON.parse(res.data);
-           //  console.log(result.data.slice(8))
-             if(result.code==0){
-               // 上传完成需要更新 fileList
-             // 将图片信息添加到fileList数字中
-             // 更新存放图片的数组
-              console.log(result.data)
+   wx.navigateTo({
+     url: '../message/list/index?pd='+0,
+   })
+   // wx.chooseImage({
+   //   count: 1, // 默认9
+   //  sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+   //  sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+   //  success: function (res) {
+   //   // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+   //   var tempFilePaths = res.tempFilePaths;
+   //   var imgs = that.data.imgs;
+   //   // console.log(tempFilePaths + '----');
+   //   for (var i = 0; i < tempFilePaths.length; i++) {
+   //    if (imgs.length >= 9) {
+   //     that.setData({
+   //      imgs: imgs
+   //     });
+   //     return false;
+   //    } else {
+   //     imgs.push(tempFilePaths[i]);
+   //   //  console.log(tempFilePaths[i]);
+   //    }
+   //   }
+   //   that.setData({
+   //    imgs: imgs
+   //   });
+   //     wx.uploadFile({
+   //         url: app.globalData.url+'api/upload/importImg', //接受图片的接口地址
+   //         filePath: tempFilePaths[0],
+   //         name: 'file',
+   //         formData: {
+   //             'user': 'test'
+   //         },
+   //         success(res) {
+   //           var result = JSON.parse(res.data);
+   //         //  console.log(result.data.slice(8))
+   //           if(result.code==0){
+   //             // 上传完成需要更新 fileList
+   //           // 将图片信息添加到fileList数字中
+   //           // 更新存放图片的数组
+   //            console.log(result.data)
         
-             that.setData({
-                 data:result.data.substring(result.data.lastIndexOf("/",result.data.lastIndexOf("/")-1)+1)
-             });
-          console.log(that.data.data)
-          that.update()
-         // that.data.fileList.push(file.url)
-             wx.hideLoading();//停止loading
-            }else{
-             wx.hideLoading();//停止loading
-             wx.showToast({
-               icon:"error",
-                 title: '请上传正确的图片',
-               }) 
+   //           that.setData({
+   //               data:result.data.substring(result.data.lastIndexOf("/",result.data.lastIndexOf("/")-1)+1)
+   //           });
+   //        console.log(that.data.data)
+   //        that.update()
+   //       // that.data.fileList.push(file.url)
+   //           wx.hideLoading();//停止loading
+   //          }else{
+   //           wx.hideLoading();//停止loading
+   //           wx.showToast({
+   //             icon:"error",
+   //               title: '请上传正确的图片',
+   //             }) 
    
-            }
-               //do something
-           }
-       })
+   //          }
+   //             //do something
+   //         }
+   //     })
  
-    }
-   });
+   //  }
+   // });
   },
   update(){
    wx.request({
@@ -184,13 +187,13 @@ Page({
 
 },  
 radioChangzy(e){
-console.log(e)
+//console.log(e)
 this.setData({
   classname:e.detail.value
 })
 },
 radioChangzys(e){
- console.log(e)
+// console.log(e)
  this.setData({
   zy:e.detail.value
  })

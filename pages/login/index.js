@@ -169,7 +169,7 @@ Page({
            
           //  console.log(this.data.contract)
            
-          if(wx.getStorageSync('contract')==''){
+          if(wx.getStorageSync('contract')==null){
             wx.redirectTo({
               url: '/pages/my/message/list/index',
             })

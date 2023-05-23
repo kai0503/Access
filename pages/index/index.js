@@ -42,7 +42,7 @@ onShow(){
       startdate: this.getToday(),
       enddate: this.getToday(),
     })
-    console.log(this.data.startdate)
+   // console.log(this.data.startdate)
     let startime=this.getToday().concat(miao)
     let endtime=this.getToday().concat(endmiao)
     this.getAlarm(startime,endtime)
@@ -54,13 +54,13 @@ onShow(){
       startdate: this.getToday(),
       enddate: this.getToday(),
     })
-    console.log(this.data.startdate)
+   // console.log(this.data.startdate)
     let startime=this.getToday().concat(miao)
     let endtime=this.getToday().concat(endmiao)
     this.getAlarm(startime,endtime)
   }
   let len=this.data.listsss.length;
-  console.log(len)
+ // console.log(len)
 if(len>5){
  this.setData({
   d_num:6
@@ -88,7 +88,7 @@ getAlarm(startdate,enddate){
       endtime:enddate
     },
     success:(res)=>{
-     console.log(res)
+    // console.log(res)
       if(res.data.code==0){
         if(res.data.data.length!=0){
           this.setData({
@@ -102,7 +102,7 @@ getAlarm(startdate,enddate){
           })
         }
         let len=this.data.listsss.length;
-    console.log(len)
+  //  console.log(len)
   if(len>5){
    this.setData({
     d_num:6
@@ -131,9 +131,9 @@ endDateChange(e) {
     })
    // console.log(e)
    this.getAlarm()
-    console.log(this.data.startdate.concat(stmiao),endtime)
+   // console.log(this.data.startdate.concat(stmiao),endtime)
     let len=this.data.listsss.length;
-    console.log(len)
+    //console.log(len)
 },
 startDateChange(e) {
   let miao=' 00:00:00'
@@ -149,7 +149,7 @@ getpeople(){
     url:app.globalData.url+'api/pubpeoplenum/peopleNum',
     method:'GET',
     success:(res)=>{
-      console.log(res)
+    //  console.log(res)
       if(res.data.code==0){
         if(res.data.data!=''){
           this.setData({

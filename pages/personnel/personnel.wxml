@@ -17,6 +17,9 @@
 <view style="margin: 20rpx 0 5rpx 10rpx;font-size: 29rpx; color: #959597;" wx:if="{{item.examlevel==0}}">课件级别:公司级</view>
 <view style="margin: 20rpx 0 5rpx 10rpx;font-size: 29rpx; color: #959597;" wx:if="{{item.examlevel==1}}">课件级别:部门级</view>
 <view style="margin: 20rpx 0 5rpx 10rpx;font-size: 29rpx; color: #959597;" wx:if="{{item.examlevel==2}}">课件级别:班组级</view>
+<view style="margin: 20rpx 0 5rpx 10rpx;font-size: 29rpx; color: #959597;" >学习规定时长:{{item.duration}}小时 
+<view style="margin: 20rpx 0 5rpx 0rpx;font-size: 29rpx; color: #959597;" wx:for="{{kjends}}" wx:key="index" wx:for-item="items" wx:if="{{item.examlevel==items.examlevel}}">已学习:{{items.studyTime}}</view><text  wx:if="{{kjends=='暂无学习记录'}}" style="color: red;">暂无学习记录</text>
+</view>
 </view>
 <view wx:for="{{iscomplete}}" wx:key="index" wx:for-item="items">
  <view class="kethree" wx:if="{{items.examlevel==item.examlevel&&items.iscomplete==0}}"><image src="../../assets/carousel/ywc.png"></image></view>
@@ -36,6 +39,9 @@
 <view style="margin: 20rpx 0 5rpx 10rpx;font-size: 29rpx; color: #959597;" wx:if="{{item.examlevel==0}}">课件级别:公司级</view>
 <view style="margin: 20rpx 0 5rpx 10rpx;font-size: 29rpx; color: #959597;" wx:if="{{item.examlevel==1}}">课件级别:部门级</view>
 <view style="margin: 20rpx 0 5rpx 10rpx;font-size: 29rpx; color: #959597;" wx:if="{{item.examlevel==2}}">课件级别:班组级</view>
+<view style="margin: 20rpx 0 5rpx 10rpx;font-size: 29rpx; color: #959597;" >学习规定时长:{{item.duration}}小时 
+<view style="margin: 20rpx 0 5rpx 0rpx;font-size: 29rpx; color: #959597;" wx:for="{{kjends}}" wx:key="index" wx:for-item="items" wx:if="{{item.examlevel==items.examlevel}}">已学习:{{items.studyTime}}</view><text  wx:if="{{kjends=='暂无学习记录'}}" style="color: red;">暂无学习记录</text>
+</view>
 </view>
 <view wx:for="{{iscomplete}}" wx:key="index" wx:for-item="items">
  <view class="kethree" wx:if="{{items.examlevel==item.examlevel&&items.iscomplete==0}}"><image src="../../assets/carousel/ywc.png"></image></view>
@@ -55,6 +61,9 @@
 <view style="margin: 20rpx 0 5rpx 10rpx;font-size: 29rpx; color: #959597;" wx:if="{{item.examlevel==0}}">课件级别:公司级</view>
 <view style="margin: 20rpx 0 5rpx 10rpx;font-size: 29rpx; color: #959597;" wx:if="{{item.examlevel==1}}">课件级别:部门级</view>
 <view style="margin: 20rpx 0 5rpx 10rpx;font-size: 29rpx; color: #959597;" wx:if="{{item.examlevel==2}}">课件级别:班组级</view>
+<view style="margin: 20rpx 0 5rpx 10rpx;font-size: 29rpx; color: #959597;" >学习规定时长:{{item.duration}}小时 
+<view style="margin: 20rpx 0 5rpx 0rpx;font-size: 29rpx; color: #959597;" wx:for="{{kjends}}" wx:key="index" wx:for-item="items" wx:if="{{item.examlevel==items.examlevel}}">已学习:{{items.studyTime}}</view><text  wx:if="{{kjends=='暂无学习记录'}}" style="color: red;">暂无学习记录</text>
+</view>
 </view>
 <view wx:for="{{iscomplete}}" wx:key="index" wx:for-item="items">
  <view class="kethree" wx:if="{{items.examlevel==item.examlevel&&items.iscomplete==0}}"><image src="../../assets/carousel/ywc.png"></image></view>
@@ -76,6 +85,9 @@
 <view style="margin: 20rpx 0 5rpx 10rpx;font-size: 29rpx; color: #959597;" wx:if="{{item.examlevel==0}}">课件级别:公司级</view>
 <view style="margin: 20rpx 0 5rpx 10rpx;font-size: 29rpx; color: #959597;" wx:if="{{item.examlevel==1}}">课件级别:部门级</view>
 <view style="margin: 20rpx 0 5rpx 10rpx;font-size: 29rpx; color: #959597;" wx:if="{{item.examlevel==2}}">课件级别:班组级</view>
+<view style="margin: 20rpx 0 5rpx 10rpx;font-size: 29rpx; color: #959597;" >学习规定时长:{{item.duration}}小时 
+<view style="margin: 20rpx 0 5rpx 0rpx;font-size: 29rpx; color: #959597;" wx:for="{{kjends}}" wx:key="index" wx:for-item="items" wx:if="{{item.examlevel==items.examlevel}}">已学习:{{items.studyTime}}</view><text  wx:if="{{kjends=='暂无学习记录'}}" style="color: red;">暂无学习记录</text>
+</view>
 </view>
 <view wx:for="{{iscomplete}}" wx:key="index" wx:for-item="items">
  <view class="kethree" wx:if="{{items.examlevel==item.examlevel&&items.iscomplete==0}}"><image src="../../assets/carousel/ywc.png"></image></view>
