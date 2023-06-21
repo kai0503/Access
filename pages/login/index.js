@@ -71,6 +71,7 @@ Page({
                   }) 
                   
                  // console.log(res.data.data)
+                 wx.setStorageSync('open', res.data.data.open)
                   wx.setStorageSync('setup', res.data.data.setup)
                   wx.setStorageSync('wxuser', res.data.data.userinfo)
                   wx.setStorageSync('userid', res.data.data.userinfo.id)

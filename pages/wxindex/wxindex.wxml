@@ -1,21 +1,74 @@
-
+<view class="box">
 <view class="item">
-  <image src="../../assets/carousel/wx.png" class="box"></image>
-   
+ <view class="item_title">设备信息</view>
+ <view class="item_cont">
+<view class="item_list">
+  <view class="cont_list">
+ <view class="list_name">设备名称:</view>
+ <view class="list_sj">{{list.devname}}</view>
+ </view>
 </view>
-<view class="box1">
-  <button bindtap='test'>外协单位</button>
+<view class="item_list">
+  <view class="cont_list">
+ <view class="list_name">设备分类:</view>
+ <view class="list_sj">{{list.devtype}}</view>
+ </view>
 </view>
-<view class="box2">
-  <button bindtap='test1'>外协项目</button>
-</view>
-<view class="box3">
-  <button bindtap='test2'>外协人员</button>
-</view>
-<!-- <view class="box4">
-  <image src="../../assets/carousel/wx4.png"  bindtap='test3'></image>
-</view> -->
-<view class="box4">
-<button bindtap='test3'>我的项目</button>
-</view>
+ <view class="item_list">
+  <view class="cont_list">
+ <view class="list_name">规格型号:</view>
+ <view class="list_sj">{{list.ggxh}}</view>
+ </view>
+ </view>
+ 
+ <view class="item_list">
+  <view class="cont_list">
+ <view class="list_name">设备数量:</view>
+ <view class="list_sj">{{list.devnum}}</view>
+ </view>
+ </view>
 
+ <view class="item_list">
+  <view class="cont_list">
+ <view class="list_name">检验日期:</view>
+ <view class="list_sj">{{list.checkout}}</view>
+ </view>
+ </view>
+ 
+ <view class="item_list">
+  <view class="cont_list">
+ <view class="list_name">所属单位:</view>
+ <view class="list_sj">{{list.companyid}}</view>
+ </view>
+ </view>
+
+ <view class="item_list">
+  <view class="cont_list">
+ <view class="list_name">制造单位:</view>
+ <view class="list_sj">{{list.createname}}</view>
+ </view>
+ </view>
+ 
+ <view class="item_list">
+  <view class="cont_list">
+ <view class="list_name">制造日期:</view>
+ <view class="list_sj">{{list.createdate}}</view>
+ </view>
+ </view>
+
+ <view class="item_list">
+  <view class="cont_list">
+ <view class="list_name">报废日期:</view>
+ <view class="list_sj">{{list.outdate}}</view>
+ </view>
+ </view>
+ 
+ <view class="item_list">
+  <view class="cont_list">
+ <view class="list_name">出厂编号:</view>
+ <view class="list_sj">{{list.ccnum}}</view>
+ </view>
+ </view>
+ </view>
+</view>
+</view>

@@ -10,6 +10,7 @@ Page({
     stafftype:'',
     ID:'',
     isChecked1:false,
+    isCheckedvideo:false,
   },
   changeSwitch1(e){
     console.log(e.detail.value)
@@ -40,6 +41,35 @@ Page({
       }
     })
   },
+  changeSwitchvideo(e){
+    console.log(e.detail.value)
+    wx.setStorageSync('check', e.detail.value)
+    this.setData({
+      isCheckedvideo:e.detail.value
+    })
+    if(e.detail.value==true){
+      e.detail.value=1
+    }else{
+      e.detail.value=0
+    }
+    console.log(e.detail.value)
+    wx.request({
+      url:app.globalData.url+'api/user/openVideo',
+      method:'POST',
+      data:{
+        open:e.detail.value,
+      },
+      success:(res)=>{
+        console.log(res)
+        if(res.data.code==0){
+          wx.showToast({
+            title: '设置成功',
+            icon:'success'
+          })
+        }
+      }
+    })
+  },
   QR(){
    
     wx.scanCode({
@@ -49,26 +79,36 @@ Page({
           this.setData({
             ID:res.result
           })
-          wx.request({
-            url: app.globalData.url+'api/user/scanQrcode',
-            method:'POST',
-            data:{
-               qrcodeId:res.result
-            },
-            success:(res)=>{
-              console.log(res)
-              if(res.data.code==0){
-     wx.navigateTo({
-      url: '../../subpackages/pages/sign/index?ID='+this.data.ID,
-    })
-              }else{
-                wx.showToast({
-                  title:res.data.msg,
-                  icon:'error'
-                })
-              }
-            }
-          })
+          if(res.result.substr(0,1)=='D'){
+            wx.navigateTo({
+              url: '../wxindex/wxindex?ID='+this.data.ID,
+            })
+          }else{
+            wx.navigateTo({
+              url: '../../subpackages/pages/sign/index?ID='+this.data.ID,
+            })
+          }
+         
+    //       wx.request({
+    //         url: app.globalData.url+'api/user/scanQrcode',
+    //         method:'POST',
+    //         data:{
+    //            qrcodeId:res.result
+    //         },
+    //         success:(res)=>{
+    //           console.log(res)
+    //           if(res.data.code==0){
+    //  wx.navigateTo({
+    //   url: '../../subpackages/pages/sign/index?ID='+this.data.ID,
+    // })
+    //           }else{
+    //             wx.showToast({
+    //               title:res.data.msg,
+    //               icon:'error'
+    //             })
+    //           }
+    //         }
+    //       })
     
         }
       }
@@ -90,6 +130,7 @@ Page({
   onLoad(options) {
     var n = wx.getStorageSync("userinfo");
     let ischeck=wx.getStorageSync('setup').isopen
+   let ischeckvideo=wx.getStorageSync('open')
     if(ischeck==1){
       this.setData({
         ischeck:false
@@ -97,10 +138,18 @@ Page({
     }else if(ischeck==0){
       ischeck:true
     }
+    if(ischeckvideo==0){
+      this.setData({
+        isCheckedvideo:false
+      })
+    }else if(ischeckvideo==1){
+      isCheckedvideo:true
+    }
    // console.log(n)
     this.setData({
       nickName:n.nickName,
-      isChecked1:ischeck
+      isChecked1:ischeck,
+      //isCheckedvideo:isCheckedvideo
     })
   },
   /**

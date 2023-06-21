@@ -6,11 +6,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isActive:null,
-    isActives:null,
-    isActivess:null,
-    isActivesss:null,
-    isActivessss:null,
+    isActive:0,
+    isActives:0,
+    isActivess:0,
+    isActivesss:0,
+    isActivessss:0,
     value:'',
     name:'',
     ID:'',
@@ -127,7 +127,7 @@ Page({
            contment:this.data.value
           },
           success:(res)=>{
-          // console.log(res.data)
+         console.log(res.data)
            if(res.data.code==0){
            // console.log('111')
             wx.showToast({

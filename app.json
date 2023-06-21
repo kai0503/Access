@@ -1,5 +1,6 @@
 {
   "pages": [
+   
     "pages/login/index",
     "pages/information/information",
     "pages/my/info/index",
@@ -99,6 +100,7 @@
     "van-uploader": "@vant/weapp/uploader/index",
     "van-popup": "@vant/weapp/popup/index",
     "van-datetime-picker": "@vant/weapp/datetime-picker/index",
-    "van-notice-bar": "@vant/weapp/notice-bar/index"
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "ec-canvas": "./components/ec-canvas/ec-canvas"
   }
 }

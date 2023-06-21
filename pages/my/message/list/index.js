@@ -68,7 +68,6 @@ Page({
     // console.log(result.data.substring(result.data.lastIndexOf("/",result.data.lastIndexOf("/")-1)+1))
     
    if(this.data.pd==0){
-    console.log('update')
     this.update()
    }else{
     console.log('uploadFimg')

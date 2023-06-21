@@ -59,7 +59,7 @@ Page({
               iscomplete:res.data.data.iscomplete,
               kjends:res.data.data.kjends
           })
-      // console.log(this.data.kjends)
+       console.log(this.data.kjends)
       }else {
         this.setData({
           code:res.data.code,

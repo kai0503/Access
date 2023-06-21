@@ -29,23 +29,26 @@
   <view class="one_title">4.检查项目</view>
   <view class="box_xm">
   <view class="xm_title">1.现场设备是否正常?</view>
-  <view><view class="xm_d {{isActive==0?'active':'xm_d'}}" bindtap="xm_d">√</view><view class="xm_c" class="xm_d {{isActive==1?'actives':'xm_c'}}" bindtap="xm_c">×</view></view>
+  <view>
+  <view class="xm_d {{isActive==0?'active':'xm_d'}}" bindtap="xm_d">正常</view>
+  <view class="xm_c" class="xm_d {{isActive==1?'actives':'xm_c'}}" bindtap="xm_c">异常</view>
+  </view>
   </view>
   <view class="box_xm">
   <view class="xm_title">2.现场消防是否正常?</view>
-  <view><view class="xm_d {{isActives==0?'active':'xm_d'}}" bindtap="xm_ds">√</view><view class="xm_c" class="xm_d {{isActives==1?'actives':'xm_c'}}" bindtap="xm_cs">×</view></view>
+  <view><view class="xm_d {{isActives==0?'active':'xm_d'}}" bindtap="xm_ds">正常</view><view class="xm_c" class="xm_d {{isActives==1?'actives':'xm_c'}}" bindtap="xm_cs">异常</view></view>
   </view>
   <view class="box_xm">
   <view class="xm_title">3.现场安全措施是否正常?</view>
-  <view><view class="xm_d {{isActivess==0?'active':'xm_d'}}" bindtap="xm_dss">√</view><view class="xm_c" class="xm_d {{isActivess==1?'actives':'xm_c'}}" bindtap="xm_css">×</view></view>
+  <view><view class="xm_d {{isActivess==0?'active':'xm_d'}}" bindtap="xm_dss">正常</view><view class="xm_c" class="xm_d {{isActivess==1?'actives':'xm_c'}}" bindtap="xm_css">异常</view></view>
   </view>
   <view class="box_xm">
   <view class="xm_title">4.设备与地面卫生是否正常?</view>
-  <view><view class="xm_d {{isActivesss==0?'active':'xm_d'}}" bindtap="xm_dsss">√</view><view class="xm_c" class="xm_d {{isActivesss==1?'actives':'xm_c'}}" bindtap="xm_csss">×</view></view>
+  <view><view class="xm_d {{isActivesss==0?'active':'xm_d'}}" bindtap="xm_dsss">正常</view><view class="xm_c" class="xm_d {{isActivesss==1?'actives':'xm_c'}}" bindtap="xm_csss">异常</view></view>
   </view>
   <view class="box_xm">
   <view class="xm_title">5.现场是否存在温度异常?</view>
-  <view><view class="xm_d {{isActivessss==0?'active':'xm_d'}}" bindtap="xm_dssss">√</view><view class="xm_c" class="xm_d {{isActivessss==1?'actives':'xm_c'}}" bindtap="xm_cssss">×</view></view>
+  <view><view class="xm_d {{isActivessss==0?'active':'xm_d'}}" bindtap="xm_dssss">正常</view><view class="xm_c" class="xm_d {{isActivessss==1?'actives':'xm_c'}}" bindtap="xm_cssss">异常</view></view>
   </view>
 </view>
 <view class="box_one">

@@ -1,216 +1,90 @@
-// index.js
-// const app = getApp()
-
+import * as echarts from '../../components/ec-canvas/echarts';
+var dataList = [];
 let app=getApp()
-
 Page({
+	/**
+   * 页面的初始数据
+   */
   data: {
-   imglist:['http://203.195.156.104:8013/contract/img1.jpg','http://203.195.156.104:8013/contract/img2.jpg','http://203.195.156.104:8013/contract/img3.jpg','http://203.195.156.104:8013/contract/img4.png'],
-    flag:'',
-    stafftype:0,
-    startdate: '',
-    enddate: '',
-    listsss:[],
-    indexs:true,
-    activeNames: ['1'],
-    list:[],
-    userid:null,
-    nbnum:'',
-    allnum:'',
-    wxnum:'',
-    vehicleno:'',
-    code:null,
-    d_num:''
+    peoplelist:{},
+    ec: {
+      lazyLoad: true // 延迟加载
+    },
   },
-  
+  /**
+   * 生命周期函数--监听页面加载
+   */
   onLoad: function (options) {
-  //  console.log(app.globalData.wechatId,)
-    this.setData({
-      userid:wx.getStorageSync('userid'),
-      stafftype:wx.getStorageSync('wxuser').stafftype
-    })
-   // console.log(this.data.stafftype)
-  
-  
-},
-onShow(){
-  if(wx.getStorageSync('wxuser').stafftype==1){
-    this.getpeople()
-    let miao=' 00:00:00'
-    let endmiao=' 23:59:59'
-    this.setData({
-      startdate: this.getToday(),
-      enddate: this.getToday(),
-    })
-   // console.log(this.data.startdate)
-    let startime=this.getToday().concat(miao)
-    let endtime=this.getToday().concat(endmiao)
-    this.getAlarm(startime,endtime)
-  }else if(wx.getStorageSync('wxuser').stafftype==0||wx.getStorageSync('wxuser').stafftype==2){
-    this.getpeople()
-    let miao=' 00:00:00'
-    let endmiao=' 23:59:59'
-    this.setData({
-      startdate: this.getToday(),
-      enddate: this.getToday(),
-    })
-   // console.log(this.data.startdate)
-    let startime=this.getToday().concat(miao)
-    let endtime=this.getToday().concat(endmiao)
-    this.getAlarm(startime,endtime)
-  }
-  let len=this.data.listsss.length;
- // console.log(len)
-if(len>5){
- this.setData({
-  d_num:6
-})
-}else{
- this.setData({
-  d_num:len>2?3:len
-})
-}
-},
-//轮播图放大
-preview(event){
- let index=event.currentTarget.dataset.index
- wx.previewImage({ 
-  current:this.data.imglist[index],
-  urls:this.data.imglist
-})
-},
-getAlarm(startdate,enddate){
-  wx.request({
-    url:app.globalData.url+'api/wx/getAlarm',
-    method:'POST',
-    data:{
-      starttime:startdate,
-      endtime:enddate
-    },
-    success:(res)=>{
-    // console.log(res)
+    
+  },
+  onShow(){
+    this.echartsComponnet = this.selectComponent('#mychart');
+    this.getData(); //获取数据
+  },
+  getData: function () {
+  	/**
+  	 * 此处的操作：
+  	 * 获取数据json
+  	 */
+  	wx.request({
+      url: app.globalData.url+'api/pubpeoplenum/peopleNum',
+      method:'GET',
+      success: (res) => {
+        console.log(res)
       if(res.data.code==0){
-        if(res.data.data.length!=0){
-          this.setData({
-            listsss:res.data.data,
-            flag:false
-          })
-        }else{
-          this.setData({
-            listsss:res.data.data,
-            flag:true
-          })
-        }
-        let len=this.data.listsss.length;
-  //  console.log(len)
-  if(len>5){
-   this.setData({
-    d_num:6
-  })
-  }else{
-   this.setData({
-    d_num:len>2?3:len
-  })
-  }
+        this.setData({
+          peoplelist:res.data.data
+        })
+        dataList = res.data.data.everyNum;
+        console.log(dataList)
+  		this.init_echarts();//初始化图表
       }
-    },
-    fail:function(){
-     wx.showToast({
-       title: '获取数据失败',
-       icon:'error'
-     })
-    }
-  })
-},
-endDateChange(e) {
-  let stmiao=' 00:00:00'
-    let miao=' 23:59:59'
-    let endtime=e.detail.value.concat(miao)
-    this.setData({
-      enddate: e.detail.value
-    })
-   // console.log(e)
-   this.getAlarm()
-   // console.log(this.data.startdate.concat(stmiao),endtime)
-    let len=this.data.listsss.length;
-    //console.log(len)
-},
-startDateChange(e) {
-  let miao=' 00:00:00'
-    let startime=e.detail.value.concat(miao)
-    this.setData({
-      startdate: e.detail.value
-    })
-    let endmiao=' 23:59:59'
-    this.getAlarm(startime,this.data.enddate.concat(endmiao)) 
-},
-getpeople(){
-  wx.request({
-    url:app.globalData.url+'api/pubpeoplenum/peopleNum',
-    method:'GET',
-    success:(res)=>{
-    //  console.log(res)
-      if(res.data.code==0){
-        if(res.data.data!=''){
-          this.setData({
-            nbnum:res.data.data.nbnum,
-            allnum:res.data.data.allnum,
-            wxnum:res.data.data.wxnum,
-            vehicleno:res.data.data.vehicleno,
-          })
-        }
       }
-    },
-    fail:function(){
-     wx.showToast({
-       title: '获取人数失败',
-       icon:'error'
-     })
-    }
-  })
-},
-getToday: function () {
-  var now = new Date();
-  var year = now.getFullYear();
-  var month = now.getMonth() + 1;
-  var day = now.getDate();
-  if (month < 10) {
-    month = '0' + month;
-  };
-  if (day < 10) {
-    day = '0' + day;
-  };
-  // 如果需要时分秒
-  // var h = now.getHours();
-  // var m = now.getMinutes();
-  // var s = now.getSeconds();
-  var formatDate = year + '-' + month + '-' + day;
-  return formatDate;
-},
-  
-  gopeople(){
-    wx.navigateTo({
-      url: '/pages/personnel/personnel',
-    })
+	});
   },
-  gobjxx(){
-   wx.navigateTo({
-      url: '/pages/information/information',
-    })
+  //初始化图表
+  init_echarts: function () {
+    this.echartsComponnet.init((canvas, width, height) => {
+      // 初始化图表
+      const Chart = echarts.init(canvas, null, {
+        width: width,
+        height: height
+      });
+      Chart.setOption(this.getOption());
+      // 注意这里一定要返回 chart 实例，否则会影响事件处理等
+      return Chart;
+    });
   },
-  fqtz(){
-    wx.navigateTo({
-      url: '/pages/notification/notification',
-    })
+  getOption: function () {
+    //时间显示范围
+    // 指定图表的配置项和数据
+    var option = {
+      title: {
+        left: 'center'
+      },
+      tooltip: {
+        trigger: 'item'
+      },
+      legend: {
+        orient: 'vertical',
+        left: 'right',
+        show:false
+      },
+      series: [
+        {
+          type: 'pie',
+          radius: '75%',
+          data:dataList,
+          emphasis: {
+            itemStyle: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+            }
+          }
+        }
+      ]
+    };
+    return option;
   },
-  gopapar(){
-    wx.navigateTo({
-      url: '/pages/papar/papar',
-    })
-  },
-  godetail(){
-    wx.navigateTo({
-      url: '../../subpackages/pages/zldetails/zldetails',
-    })
-  }
-});
+})
