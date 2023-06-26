@@ -6,11 +6,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isActive:0,
-    isActives:0,
-    isActivess:0,
-    isActivesss:0,
-    isActivessss:0,
+    isActive:null,
+    isActives:null,
+    isActivess:null,
+    isActivesss:null,
+    isActivessss:null,
     value:'',
     name:'',
     ID:'',

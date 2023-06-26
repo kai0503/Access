@@ -1,0 +1,11 @@
+<view class="box">
+ <view class="item">账号:</view>
+<view class="item_pass"><input type="text" disabled="true"  value="{{phone}}"/></view>
+<view class="item">旧密码:</view>
+<view class="item_pass"><input type="password" placeholder="请输入原密码" value="{{oldpassword}}" bindchange="getoldpass" /></view>
+<view class="item">新密码:</view>
+<view class="item_pass"><input type="password" placeholder="请输入新密码" value="{{newpassword}}" bindchange="getnewpass"/></view>
+<view class="item">确认新密码:</view>
+<view class="item_pass"><input type="password" placeholder="请输入确认密码" value="{{newpasswords}}" bindchange="getnewpassw" /></view>
+<view class="bj_btn" bindtap="submit">确认</view>
+</view>

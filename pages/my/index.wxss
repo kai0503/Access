@@ -71,3 +71,8 @@ background-color: white;
   height: 30rpx;
   margin-right: 20rpx;
 }
+.img{
+ position: absolute;
+ right: 5rpx;
+ opacity: .4;
+}

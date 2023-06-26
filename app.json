@@ -1,6 +1,5 @@
 {
   "pages": [
-   
     "pages/login/index",
     "pages/information/information",
     "pages/my/info/index",
@@ -40,7 +39,8 @@
         "pages/practice/index",
         "pages/frequency/index",
         "pages/questions/index",
-        "pages/sign/index"
+        "pages/sign/index",
+        "pages/changpass/index"
       ]
     }
   ],

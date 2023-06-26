@@ -70,6 +70,11 @@ Page({
       }
     })
   },
+  chagepass(){
+   wx.navigateTo({
+   url:'../../subpackages/pages/changpass/index'
+  })
+  },
   QR(){
    
     wx.scanCode({
@@ -79,36 +84,42 @@ Page({
           this.setData({
             ID:res.result
           })
-          if(res.result.substr(0,1)=='D'){
+          // if(res.result.substr(0,1)=='D'){
+          //   wx.navigateTo({
+          //     url: '../wxindex/wxindex?ID='+this.data.ID,
+          //   })
+          // }else{
+          //   wx.navigateTo({
+          //     url: '../../subpackages/pages/sign/index?ID='+this.data.ID,
+          //   })
+          // }
+         
+          wx.request({
+            url: app.globalData.url+'api/user/scanQrcode',
+            method:'POST',
+            data:{
+               qrcodeId:res.result
+            },
+            success:(res)=>{
+              console.log(res)
+              if(res.data.code==0){
+                if(res.data.data.codeno!=null&&res.data.data.codeno.substr(0,1)=='D'){
             wx.navigateTo({
-              url: '../wxindex/wxindex?ID='+this.data.ID,
+              url: '../wxindex/wxindex?ID='+res.data.data.codeno,
             })
           }else{
             wx.navigateTo({
-              url: '../../subpackages/pages/sign/index?ID='+this.data.ID,
+              url: '../../subpackages/pages/sign/index?ID='+res.data.data,
             })
           }
-         
-    //       wx.request({
-    //         url: app.globalData.url+'api/user/scanQrcode',
-    //         method:'POST',
-    //         data:{
-    //            qrcodeId:res.result
-    //         },
-    //         success:(res)=>{
-    //           console.log(res)
-    //           if(res.data.code==0){
-    //  wx.navigateTo({
-    //   url: '../../subpackages/pages/sign/index?ID='+this.data.ID,
-    // })
-    //           }else{
-    //             wx.showToast({
-    //               title:res.data.msg,
-    //               icon:'error'
-    //             })
-    //           }
-    //         }
-    //       })
+              }else{
+                wx.showToast({
+                  title:res.data.msg,
+                  icon:'error'
+                })
+              }
+            }
+          })
     
         }
       }
