@@ -29,19 +29,19 @@
 
 
   .login_title{
-    width: 200rpx;
-    height: 200rpx;
+    width: 230rpx;
+    height: 230rpx;
    position: relative;
   border-radius: 50%;
-  top: -130rpx;
-  left: 50%;
-  transform: translate(-50%);
+  top: -60rpx;
+  left: 6%;
+margin-bottom: 50rpx;
   z-index: 999;
   }
   .login_title image{
     width: 100%;
     height: 100%;
-    border-radius: 50%;
+
   }
   .zl_name{
     width: 90%;
@@ -98,3 +98,21 @@ border-radius: 15rpx;
   transform: translate(-50%,0);
   border-radius: 15rpx;
   } */
+.title_jg{
+  position: absolute;z-index: 999;right: 40rpx;top: 100rpx;width: 360rpx;font-size: 35rpx;display: flex;justify-content: center;align-items: center;padding: 10rpx 10rpx;color: #178BEE;text-align: center;background-color: #F4F6F8;
+
+}
+.title_time{
+  position: absolute;z-index: 999;right: 40rpx;top:30rpx;width: 360rpx;font-size:35rpx;display: flex;justify-content: center;align-items: center;padding: 10rpx 10rpx;color:red;text-align: center;background-color: #F4F6F8;
+
+}
+.active{
+  color: red;
+  width: 70%;
+  background-color: #F4F6F8;
+ height: 70rpx;
+padding-top: 15rpx;
+padding-left: 0rpx;
+border-radius: 15rpx;
+font-size: 30rpx;
+}
