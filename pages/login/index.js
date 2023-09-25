@@ -300,7 +300,7 @@ Page({
         // 发送 res.code 到后台换取 openId, sessionKey, unionId'
         // var code = res.code
         app.globalData.sessionCode = res.code;
-        // console.log(app.globalData.sessionCode)
+         console.log(app.globalData.sessionCode,'app.globalData.sessionCode')
         this.getWechatId();
       }
     })

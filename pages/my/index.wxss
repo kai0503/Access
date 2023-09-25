@@ -57,7 +57,7 @@ position: relative;
 
 }
 .sys{
-  border-top: 1rpx solid gray;
+  border-top: 1rpx solid #D5D5D5;
   height: 70rpx;
   width: 100%;
   display: flex;

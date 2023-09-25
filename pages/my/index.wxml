@@ -33,8 +33,8 @@
     <!-- <i-cell title="扫一扫" bindtap="QR">
     </i-cell> -->
     <view class="sys" style="border-top: none;font-size: 27rpx;padding-left: 30rpx;" bindtap="chagepass"><image src="../../assets/carousel/xgmm.png"></image><text>修改密码</text><image src="../../assets/carousel/y.png" class="img"></image></view>
-    <view class="sys" bindtap="QR"><image src="../../assets/carousel/sys.png"></image><text>扫一扫</text></view>
-   
+    <view class="sys" bindtap="QR"><image src="../../assets/carousel/sys.png" style="width: 25rpx;height: 25rpx;"></image><text>扫一扫</text></view>
+    <view class="sys" bindtap="SC"><image src="../../assets/carousel/jkm.png"></image><text>健康码</text></view>
   </view>
   </i-cell-group>
 </view>

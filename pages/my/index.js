@@ -9,6 +9,7 @@ Page({
     avatarUrl:'',
     stafftype:'',
     ID:'',
+    imgs:[],
     isChecked1:false,
     isCheckedvideo:false,
   },
@@ -75,8 +76,58 @@ Page({
    url:'../../subpackages/pages/changpass/index'
   })
   },
+  SC(){
+//     console.log('123')
+//     var that = this;
+//  wx.chooseImage({
+//      count: 1, // 默认9
+//     sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+//     sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+//     success: function (res) {
+//      // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+//      var tempFilePaths = res.tempFilePaths;
+//      var imgs = that.data.imgs;
+//      // console.log(tempFilePaths + '----');
+//      for (var i = 0; i < tempFilePaths.length; i++) {
+//       if (imgs.length >= 9) {
+//        that.setData({
+//         imgs: imgs
+//        });
+//        return false;
+//       } else {
+//        imgs.push(tempFilePaths[i]);
+//      //  console.log(tempFilePaths[i]);
+//       }
+//      }
+//      that.setData({
+//       imgs: imgs
+//      });
+//       wx.showToast({
+//         title: '该健康码无效',
+//         icon:'none',
+//         duration:2000
+//       })
+//     }
+//    });
+wx.scanCode({
+  success:(res)=>{
+   wx.showToast({
+     title: '该二维码无效',
+     icon:'none',
+     duration:2000
+   })
+  },
+  fail:error=>{
+    console.log(error)
+    wx.showToast({
+      title: '该二维码无效',
+      icon:'none',
+      duration:2000
+    })
+  }
+}) 
+  },
   QR(){
-   
     wx.scanCode({
       success:(res)=>{
         console.log(res)

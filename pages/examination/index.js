@@ -405,10 +405,19 @@ zhuce(e){
                           url: '/pages/result/result?score='+JSON.parse(JSON.stringify(res.data.data)).score+ "&qualified=" + JSON.parse(JSON.stringify(res.data.data)).qualified,
                         })
                       },2000)
-                  }else{
-                    wx.showModal({
-                      cancelColor: '网络错误',
-                    })
+                  }else if(res.data.code==-1){
+                    console.log('1111')
+                    wx.hideLoading()
+ 
+                      wx.showToast({
+                        title:res.data.msg,
+                        icon:'none'
+                      })
+                       setTimeout(()=>{
+                          this.setData({
+                            show:false,
+                          })
+                       },1000)
                   }
                   
                 }
