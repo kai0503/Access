@@ -1,0 +1,35 @@
+<view>
+<view class="box">
+
+<view class="box_titles">请对岗位责任做出评价</view>
+<view class="box_num">
+ <view class="num_one">* 满意度 </view>
+ <view class="num_two" bindtap="jian">-</view>
+ <view class="num_three">{{num}}</view>
+ <view class="num_four" bindtap="jia">+</view>
+ <view class="num_five">{{num}}分</view>
+ </view>
+
+<view class="box_text">
+<textarea placeholder="请输入您的备注~" bindinput="remarkinput"></textarea>
+</view>
+<view class="box_title">请对岗位责任做出评价</view>
+<view class="box_img">
+  <view class="weui-uploader">
+    <view class='pics' wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
+        <image class='weui-uploader__img' src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg">
+           <!-- <icon class="icon-small" type="cancel" size="23" data-index="{{index}}" bindtap="deleteImg"></icon>  -->
+           <!-- <icon class="icon-small" type="success" size="23" data-index="{{index}}" bindtap="deleteImg"></icon>  -->
+        </image>
+        <image  src="../../../assets/carousel/x.png" style="width: 50rpx;height: 50rpx;position: absolute;right: 0rpx;" ata-index="{{index}}" bindtap="deleteImg"></image>
+    </view>
+    <view class="tp_cont {{tj_ycang?'':'hide'}}" bindtap="chooseImg">
+   
+      <view class="tp_add"><text style="display: block;">+</text></view>
+    </view>
+
+</view>
+</view>
+<view bindtap="submit" class="btn">上传</view>
+</view>
+</view>

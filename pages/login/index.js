@@ -8,7 +8,10 @@ Page({
     password: "",
     userid:'',
     type:'',
-    contract:''
+    contract:'',
+    htmlSnip:'',
+    checked:'',
+    showView:false,
   },
   //选择员工类型
   // radioChange(e){
@@ -17,6 +20,35 @@ Page({
   //     type:e.detail.value
   //   })
   // },
+  radiochanges(){
+     this.setData({
+       checked:!this.data.checked
+     })
+     console.log(this.data.checked)
+  },
+  openView(){
+     this.setData({
+       showView:!this.data.showView
+     })
+     console.log(this.data.showView)
+  },
+  gethtml(){
+    let that=this;
+      let cc= new Date().getTime() ;
+    wx.request({
+      url: "https://llk.dljinma.cn/file/protocol.html?"+cc, 
+      method: 'get', 
+      success: function (res) { 
+        console.log(res)
+        that.setData({
+          htmlSnip: res.data 
+        })
+      },
+      fail: function (err) {
+        
+      } 
+    }) 
+  },
   ygzc(){
       wx.navigateTo({
         url: '../../subpackages/pages/logon/logon?type='+2,
@@ -292,7 +324,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+   this.gethtml()
  // console.log(wx.getStorageSync('wxuser'))
     wx.login({
       success: res => {

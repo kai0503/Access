@@ -1,6 +1,9 @@
 /* pages/my/index.wxss */
 /**index.wxss**/
-
+.pages{
+  width: 100vw;
+  height: 100vh;
+}
 .userinfo {
   display: flex;
   flex-direction: row;
@@ -30,7 +33,7 @@ position: relative;
 
 .nickname_user{
   margin-left: 20rpx;
-  color: #fff;
+  color: #000;
 }
 .my-group-margin{
   margin-top: 10px;
@@ -75,4 +78,69 @@ background-color: white;
  position: absolute;
  right: 5rpx;
  opacity: .4;
+}
+.dzgk{
+  width: 95%;
+  margin-left: 50%;
+  transform: translate(-50%,0);
+  background-color: #AFBAFF;
+  height: 268rpx;
+ border-radius: 28rpx 28rpx 0 0;
+ margin-top: 10rpx;
+}
+.qxkz{
+  width: 95%;
+  margin-left: 50%;
+  transform: translate(-50%,0);
+  background-color: #fff;
+ border-radius: 28rpx 28rpx 0 0;
+ margin-top: 10rpx;
+ display: flex;
+ justify-content: space-between;
+}
+.kqlx{
+  width: 152rpx;
+height: 182rpx;
+background: #FFFFFF;
+border-radius: 32rpx 32rpx 32rpx 32rpx;
+opacity: 1;
+display: grid;
+justify-content: center;
+text-align: center;
+}
+.lb_list{
+  width: 95%;
+  margin-left: 50%;
+  transform: translate(-50%,0);
+  margin-top: 32rpx;
+  background-color: #fff;
+}
+.list_one{
+  width: 95%;
+  margin-left: 50%;
+  transform: translate(-50%,0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid #eee ;
+height: 100rpx;
+line-height: 100rpx;
+padding-top: 10rpx;
+}
+.one_left image{
+width: 40rpx;
+height: 40rpx;
+}
+.one_left text{
+  margin-left: 20rpx;
+  position: relative;
+  top: -5rpx;
+  font-size: 28rpx;
+font-family: PingFang SC-Medium, PingFang SC;
+font-weight: 400;
+color: #3B3B4D;
+}
+.one_right image{
+  width: 32rpx;
+  height: 32rpx;
 }

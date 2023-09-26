@@ -1,0 +1,22 @@
+<view>
+<view class="box">
+<view class="item_one">
+<view class="one_left">
+ <view class="left_one">应急处置卡</view>
+ <view class="left_two">应急处置方法</view>
+</view>
+<view class="one_right">
+<image src="../../../assets/carousel/cz.png"></image>
+</view>
+</view>
+<view class="item_one" style="background: linear-gradient(150deg, #E5F1FF 0%, #EFF6FF 100%);">
+<view class="one_left">
+ <view class="left_one">应急电话查询</view>
+ <view class="left_two">查询应急电话</view>
+</view>
+<view class="one_right">
+<image src="../../../assets/carousel/dh.png"></image>
+</view>
+</view>
+</view>
+</view>

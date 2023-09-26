@@ -6,7 +6,8 @@
 <view class="itemone">{{item.name}}</view>
 <!-- <view class="itemtwo"><van-button round type="info">继续观看</van-button></view> -->
 <view style="position: absolute;right: 20rpx;color: red;font-size: 40rpx;" wx:if="{{item.qualified==0}}">考试不合格</view>
-<view style="position: absolute;right: 20rpx;color: green;font-size: 40rpx;" wx:else>考试合格</view>
+<view style="position: absolute;right: 20rpx;color: green;font-size: 40rpx;" wx:if="{{item.qualified==1}}">考试合格</view>
+<view style="position: absolute;right: 20rpx;color: green;font-size: 40rpx;" wx:if="{{item.qualified==-1}}">已过期</view>
 </view>
 <view class="xuexi">
   <view class="xuexi_one">{{item.papername}}</view>

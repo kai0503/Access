@@ -22,7 +22,7 @@ Page({
        userid:wx.getStorageSync('userid')
       },
       success:res=>{
-    //  console.log(res.data)
+     console.log(res)
       let arr=[]
       let arrs=[]
       let arrss=[]

@@ -1,0 +1,97 @@
+
+.box{
+  width: 92%;
+  margin-left: 50%;
+  transform: translate(-50%,0);
+  padding-top: 50rpx;
+}
+.box_title{
+  border-left: 2px solid blue;
+  font-size: 32rpx;
+font-family: PingFang SC-Medium, PingFang SC;
+font-weight: 400;
+color: #3B3B4D;
+padding-left: 20rpx;
+}
+.tp_add{
+  width: 152rpx;
+  height: 152rpx;
+  border-radius: 10rpx;
+  opacity: 1;
+  border: 2rpx dashed #999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 62rpx;
+}
+
+.pics {
+  float:left;
+  position:relative;
+  margin-right:15px;
+  margin-bottom:15px;
+  }
+  .pics image{
+    width: 152rpx;
+    height: 152rpx;
+  }
+  .delete-btn{
+    width: 20rpx;
+    height: 20rpx;
+    position: absolute;
+    top: -15rpx;
+    right: -5rpx;
+  }
+  .weui-uploader{
+    padding: 10rpx;
+    margin-top: 20rpx;
+  }
+
+  icon{
+    position: absolute;
+     top: 5rpx;
+     right: 3rpx;
+    z-index: 999;
+
+  color: #000000;
+   }
+   .box_titles{
+    border-left: 2px solid blue;
+    font-size: 32rpx;
+  font-family: PingFang SC-Medium, PingFang SC;
+  font-weight: 400;
+  color: #3B3B4D;
+  padding-left: 20rpx;
+  margin-top: 50rpx;
+  }
+  .box_text{
+    margin-top: 30rpx;
+    border: 2rpx solid rgba(0,0,0,0.16);
+    background: #FFFFFF;
+border-radius: 20rpx 20rpx 20rpx 20rpx;
+opacity: 1;
+padding-top: 30rpx;
+padding-left: 30rpx;
+height: 320rpx;
+  }
+  .box_text textarea{
+    width: 100%;
+    height: 100%;
+  }
+  .btn{
+    width: 634rpx;
+height: 96rpx;
+background: linear-gradient(270deg, #009CFF 0%, #0069FF 100%);
+border-radius: 20rpx 20rpx 20rpx 20rpx;
+opacity: 1;
+font-size: 36rpx;
+font-family: PingFang SC-Bold, PingFang SC;
+font-weight: 400;
+color: #FFFFFF;
+line-height: 96rpx;
+text-align: center;
+margin-left: 50%;
+transform: translate(-50%,0);
+position: relative;
+margin-top: 500rpx;
+  }

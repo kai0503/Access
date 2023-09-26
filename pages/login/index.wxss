@@ -23,7 +23,7 @@ button{
   position: relative;
   left: 50%;
   transform: translate(-50%);
-  bottom: 40rpx;
+  bottom: 100rpx;
     border: solid 1rpx #178BEE;
   }
   .w_x image{
@@ -108,4 +108,57 @@ align-items: center;
     margin-left: 50%;
   transform: translate(-50%,0);
   border-radius: 15rpx;
+  }
+
+
+  .ydxy{
+    margin-left: 50%;
+    width: 90%;
+    transform: translate(-50%,0);
+  }
+
+
+
+
+  .show-view1{
+    width: 100%;
+    height: 100%;
+    background-color: #5A5A5A62;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 100; 
+    display: flex;
+  }
+  .show-view2{
+    width: 626rpx;
+    background: #FFFFFF;
+    border-radius: 20rpx 20rpx 20rpx 20rpx;
+    opacity: 1;
+    align-self: center;
+    margin: auto;
+  }
+  .show-view2-title{
+    
+    height: 42rpx;
+    font-size: 30rpx;
+    font-family: PingFang SC-Bold, PingFang SC;
+    font-weight: bold;
+    color: #333333; 
+    margin: auto;
+    text-align: center;
+    margin-top: 20rpx;
+  }
+  .show-view2-detial{
+    
+    height: 760rpx;
+    font-size: 28rpx;
+    font-family: PingFang SC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #333333; 
+   
+  }
+  .htmlSnipviewtxt{
+    padding: 20rpx; 
+    display: block;
   }

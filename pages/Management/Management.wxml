@@ -1,0 +1,25 @@
+<view class="box">
+<view class="item">
+<view class="item_one" bindtap="jumpwz">
+<image src="../../assets/carousel/fwz.png"></image>
+</view>
+<view class="item_one" bindtap="jumpwdks">
+<image src="../../assets/carousel/dgdw.png"></image>
+</view>
+<view class="item_one" bindtap="jumprygw">
+<image src="../../assets/carousel/rygw.png"></image>
+</view>
+<view class="item_one">
+<image src="../../assets/carousel/mcgl.png"></image>
+</view>
+<view class="item_one" bindtap="jumpxcjc">
+<image src="../../assets/carousel/xcjc.png"></image>
+</view>
+<view class="item_one">
+<image src="../../assets/carousel/aqgl.png"></image>
+</view>
+<view class="item_one" bindtap="jumpyjcz">
+<image src="../../assets/carousel/yjcz.png"></image>
+</view>
+</view>
+</view>

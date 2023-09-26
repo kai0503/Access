@@ -1,7 +1,8 @@
 <!--pages/my/index.wxml-->
-<view class="userinfo">
+<view class="pages">
+  <view class="userinfo">
   <block>
-  <image src="../../assets/carousel/beijing.png" class="title_image"></image>
+
     <view class="userinfo-nickname">
     <view>
     <image src="../../assets/carousel/tx.png" style="width: 100rpx;height: 100rpx;border-radius: 50%;"></image>
@@ -15,34 +16,73 @@
     </view>
   </block>
 </view>
-<view>
-  <i-cell-group i-class="my-group-margin">
-    <i-cell title="个人资料" is-link url="/pages/my/info/index">
-      <i-icon type="setup_fill" slot="icon" size="20" />
-    </i-cell>
-    <i-cell title="发起通知" is-link url="/pages/notification/notification"  wx:if="{{stafftype==2}}">
-      <i-icon type="message_fill" slot="icon" size="20" />
-    </i-cell>
-  <view>
-    <i-cell title="考试记录" is-link url="/pages/xuexi/index">
-      <i-icon type="flashlight_fill" slot="icon" size="20" />
-    </i-cell>
-    <i-cell title="考试次数" is-link url="../../subpackages/pages/frequency/index" wx:if="{{stafftype==2}}" style="border-bottom: 10px solid red;">
-      <i-icon type="flashlight_fill" slot="icon" size="20" />
-    </i-cell>
-    <!-- <i-cell title="扫一扫" bindtap="QR">
-    </i-cell> -->
-    <view class="sys" style="border-top: none;font-size: 27rpx;padding-left: 30rpx;" bindtap="chagepass"><image src="../../assets/carousel/xgmm.png"></image><text>修改密码</text><image src="../../assets/carousel/y.png" class="img"></image></view>
-    <view class="sys" bindtap="QR"><image src="../../assets/carousel/sys.png" style="width: 25rpx;height: 25rpx;"></image><text>扫一扫</text></view>
-    <view class="sys" bindtap="SC"><image src="../../assets/carousel/jkm.png"></image><text>健康码</text></view>
-  </view>
-  </i-cell-group>
+<view class="dzgk">111</view>
+<view class="qxkz">
+<view class="kqlx" wx:if="{{stafftype==2}}">
+<view>考前练习</view>
+<view>已开启</view>
+<switch checked="{{isChecked1}}" bindchange="changeSwitch1"></switch>
 </view>
-
-<view class="mn" wx:if="{{stafftype==2}}"><text>开启考前练习</text> <switch  checked="{{isChecked1}}" bindchange="changeSwitch1" /></view>
-
-<view class="mn" wx:if="{{stafftype==2}}"><text>开启视频</text> <switch  checked="{{isCheckedvideo}}" bindchange="changeSwitchvideo" /></view>
+<view class="kqlx" wx:if="{{stafftype==2}}">
+<view>开启视频</view>
+<view>已开启</view>
+<switch checked="{{isCheckedvideo}}" bindchange="changeSwitchvideo"></switch>
+</view>
+<view class="kqlx" wx:if="{{stafftype==2}}">
+<view>考试开关</view>
+<view>已开启</view>
+<switch checked="{{isChecked1}}" bindchange="changeSwitch1"></switch>
+</view>
+<view class="kqlx" bindtap="QR">
+<view>扫一扫</view>
+<view>点击</view>
+<image src="../../assets/carousel/sys.png" style="width: 31rpx;height: 31rpx;position: relative;left: 25rpx;"></image>
+</view>
+</view>
+<view class="lb_list">
+<view class="list_one" bindtap="jumpgrzl">
+<view class="one_left">
+<image src="../../assets/carousel/grzl.png"></image><text>个人资料</text>
+</view>
+<view class="one_right">
+<image  src="../../assets/carousel/y.png"></image>
+</view>
+</view>
+<view class="list_one" bindtap="jumpfqtz" wx:if="{{stafftype==2}}">
+<view class="one_left">
+<image src="../../assets/carousel/fqtz.png"></image><text>发起通知</text>
+</view>
+<view class="one_right">
+<image  src="../../assets/carousel/y.png"></image>
+</view>
+</view>
+<view class="list_one" bindtap="jumpkscs" wx:if="{{stafftype==2}}">
+<view class="one_left">
+<image src="../../assets/carousel/kscs.png"></image><text>考试次数</text>
+</view>
+<view class="one_right">
+<image  src="../../assets/carousel/y.png"></image>
+</view>
+</view>
+<view class="list_one" bindtap="chagepass">
+<view class="one_left">
+<image src="../../assets/carousel/xgmm.png"></image><text>修改密码</text>
+</view>
+<view class="one_right">
+<image  src="../../assets/carousel/y.png"></image>
+</view>
+</view>
+<view class="list_one" bindtap="SC">
+<view class="one_left">
+<image src="../../assets/carousel/jkm.png"></image><text>健康码</text>
+</view>
+<view class="one_right">
+<image  src="../../assets/carousel/y.png"></image>
+</view>
+</view>
+</view>
 <view class="copyright">大连金马衡器有限公司 提供技术支持</view>
 
 <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
 <i-message id="message" />
+</view>

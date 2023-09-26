@@ -1,0 +1,33 @@
+<view class="box">
+<view class="item">
+<view class="item_one" bindtap="jumpwdxx">
+<image src="../../assets/carousel/wdxx.png"></image>
+</view>
+<view class="item_one" bindtap="jumpwdks">
+<image src="../../assets/carousel/wdks.png"></image>
+</view>
+<view class="item_one" bindtap="jumpksjg">
+<image src="../../assets/carousel/ksjg.png"></image>
+</view>
+<view class="item_one" bindtap="rypx">
+<image src="../../assets/carousel/rypx.png"></image>
+</view>
+<view class="item_one" bindtap="jumpkqlx">
+<image src="../../assets/carousel/kqlx.png"></image>
+</view>
+<view class="item_one">
+<image src="../../assets/carousel/skpx.png"></image>
+</view>
+<view class="item_one">
+<image src="../../assets/carousel/sjks.png"></image>
+</view>
+<view class="modal-mask" wx:if="{{flag==true}}">
+<view class="modal-content">
+<view class="content_title">提示</view>
+<view class="content_cont">因您违反了电厂的相关规定，分数已被扣完，请您重新学习然后参加考试后进入电厂</view>
+</view>
+<view class="modal-footer" wx:if="{{time>0}}">倒计时({{time}})</view>
+<view class="modal-footer" wx:if="{{time==0}}" bindtap="queren">确认</view>
+</view>
+</view>
+</view>

@@ -176,6 +176,21 @@ wx.scanCode({
       }
      })
   },
+  jumpgrzl(){
+ wx.navigateTo({
+   url: '/pages/my/info/index',
+ })
+  },
+  jumpfqtz(){
+    wx.navigateTo({
+      url: '/pages/notification/notification',
+    })
+     },
+     jumpkscs(){
+      wx.navigateTo({
+        url: '../../subpackages/pages/frequency/index',
+      })
+       },
   shangchuan(){
 
  console.log('111')

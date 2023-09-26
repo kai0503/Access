@@ -1,0 +1,26 @@
+/* pages/Learning/Learning.wxss */
+.box{
+  width: 100vw;
+  height: 100vh;
+}
+.item{
+  width: 95%;
+  margin-left: 50%;
+  transform: translate(-50%,0);
+}
+.item::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.item_one{
+  width: 318rpx;
+  height: 318rpx;
+  float: left;
+  margin-left: 30rpx;
+  margin-top: 10rpx;
+}
+.item_one image{
+  width: 100%;
+  height: 100%;
+}

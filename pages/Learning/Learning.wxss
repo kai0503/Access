@@ -1,0 +1,67 @@
+/* pages/Learning/Learning.wxss */
+.box{
+  width: 100vw;
+  height: 100vh;
+}
+.item{
+  width: 95%;
+  margin-left: 50%;
+  transform: translate(-50%,0);
+}
+.item::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.item_one{
+  width: 318rpx;
+  height: 318rpx;
+  float: left;
+  margin-left: 30rpx;
+  margin-top: 10rpx;
+}
+.item_one image{
+  width: 100%;
+  height: 100%;
+}
+.modal-mask {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* 内容部分 */
+.modal-content {
+  position: relative;
+  top: 40%;
+  width: 70%;
+  transform: translateY(-40%);
+  margin-left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  background-color: #ffffff;
+  padding: 20rpx;
+}
+.modal-footer {
+  position: relative;
+  top:41%;
+  text-align: center;
+  width: 120rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+}
+.content_title{
+  font-size: 35rpx;
+  color: red;
+}
+.content_cont{
+  margin-top: 20rpx;
+
+}

@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/my/index",
+    "pages/Learning/Learning",
     "pages/login/index",
     "pages/information/information",
     "pages/my/info/index",
@@ -11,7 +13,6 @@
     "pages/wxindex/wxindex",
     "pages/item/item",
     "pages/shangchaun/shangchaun",
-    "pages/my/index",
     "pages/personnel/personnel",
     "pages/mockexam/mockexam",
     "pages/xuexi/index",
@@ -22,7 +23,8 @@
     "pages/my/message/info/index",
     "pages/examination/index",
     "pages/result/result",
-    "pages/fraction/fraction"
+    "pages/fraction/fraction",
+    "pages/Management/Management"
   ],
   "subPackages": [
     {
@@ -40,7 +42,11 @@
         "pages/frequency/index",
         "pages/questions/index",
         "pages/sign/index",
-        "pages/changpass/index"
+        "pages/changpass/index",
+        "pages/regulations/regulations",
+        "pages/inspection/inspection",
+        "pages/positions/positions",
+        "pages/emergency/emergency"
       ]
     }
   ],
@@ -53,7 +59,7 @@
   },
   "tabBar": {
     "color": "#6e6d6b",
-    "selectedColor": "#ff9966",
+    "selectedColor": "#488BFE",
     "borderStyle": "black",
     "backgroundColor": "#ffffff",
     "list": [
@@ -64,14 +70,14 @@
         "selectedIconPath": "/assets/tabBar/sys.png"
       },
       {
-        "pagePath": "pages/personnel/personnel",
-        "text": "学习资料",
+        "pagePath": "pages/Learning/Learning",
+        "text": "学习中心",
         "iconPath": "/assets/tabBar/kechengone.png",
         "selectedIconPath": "/assets/tabBar/kechengtwo.png"
       },
       {
-        "pagePath": "pages/information/information",
-        "text": "考试",
+        "pagePath": "pages/Management/Management",
+        "text": "管理中心",
         "iconPath": "/assets/tabBar/ks.png",
         "selectedIconPath": "/assets/tabBar/kss.png"
       },
