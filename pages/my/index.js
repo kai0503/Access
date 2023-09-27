@@ -12,6 +12,17 @@ Page({
     imgs:[],
     isChecked1:false,
     isCheckedvideo:false,
+    fg:1
+  },
+  qhdz(){
+   this.setData({
+     fg:2
+   })
+  },
+  qhtz(){
+  this.setData({
+    fg:1
+  })
   },
   changeSwitch1(e){
     console.log(e.detail.value)
@@ -210,10 +221,10 @@ wx.scanCode({
    let ischeckvideo=wx.getStorageSync('open')
     if(ischeck==1){
       this.setData({
-        ischeck:false
+        isChecked1:false
       })
     }else if(ischeck==0){
-      ischeck:true
+      isChecked1:true
     }
     if(ischeckvideo==0){
       this.setData({
@@ -223,11 +234,13 @@ wx.scanCode({
       isCheckedvideo:true
     }
    // console.log(n)
+  console.log(ischeck)
     this.setData({
       nickName:n.nickName,
-      isChecked1:ischeck,
+      //isChecked1:ischeck,
       //isCheckedvideo:isCheckedvideo
     })
+    console.log(this.data.isChecked1)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

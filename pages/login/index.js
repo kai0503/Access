@@ -63,13 +63,22 @@ Page({
     this.setData({
       nickName:e.detail.value
     })
+    wx.setStorageSync('phone',e.detail.value)
   },
   getpass(e){
     this.setData({
       password:e.detail.value
     })
+    wx.setStorageSync('password',e.detail.value)
   },
   addUsers(){
+    if(this.data.checked!=true){
+      wx.showToast({
+        title: '请先阅读协议并同意',
+        icon:'none'
+      })
+      return
+    }
     console.log('111')
      //   console.log(app.globalData.wechatId)
     // console.log(this.data.nickName)
@@ -168,6 +177,62 @@ Page({
       }
     })
   },
+
+  denglu(){
+    wx.request({
+      url: app.globalData.url+'api/user/addUser',
+      method:'POST',
+      data:{
+        phone:wx.getStorageSync('phone'),
+        password:wx.getStorageSync('password'),
+        wechatId:app.globalData.wechatId,
+      },
+      success:(res)=>{
+    console.log(res)
+          if(res.data.code==0){
+            // wx.showToast({
+            //     icon:"success",
+            //     title: '登录成功',
+            //   }) 
+              
+             // console.log(res.data.data)
+             wx.setStorageSync('open', res.data.data.open)
+              wx.setStorageSync('setup', res.data.data.setup)
+              wx.setStorageSync('wxuser', res.data.data.userinfo)
+              wx.setStorageSync('userid', res.data.data.userinfo.id)
+              wx.setStorageSync('contract', res.data.data.userinfo.contract)
+              this.setData({
+                userid:res.data.data.userinfo.id
+              })
+             // console.log(res.data.data.userinfo.id,this.data.type,wx.getStorageSync('contract'),'1111111111111')
+           // this.getUserProfile()
+            setTimeout(()=>{
+             //  console.log(wx.getStorageSync('contract'))
+              // wx.redirectTo({
+              //       url: '/pages/my/message/list/index',
+              //     })
+        if(wx.getStorageSync('contract')==null){
+          wx.redirectTo({
+            url: '/pages/my/message/list/index',
+          })
+        }else{
+          wx.switchTab({
+            url: '/pages/index/index',
+          }) 
+        }
+                        },500)
+          }else{
+            wx.showToast({
+                icon:"none",
+                title:res.data.msg,
+                mask:true
+              }) 
+          
+         }
+       
+      }
+    })
+  },
   checkUserIsBind: function () {
     wx.request({
       url: app.globalData.url + 'api/wechat/checkUser',
@@ -185,6 +250,7 @@ Page({
             // console.log("用户不存在");
           } else {
           // console.log(app.globalData.wechatId,)
+
             wx.setStorageSync('userid', res.data.data.id)
             this.getimg()
             wx.showToast({
@@ -207,9 +273,10 @@ Page({
               url: '/pages/my/message/list/index',
             })
           }else{
-            wx.switchTab({
-              url: '/pages/index/index',
-            })
+            // wx.switchTab({
+            //   url: '/pages/index/index',
+            // })
+            this.denglu()
           }
           
           },1000)

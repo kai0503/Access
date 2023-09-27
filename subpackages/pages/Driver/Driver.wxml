@@ -1,0 +1,22 @@
+<view>
+  <view class="item">
+<view style="margin-left: 25rpx;">
+<van-icon name="wap-nav" color="red" size="60rpx"/></view>
+<view style="margin-left: 20rpx;font-size: 35rpx;">司机培训</view>
+</view>
+<view class="ke"  wx:for="{{lists}}" wx:key="index" wx:for-item="item" >
+  <view class="ketang" bindtap="govideo" data-bean="{{item}}">
+<view class="keone">
+<image src="http://203.195.156.104:8013/contract/wl.jpg" style="width: 180rpx;height: 180rpx;" wx:if="{{item.coursewaretype==3}}"></image>
+<image src="http://203.195.156.104:8013/contract/MP4.png" style="width: 180rpx;height: 180rpx;" wx:if="{{item.coursewaretype==2}}"></image>
+<image src="http://203.195.156.104:8013/contract/pdf.jpg" style="width: 180rpx;height: 180rpx;" wx:if="{{item.coursewaretype==1}}"></image>
+</view>
+<view class="ketwo">
+<view style="margin: 10rpx 0 5rpx 10rpx;font-size: 29rpx; color: #959597;">创建时间:{{item.createtime}}</view>
+<view style="margin: 20rpx 0 5rpx 10rpx;font-size: 29rpx; color: #959597;width: 100%;">资料名称:{{item.name}}</view>
+</view>
+</view> 
+</view>
+<view class="tishi" wx:if="{{lists.length==0&&code==0}}">暂无培训资料,请联系管理员添加</view>
+<!-- <view class="ks" wx:elif="{{lists.length==0&&code==1}}" bindtap="gopapar">开始模拟考试</view> -->
+</view>

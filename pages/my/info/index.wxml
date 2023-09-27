@@ -1,75 +1,58 @@
-<view style="height: 100vh;">
-  <view class="title">
-<image class="title_image" src="../../../assets/carousel/jc.png"></image>
+<view class="box">
+<view class="box_one">
+<view class="one_left">照片</view>
+<view class="one_right" bindtap="updateimg"><image src="{{img}}"></image></view>
 </view>
-
-<view class="item">
- <view class="login_title" bindtap="updateimg">
-   <image src="{{img}}"></image>
-   <!-- <image src="../../../assets/carousel/tx.png"></image> -->
-  </view>
-  <view class="title_time">
-
-<view>{{nowTime}}</view>
+<view class="box_two">
+<view class="two_left">实时时间</view>
+<view class="two_right">{{nowTime}}</view>
 </view>
- <view class="title_jg">
-
-  <view wx:if="{{hgFlag==0}}" style="color: red;">未上传</view>
-  <view wx:if="{{hgFlag==1}}">已上传。符合要求</view>
-  <view wx:if="{{hgFlag==2}}" style="color: red;">不符合要求,请重新上传</view>
+<view class="box_two">
+<view class="two_left">是否符合要求</view>
+<view class="two_right" wx:if="{{hgFlag==0}}">未上传</view>
+<view class="two_right" wx:if="{{hgFlag==1}}">已上传，符合要求</view>
+<view class="two_right" wx:if="{{hgFlag==2}}">不符合要求，请重新上传</view>
 </view>
- <view class="zl_name" >
- <image src="../../../assets/carousel/路径 8017.png"></image>
-  <view class="zl_mz">姓名:</view>
- <view class="zl_input"><input type="text" value="{{form.name}}" disabled="true"/></view>
- </view>
- 
- <view class="zl_names">
- <image src="../../../assets/carousel/路径 8021.png"></image>
-  <view class="zl_mz">手机号码:</view>
- <view class="zl_input"><input type="text" value="{{form.phone}}" disabled="true"/></view>
- </view>
- <view class="zl_names">
- <image src="../../../assets/carousel/组 3911.png"></image>
-  <view class="zl_mz">身份证号:</view>
- <view class="zl_input"><input type="text" value="{{form.cardnum}}" disabled="true" /></view>
- </view>
- <view class="zl_name" style="margin-top: 50rpx;">
-  <image src="../../../assets/carousel/组 3910.png"></image>
-<view class="zl_mz" style="margin-left: 20rpx;">三级考试:</view>
-<view class="zl_input" style="font-size: 30rpx;">
-<input type="text" value="已通过" disabled="true" wx:if="{{tg==true}}"/>
-<input type="text" value="未通过" disabled="true" wx:if="{{tg==false}}" style="color: red;"/>
+<view class="box_two">
+<view class="two_left">姓名</view>
+<view class="two_right">{{form.name}}</view>
+</view>
+<view class="box_two">
+<view class="two_left">手机号码</view>
+<view class="two_right">{{form.phone}}</view>
+</view>
+<view class="box_two">
+<view class="two_left">身份证号</view>
+<view class="two_right">{{form.cardnum}}</view>
+</view>
+<view class="box_two">
+<view class="two_left">三级考试</view>
+<view class="two_right" wx:if="{{tg==true}}">已通过</view>
+<view class="two_right" wx:if="{{tg==false}}">未通过</view>
+</view>
+<view class="box_two">
+<view class="two_left">工种</view>
+<view class="two_right"><input value="{{form.zy}}" placeholder="请输入您的工种" bindchange="radioChangzys" />
+  <image src="../../../assets/carousel/路径 8043.png" style="width: 30rpx;height: 30rpx;"></image>
 </view>
 </view>
- <view class="zl_names">
- <image src="../../../assets/carousel/路径 8045.png"></image>
-  <view class="zl_mz">工种:</view>
-  <view class="zl_input"><input type="text" value="{{form.zy}}" bindchange="radioChangzys"  placeholder="请输入您的工种"/></view>
- <image src="../../../assets/carousel/路径 8043.png" style="position: absolute;right: 20rpx;width: 30rpx;height: 30rpx;"></image>
- </view>
- <view class="zl_names">
- <image src="../../../assets/carousel/路径 8046.png"></image>
-  <view class="zl_mz">班组:</view>
- <view class="zl_input"><input type="text" value="{{form.classname}}" bindchange="radioChangzy"  placeholder="请输入您的班组"/></view>
- <image src="../../../assets/carousel/路径 8043.png" style="position: absolute;right: 20rpx;width: 30rpx;height: 30rpx;"></image>
- </view>
- <view class="zl_names">
- <image src="../../../assets/carousel/组 3922.png"></image>
-  <view class="zl_mz">所属单位:</view>
- <view class="zl_input"><input type="text" value="{{orgname}}"  disabled="true"/></view>
- </view>
- <view class="zl_names">
- <image src="../../../assets/carousel/日期区间.png"></image>
-  <view class="zl_mz">有效区间:</view>
- <view class="zl_input" class="{{isActive==true?'active':'zl_input'}}"  wx:if="{{form.starttime!=null&&form.endtime!=null}}"><text>{{form.starttime}}</text>~<text>{{form.endtime}}</text></view>
- </view>
- <view class="zl_names" bindtap="goCertificate">
- <image src="../../../assets/carousel/组 3914.png"></image>
-  <view class="zl_mz">我的证书:</view>
- <image src="../../../assets/carousel/组 3915.png" style="position: absolute;right: 0rpx;width: 40rpx;height: 40rpx;"></image>
- </view>
- 
- <view><button style="width: 80%;background-color: #01AFEB;color: white;margin-top: 10rpx;" bindtap="postpersonal">上传</button></view>
+<view class="box_two">
+<view class="two_left">班组</view>
+<view class="two_right"><input value="{{form.classname}}" placeholder="请输入您的工种" bindchange="radioChangzy" />
+<image src="../../../assets/carousel/路径 8043.png" style="width: 30rpx;height: 30rpx;"></image>
 </view>
+</view>
+<view class="box_two">
+<view class="two_left">所属单位</view>
+<view class="two_right">{{orgname}}</view>
+</view>
+<view class="box_two">
+<view class="two_left">有效区间</view>
+<view class="two_right" wx:if="{{form.starttime!=null&&form.endtime!=null}}">{{form.starttime}}~{{form.endtime}}</view>
+</view>
+<view class="box_two" bindtap="goCertificate">
+<view class="two_left">我的证书</view>
+<view class="two_right"><image src="../../../assets/carousel/组 3915.png" style="width: 40rpx;height: 40rpx;"></image></view>
+</view>
+<view class="btn" bindtap="postpersonal">上传</view>
 </view>

@@ -70,7 +70,7 @@ Page({
     })
     },
     govideo(e){
-    // console.log(e.currentTarget.dataset.bean.examlevel)
+     console.log(e)
           wx.navigateTo({
             url: '../../subpackages/pages/zldetails/zldetails?kjid='+e.currentTarget.dataset.bean.id+'&examlevel='+e.currentTarget.dataset.bean.examlevel,
           })

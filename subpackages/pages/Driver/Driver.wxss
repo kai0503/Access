@@ -1,0 +1,203 @@
+/**index.wxss**/
+.box{
+  background-color: #fff;
+  height:100%;
+  overflow: hidden;
+}
+.caption-wrap {
+  background-color: white;
+  margin-top: 15px;
+}
+
+.caption-title {
+  background-color: #f7f7f7;
+  display: block;
+  margin-left: 5px;
+}
+
+.index-collapse {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.index-collapse-item {
+  padding: 8px 15px !important;
+  border: 0px !important;
+}
+
+.slide-image {
+  width: 100%;
+  height: 150px;
+}
+
+.index-cell {
+  padding: 5px 15px !important;
+}
+
+p{
+  display: none;
+}
+.item{
+  padding-left: 10rpx;
+  margin-top: 30rpx;
+  display: flex;
+  align-items: center;
+  padding-bottom: 30rpx;
+border-bottom: 1px solid #ccc;
+}
+
+.shijuan{
+  margin-top: 30rpx;
+  font-size: 30rpx;
+  padding-left: 10rpx;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20rpx;
+  color: #959597;
+}
+.timu{
+  margin-top: 10rpx;
+  font-size: 27rpx;
+}
+.mu{
+  margin-top: 5rpx;
+}
+.ke{
+  width: 100%;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #ccc;
+}
+.ketang{
+  width: 100%;
+  display: flex;
+  padding-left: 10rpx;
+ align-items: center;
+  padding-top: 10rpx;
+}
+.ketwo{
+  margin-left: 20rpx;
+  color: black;
+  padding-bottom: 10rpx;
+}
+
+
+
+.whole{
+  width: 100%;
+  display: flex;
+  height: 50rpx;
+  justify-content: center;
+  align-items: center;
+  font-size: 35rpx;
+}
+.whole_one{
+ position: relative;
+margin-left: -20rpx;
+z-index: 9999;
+}
+.whole_two{
+ position: relative;
+margin-top: -5rpx;
+  margin-right: 80rpx; 
+  font-size: 39rpx;
+  }
+  .whole_three{
+     margin-left: -70rpx; 
+    }
+    .title{
+      margin-top: 10rpx;
+      width: 100%;
+      display: flex;
+   padding: 0rpx 10rpx;
+      font-size: 30rpx;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      font-size: 40rpx;
+    }
+   
+    .texts{
+      margin-top: 20rpx;
+      width: 100%;
+      display: flex;
+      padding-left: 140rpx;
+      font-size: 30rpx;
+     
+    }
+    
+    .scroll_box{
+      width: 100%;
+      height: 100%;
+      border-radius: 10rpx;
+    }
+    .swiper{
+      width: 100%;
+      height: 100%;
+      }
+      .td{
+        display: flex;
+        justify-content: space-between;
+        padding:  0rpx 10rpx;
+      }
+      .td>li {
+        font-size: 35rpx;
+        color: #000;
+        vertical-align:middle;
+        text-align: center;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+      }
+      .jdk{
+        width: 100%;
+        display: flex;
+        justify-content:space-around;
+        align-items: center;
+        text-align: center;
+        font-size: 30rpx;
+        margin-top: 20rpx;
+        margin-bottom: 50rpx;
+
+      }
+      .jdk>view{
+         flex-grow: 1;
+      }
+      .jdk>view>image{
+      margin-left: 70rpx;
+      }
+      .tishi{
+        width: 750rpx;
+        position: absolute;
+        left: 15%;
+        top: 50%;
+        font-size: 40rpx;
+        color:#488BFE;
+      }
+      .ks{
+        width: 500rpx;
+        height: 100rpx;
+        line-height: 100rpx;
+        position: absolute;
+        background-color:red;
+        left: 15%;
+        top: 70%;
+        font-size: 60rpx;
+        color: #fff;
+        text-align: center;
+      }
+      .keone{
+        width: 180rpx;
+        height: 180rpx;
+      }
+      .zanwu{
+        position: absolute;
+        bottom: 2%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        font-size: 50rpx;
+        width: 100%;
+        text-align: center;
+        color: red;
+      }
+      .picker{
+        font-size: 40rpx;
+      }

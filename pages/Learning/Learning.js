@@ -1,4 +1,5 @@
 // pages/Learning/Learning.js
+let app=getApp()
 Page({
 
   /**
@@ -6,7 +7,10 @@ Page({
    */
   data: {
     flag:false,
-    time:5
+    time:5,
+    userid:'',
+    listss:[],
+    xinxi:''
   },
   jumpwdxx(){
       wx.navigateTo({
@@ -28,7 +32,67 @@ Page({
         url: '../../subpackages/pages/practice/index',
       })
   },
+  jumpsjpx(){
+    console.log(this.data.listss[0].id)
+    wx.navigateTo({
+      url: '../../subpackages/pages/Driver/Driver?kjid='+this.data.listss[0].id+'&examlevel='+this.data.listss[0].examlevel,
+    })
+    // wx.navigateTo({
+    //   url: '../../subpackages/pages/Driver/Driver',
+    // })
+  },
+  getuser(){
+    wx.request({
+      url: app.globalData.url+'api/courseware/getinfo',
+      method:'POST',
+      data:{
+       userid:wx.getStorageSync('userid')
+      },
+      success:res=>{
+     console.log(res)
+      let arr=[]
+      if(res.data.code==0){
+       res.data.data.kj.forEach(item=>{
+       // console.log(item.duration)
+        item.duration=item.duration/60
+       // console.log(item.duration)
+         if(item.thumbnail!=null){ 
+           item.thumbnail=app.globalData.url.concat((item.thumbnail.replace(/\\/,"/"))) 
+         }
+         if(item.examlevel==5){
+          arr.push(item)
+         }
+        })
+       // console.log(res)
+          this.setData({
+              listss:arr,
+          })
+      }else {
+        this.setData({
+          code:res.data.code,
+          lists:[]
+        })
+      }
+      }
+    })
+    },
+    getxinxi(){
+      wx.request({
+        url: app.globalData.url+'api/user/againExam',
+       method:'POST',
+       data:{
+        userid:wx.getStorageSync('userid'),
+       },
+       success:res=>{
+         console.log(res)
+         this.setData({
+           xinxi:res.data.message
+         })
+       }
+      })
+    },
   rypx(){
+   this.getxinxi()
    this.setData({
      flag:true,
    })
@@ -47,11 +111,34 @@ Page({
      flag:false
    })
   },
+  sjks(){
+    wx.request({
+     url: app.globalData.url+'api/paper/getinfo',
+     method:'POST',
+     data:{
+      userid:wx.getStorageSync('userid'),
+      examlevel:5
+     },
+     success:(res)=>{
+      if(res.data.code==1){
+       wx.showToast({
+        title: '请去学习资料，暂时还未达到学习时长',
+        icon:'none'
+      })
+      }else{
+       wx.navigateTo({
+        url: '/pages/papar/papar?examlevel='+5,
+      })
+      }
+     }
+   })
+    
+   
+ },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
   },
 
   /**
@@ -65,7 +152,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getuser()
   },
 
   /**

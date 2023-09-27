@@ -45,6 +45,7 @@
   text-align: center;
   background-color: #ffffff;
   padding: 20rpx;
+  border-radius: 20rpx 20rpx 0 0;
 }
 .modal-footer {
   position: relative;

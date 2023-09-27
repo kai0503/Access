@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/login/index",
     "pages/my/index",
     "pages/Learning/Learning",
-    "pages/login/index",
+    
     "pages/information/information",
     "pages/my/info/index",
     "pages/index/index",
@@ -46,7 +47,9 @@
         "pages/regulations/regulations",
         "pages/inspection/inspection",
         "pages/positions/positions",
-        "pages/emergency/emergency"
+        "pages/emergency/emergency",
+        "pages/safety/safety",
+        "pages/Driver/Driver"
       ]
     }
   ],

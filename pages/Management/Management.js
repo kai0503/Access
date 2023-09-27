@@ -27,6 +27,60 @@ Page({
      url: '../../subpackages/pages/emergency/emergency',
    })
   },
+  jumpsafety(){
+     wx.navigateTo({
+       url: '../../subpackages/pages/safety/safety',
+     })
+  },
+  QR(){
+    wx.scanCode({
+      success:(res)=>{
+        console.log(res)
+        if(res.result!=''){
+          this.setData({
+            ID:res.result
+          })
+          // if(res.result.substr(0,1)=='D'){
+          //   wx.navigateTo({
+          //     url: '../wxindex/wxindex?ID='+this.data.ID,
+          //   })
+          // }else{
+          //   wx.navigateTo({
+          //     url: '../../subpackages/pages/sign/index?ID='+this.data.ID,
+          //   })
+          // }
+         
+          wx.request({
+            url: app.globalData.url+'api/user/scanQrcode',
+            method:'POST',
+            data:{
+               qrcodeId:res.result
+            },
+            success:(res)=>{
+              console.log(res)
+              if(res.data.code==0){
+                if(res.data.data.codeno!=null&&res.data.data.codeno.substr(0,1)=='D'){
+            wx.navigateTo({
+              url: '../wxindex/wxindex?ID='+res.data.data.codeno,
+            })
+          }else{
+            wx.navigateTo({
+              url: '../../subpackages/pages/sign/index?ID='+res.data.data,
+            })
+          }
+              }else{
+                wx.showToast({
+                  title:res.data.msg,
+                  icon:'error'
+                })
+              }
+            }
+          })
+    
+        }
+      }
+     })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
