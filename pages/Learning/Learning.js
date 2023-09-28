@@ -110,6 +110,11 @@ Page({
    this.setData({
      flag:false
    })
+   setTimeout(() => {
+      this.setData({
+        time:5
+      })
+   }, 1000);
   },
   sjks(){
     wx.request({

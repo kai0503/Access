@@ -52,7 +52,9 @@ position: relative;
 display: flex;
 align-items: center;
 }
-
+.two_right input{
+  width: 240rpx;
+}
 .btn{
   width: 634rpx;
 height: 96rpx;

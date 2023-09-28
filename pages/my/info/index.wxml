@@ -38,7 +38,7 @@
 </view>
 <view class="box_two">
 <view class="two_left">班组</view>
-<view class="two_right"><input value="{{form.classname}}" placeholder="请输入您的工种" bindchange="radioChangzy" />
+<view class="two_right"><input value="{{form.classname}}" placeholder="请输入您的班组" bindchange="radioChangzy" />
 <image src="../../../assets/carousel/路径 8043.png" style="width: 30rpx;height: 30rpx;"></image>
 </view>
 </view>

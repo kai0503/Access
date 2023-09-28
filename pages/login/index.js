@@ -162,7 +162,7 @@ Page({
         'content-type': 'application/json'
       },
       success: (res) => {
-      // console.log("app.globalData.wechatId：" + res.data.data.openid)
+      console.log("app.globalData.wechatId：" + res.data.data)
         app.globalData.wechatId = res.data.data.openid
         if(wx.getStorageSync('wxuser')!=''){
           this.checkUserIsBind()
@@ -234,6 +234,7 @@ Page({
     })
   },
   checkUserIsBind: function () {
+    console.log(app.globalData.wechatId)
     wx.request({
       url: app.globalData.url + 'api/wechat/checkUser',
       data: {
@@ -245,9 +246,9 @@ Page({
       },
       success: (res) => {
         if (res.data.code == 0) {
-          // console.log(res)
+          console.log(res)
           if (res.data.data == null) {
-            // console.log("用户不存在");
+           console.log("用户不存在");
           } else {
           // console.log(app.globalData.wechatId,)
 
@@ -315,7 +316,7 @@ Page({
         img:'1'
       },
       success:(res)=>{
-      //  console.log(res)
+       console.log(res)
         if(res.data.code==0){
        
           wx.setStorageSync('contract',res.data.data.userinfo.contract)
