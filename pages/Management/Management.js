@@ -13,8 +13,11 @@ Page({
    })
   },
   jumpxcjc(){
+      // wx.navigateTo({
+      //   url: '../../subpackages/pages/inspection/inspection',
+      // })
       wx.navigateTo({
-        url: '../../subpackages/pages/inspection/inspection',
+        url: '../../subpackages/pages/safeinfo/safeinfo',
       })
   },
   jumprygw(){

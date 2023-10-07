@@ -7,14 +7,57 @@ Page({
    */
   data: {
     imgs: [],
-    data:'',
-    remark:''
+    imageurl:'',
+    safeproblem:'',
+    userid:'',
+    findtime:'',
+    infoid:''
   },
   remarkinput(e){
      console.log(e.detail.value)
      this.setData({
-       remark:e.detail.value
+      safeproblem:e.detail.value
      })
+  },
+  submit(){
+    console.log(this.data.imageurl,this.data.safeproblem,this.data.userid,this.data.findtime,this.data.infoid)
+    if(this.data.imageurl==''||this.data.safeproblem==''){
+      wx.showToast({
+        title:'请填写完整的信息',
+        icon:'none'
+      })
+    }else{
+      wx.request({
+        url: app.globalData.url+'api/safe/saveProblem',
+        method:'POST',
+        data:{
+          userid:this.data.userid,
+          safeproblem:this.data.safeproblem,
+          findtime:this.data.findtime,
+          imageurl:this.data.imageurl,
+          infoid:this.data.infoid
+        },
+        success:res=>{
+          console.log(res)
+          if(res.data.code==0){
+            wx.showToast({
+              title: res.data.msg,
+              icon:'success'
+            })
+           setTimeout(() => {
+            wx.navigateBack({
+              delta:2
+            })
+           }, 1000);
+          }else{
+            wx.showToast({
+              title: res.data.msg,
+              icon:'error'
+            })
+          }
+        }
+      })
+    }
   },
   chooseImg: function (e) {
     var that = this;
@@ -54,7 +97,7 @@ Page({
        imgs: imgs
       });
         wx.uploadFile({
-            url: app.globalData.url+'api/upload/importImg', //接受图片的接口地址
+            url: app.globalData.url+'api/safe/importsafeImg', //接受图片的接口地址
             filePath: tempFilePaths[0],
             name: 'file',
             formData: {
@@ -71,7 +114,7 @@ Page({
               // 更新存放图片的数组
               console.log(result.data)
               that.setData({
-                  data:result.data.slice(8)
+                imageurl:result.data.slice(8)
               });
            console.log(that.data.data)
           // that.data.fileList.push(file.url)
@@ -90,54 +133,7 @@ Page({
      }
     });
    },
-  upload(){
-    console.log(this.data)
-     if(this.data.name==''||this.data.classification==''||this.data.item==''||this.data.mechanism==''||this.data.data==''){
-      wx.showToast({
-        title: '请输入完整的信息',
-        icon:'none',
-        duration: 1500,
-      })
-     }else{
-     
-      wx.request({
-       url: app.globalData.url+"api/wx/myZsInfo",
-       method:'POST',
-       data:{
-         userid:wx.getStorageSync('userid'),
-         name:this.data.name,
-         zytype:this.data.classification,
-         operational:this.data.item,
-         fzjg:this.data.mechanism,
-         staretime:this.data.startdate,
-         endtime:this.data.enddate,
-         img:this.data.data,
-         type:'P'
-       },
-       success:(res)=>{
-         console.log(res)
-         if(res.data.code==0){
-          wx.showToast({
-            title: '证书添加成功',
-            icon:'SUCCESS',
-            duration: 1500,
-          })
-          wx.navigateBack({
-            delta: 1,
-          })
-          this.setData({
-            name:'',
-            classification:'',
-            item:'',
-            mechanism:'',
-            imgs:''
-          })
-         }
-       }
-      })
-     }
-       
-   },
+  
    // 删除图片
  deleteImg: function (e) {
   var imgs = this.data.imgs;
@@ -159,11 +155,60 @@ Page({
     urls: imgs
    })
   },
+  getNowDate: function () {
+ 
+ 
+    var date = new Date();
+    var year = date.getFullYear() //年
+    var month = date.getMonth() + 1//月
+    var day = date.getDate()//日
+  
+    var hour = date.getHours()//时
+    var minute = date.getMinutes()//分
+    var second = date.getSeconds()//秒
+  if(month<10){
+    month="0"+month
+  }else{
+    month=month+""
+  }
+  if(day<10){
+    day="0"+day
+  }else{
+    day=day+""
+  }
+    var xiaoshi = "";
+    if (hour < 10) {
+        xiaoshi = "0" + hour;
+    } else {
+        xiaoshi = hour + "";
+    }
+  
+    var fenzhong = "";
+    if (minute < 10) {
+        fenzhong = "0" + minute;
+    } else {
+        fenzhong = minute + "";
+    }
+  
+    var miao = "";
+    if (second < 10) {
+        miao = "0" + second;
+    } else {
+        miao = second + "";
+    }
+    this.setData({
+      findtime: year + '-' + month + '-' + day + ' ' + xiaoshi + ':' + fenzhong + ':' + miao
+    })
+  
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+ console.log(options.id)
+ this.setData({
+   infoid:options.id
+ })
   },
 
   /**
@@ -177,7 +222,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+      this.setData({
+       userid:wx.getStorageSync('userid'),
+      })
+      this.getNowDate()
   },
 
   /**

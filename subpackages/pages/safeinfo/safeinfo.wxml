@@ -1,0 +1,18 @@
+<view>
+<view class="box">
+<view class="box_cont" wx:for="{{list}}" wx:key="index" bindtap="goxxjx" data-bean="{{item}}">
+<view class="cont_one">
+<view class="one_left">
+<view wx:if="{{item.code!=null}}">安全信息编号:{{item.code}}</view>
+<view wx:if="{{item.content!=null}}">安全内容:{{item.content}}</view>
+<view wx:if="{{item.safttype_show!=null}}">安全信息类型:{{item.safttype_show}}</view>
+<view wx:if="{{item.starttime!=null}}">开始时间:{{item.starttime}}</view>
+<view wx:if="{{item.endtime!=null}}">结束时间:{{item.endtime}}</view>
+<view wx:if="{{item.selectnameStr!=null}}">执行人:{{item.selectnameStr}}</view>
+<view wx:if="{{item.dealstate_show!=null}}">状态:{{item.dealstate_show}}</view>
+</view>
+<view class="one_right"><image src="../../../assets/carousel/y.png"></image></view>
+</view>
+</view>
+</view>
+</view>

@@ -1,4 +1,4 @@
-<view style="height: 100vh;">
+<view style="height: 100vh;position: relative;">
   <view class="title">
 <image class="title_image" src="../../assets/carousel/bjj.png"></image>
 </view>
@@ -55,7 +55,9 @@
 			  <radio checked="{{checked}}"></radio>
 			  <text bindtap="openView">已阅读并同意<text style="color: blue;">《用户服务协议》与《隐私政策》</text></text>
 			  </radio-group>
-			  <view wx:if="{{showView}}" class="show-view1">
+			 
+  </view>
+  <view wx:if="{{showView}}" class="show-view1">
 			        <view class="show-view2" bindtap="openView">
 			          <scroll-view class="show-view2-detial" scroll-y="true">
 			            <rich-text class="htmlSnipviewtxt" nodes="{{htmlSnip}}">
@@ -63,5 +65,4 @@
 			          </scroll-view>
 			        </view>
         </view>
-  </view>
 </view>

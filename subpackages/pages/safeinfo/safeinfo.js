@@ -8,12 +8,21 @@ Page({
   data: {
        list:[]
   },
+  goxxjx(e){
+     console.log(e.currentTarget.dataset.bean.id)
+     // wx.navigateTo({
+      //   url: '../../subpackages/pages/inspection/inspection',
+      // })
+      wx.navigateTo({
+        url: '../inspection/inspection?id='+e.currentTarget.dataset.bean.id,
+      })
+  },
 getlist(){
        wx.request({
         url: app.globalData.url+'api/safe/getSafeinfo',
-        method:'GET',
+        method:'POST',
         data:{
-          userid:wx.getStorageSync('userid')
+          userid:'1111111111'
         },
         success:res=>{
           console.log(res)
