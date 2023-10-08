@@ -11,7 +11,7 @@ Page({
 getlist(){
        wx.request({
         url: app.globalData.url+'api/safe/getSafeinfo',
-        method:'GET',
+        method:'POST',
         data:{
           userid:wx.getStorageSync('userid')
         },

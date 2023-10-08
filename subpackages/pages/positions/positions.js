@@ -1,36 +1,33 @@
 // subpackages/pages/positions/positions.js
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    num:0
+    score:0
   },
- jian(){
-  if(this.data.num<=0){
-    wx.showToast({
-      title: '满意分数最低为0分',
-      icon:'none'
+ getscore(){
+    wx.request({
+      url: app.globalData.url+"api/pub/getPeopleerror",
+      method:'POST',
+      data:{
+        userid:wx.getStorageSync('userid')
+      },
+      success:res=>{
+        console.log(res)
+        if(res.data.code==0){
+          this.setData({
+            score:res.data.data.score
+          })
+        }else{
+          this.setData({
+            score:''
+          })
+        }
+      }
     })
-    return
-  }
-  this.setData({
-    num:this.data.num-1
-  })
- },
- jia(){
-   if(this.data.num>=10){
-     wx.showToast({
-       title: '满意分数最高为10分',
-       icon:'none'
-     })
-     return
-   }
-  this.setData({
-    num:this.data.num+1
-  })
-
  },
   /**
    * 生命周期函数--监听页面加载
@@ -50,7 +47,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getscore()
   },
 
   /**

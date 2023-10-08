@@ -1,0 +1,6 @@
+<view class="box">
+<view class="item" wx:for="{{list}}" wx:key="index" data-bean="{{item}}" bindtap="getid">
+<view>沈阳第一煤场南京分厂管理</view>
+<view><switch checked="{{item.isChecked}}" bindchange="changeSwitch"></switch></view>
+</view>
+</view>

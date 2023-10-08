@@ -30,6 +30,11 @@ Page({
      url: '../../subpackages/pages/emergency/emergency',
    })
   },
+  jumpcoal(){
+  wx.navigateTo({
+    url: '../../subpackages/pages/coal/coal',
+  })
+  },
   jumpsafety(){
      wx.navigateTo({
        url: '../../subpackages/pages/safety/safety',

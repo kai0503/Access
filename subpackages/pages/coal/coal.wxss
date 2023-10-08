@@ -1,0 +1,19 @@
+/* subpackages/pages/coal/coal.wxss */
+.box{
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+.item{
+  width: 95%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 120rpx;
+  line-height: 120rpx;
+  border-bottom: 1px solid #EBEBEB;
+  font-size: 35rpx;
+  font-weight: bold;
+}

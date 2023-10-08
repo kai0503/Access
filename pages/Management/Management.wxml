@@ -9,7 +9,7 @@
 <view class="item_one" bindtap="jumprygw">
 <image src="../../assets/carousel/rygw.png"></image>
 </view>
-<view class="item_one">
+<view class="item_one" bindtap="jumpcoal">
 <image src="../../assets/carousel/mcgl.png"></image>
 </view>
 <view class="item_one" bindtap="jumpxcjc">
