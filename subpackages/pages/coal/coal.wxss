@@ -17,3 +17,24 @@
   font-size: 35rpx;
   font-weight: bold;
 }
+.item_right{
+  display: flex;
+  
+}
+.item_right view{
+  width: 100rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  margin-right: 20rpx;
+  text-align: center;
+}
+.off{
+  background-color: #B3B3B3;
+  color: white;
+  border-radius: 15rpx;
+}
+.open{
+  background-color: #3662EC;
+  color: white;
+  border-radius: 15rpx;
+}

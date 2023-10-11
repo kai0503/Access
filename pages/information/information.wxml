@@ -35,5 +35,5 @@
 <view>前往考试 ></view>
 </view>
 </view>
-<view style="width: 100%;" class="ct"><button class="c_ctb" bindtap="gocuoti">错题本</button><button class="c_lx" bindtap="golianxi" wx:if="{{flag==0}}">考前练习</button></view>
+<view style="width: 100%;" class="ct"><button class="c_ctb" bindtap="gocuoti">错题本</button></view>
 </view>

@@ -21,10 +21,10 @@
 <view class="dzgk_one" wx:if="{{fg==2}}">特种证</view>
 <view class="dzgk_two" wx:if="{{fg==1}}">电子工卡</view>
 <view class="dzgk_two" wx:if="{{fg==2}}">特种证</view>
-<view class="dzgk_three" wx:if="{{fg==1}}">1234567890</view>
+<view class="dzgk_three" wx:if="{{fg==1}}">{{dzgk}}</view>
 <view class="dzgk_three" wx:if="{{fg==2}}">12345</view>
-<view class="dzgk_four" wx:if="{{fg==1}}" bindtap="qhdz">切换特种证 ></view>
-<view class="dzgk_four" wx:if="{{fg==2}}" bindtap="qhtz">切换电子工卡 ></view>
+<!-- <view class="dzgk_four" wx:if="{{fg==1}}" bindtap="qhdz">切换特种证 ></view>
+<view class="dzgk_four" wx:if="{{fg==2}}" bindtap="qhtz">切换电子工卡 ></view> -->
 </view>
 <view class="qxkz">
 <view class="kqlx" wx:if="{{stafftype==2}}">
@@ -40,9 +40,10 @@
 <switch checked="{{isCheckedvideo}}" bindchange="changeSwitchvideo" color="#4A68EB"></switch>
 </view>
 <view class="kqlx" wx:if="{{stafftype==2}}">
-<view>考试开关</view>
-<view>已开启</view>
-<switch checked="{{isChecked1}}" bindchange="changeSwitch1"></switch>
+<view >考试开关</view>
+<view wx:if="{{testisopen==true}}">已开启</view>
+<view wx:if="{{testisopen==false}}">已关闭</view>
+<switch checked="{{testisopen}}" bindchange="changeSwitch2"></switch>
 </view>
 <!-- <view class="kqlx" bindtap="QR">
 <view>扫一扫</view>

@@ -28,7 +28,7 @@ Page({
         method:'POST',
         data:{
           paperid:this.data.id,
-          userid:wx.getStorageSync('userid')
+          // userid:wx.getStorageSync('userid')
         },
         success:(res)=>{
           console.log(res)

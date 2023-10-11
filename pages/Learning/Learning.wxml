@@ -12,13 +12,13 @@
 <view class="item_one" bindtap="rypx">
 <image src="../../assets/carousel/rypx.png"></image>
 </view>
-<view class="item_one" bindtap="jumpkqlx">
+<view class="item_one" bindtap="jumpkqlx" wx:if="{{stafftype!=4}}">
 <image src="../../assets/carousel/kqlx.png"></image>
 </view>
-<view class="item_one" bindtap="jumpsjpx">
+<view class="item_one" bindtap="jumpsjpx" wx:if="{{stafftype==4||stafftype==2}}">
 <image src="../../assets/carousel/skpx.png"></image>
 </view>
-<view class="item_one" bindtap="sjks">
+<view class="item_one" bindtap="sjks" wx:if="{{stafftype==4||stafftype==2}}">
 <image src="../../assets/carousel/sjks.png"></image>
 </view>
 <view class="modal-mask" wx:if="{{flag==true}}">

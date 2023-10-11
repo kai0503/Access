@@ -7,7 +7,16 @@ Page({
   data: {
 
   },
-
+  pictures(){
+     wx.navigateTo({
+       url: '../pictures/pictures',
+     })
+  },
+  telephone(){
+      wx.navigateTo({
+        url: '../telephone/telephone',
+      })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

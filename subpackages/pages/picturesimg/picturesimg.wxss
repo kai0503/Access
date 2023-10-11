@@ -1,0 +1,9 @@
+/* subpackages/pages/picturesimg/picturesimg.wxss */
+.box{
+  width: 100%;
+  height: 500rpx;
+}
+.box image{
+  width: 100%;
+  height: 100%;
+}

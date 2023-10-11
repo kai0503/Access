@@ -53,12 +53,14 @@
   <view class="ydxy">
 			  <radio-group bindchange="radiochanges" class="radio_btn">
 			  <radio checked="{{checked}}"></radio>
-			  <text bindtap="openView">已阅读并同意<text style="color: blue;">《用户服务协议》与《隐私政策》</text></text>
+			  <text bindtap="openView" style="margin-left: 10rpx;">已阅读并同意<text style="color: blue;">《用户服务协议》与《隐私政策》</text></text>
 			  </radio-group>
 			 
   </view>
   <view wx:if="{{showView}}" class="show-view1">
-			        <view class="show-view2" bindtap="openView">
+
+			        <view class="show-view2" >
+                <view class="close" bindtap="openView"><image src="../../assets/carousel/ch.png" style="width: 52rpx;height: 52rpx;"></image></view>
 			          <scroll-view class="show-view2-detial" scroll-y="true">
 			            <rich-text class="htmlSnipviewtxt" nodes="{{htmlSnip}}">
 			            </rich-text>

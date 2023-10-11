@@ -1,5 +1,7 @@
 <view>
+  <view class="btns" bindtap="jumprecords">查看以往现场检查记录<image src="../../../assets/carousel/yj.png"></image></view>
 <view class="box">
+ 
 <view class="box_title">现场检查照片</view>
 <view class="box_img">
   <view class="weui-uploader">

@@ -111,9 +111,9 @@ Page({
               // 更新存放图片的数组
               console.log(result.data)
               that.setData({
-                imageurl:result.data.slice(8)
+                imageurl:result.data.slice(17)
               });
-           console.log(that.data.data)
+           console.log(that.data.imageurl)
           // that.data.fileList.push(file.url)
               wx.hideLoading();//停止loading
              }else{
@@ -197,6 +197,11 @@ Page({
       findtime: year + '-' + month + '-' + day + ' ' + xiaoshi + ':' + fenzhong + ':' + miao
     })
   
+  },
+  jumprecord(){
+    wx.navigateTo({
+      url: '../record/record',
+    })
   },
   /**
    * 生命周期函数--监听页面加载

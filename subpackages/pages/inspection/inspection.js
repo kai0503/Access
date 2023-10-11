@@ -106,7 +106,7 @@ Page({
             success(res) {
               console.log(res)
               var result = JSON.parse(res.data);
-              console.log(result.data.slice(8))
+              console.log(result.data.slice(17))
               if(result.code==0){
                 // 上传完成需要更新 fileList
            
@@ -114,9 +114,9 @@ Page({
               // 更新存放图片的数组
               console.log(result.data)
               that.setData({
-                imageurl:result.data.slice(8)
+                imageurl:result.data.slice(17)
               });
-           console.log(that.data.data)
+           console.log(that.data.imageurl)
           // that.data.fileList.push(file.url)
               wx.hideLoading();//停止loading
              }else{
@@ -133,7 +133,11 @@ Page({
      }
     });
    },
-  
+   jumprecords(){
+       wx.navigateTo({
+         url: '../records/records',
+       })
+   },
    // 删除图片
  deleteImg: function (e) {
   var imgs = this.data.imgs;

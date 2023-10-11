@@ -1,0 +1,14 @@
+<view>
+<view class="box">
+<view class="box_cont" wx:for="{{list}}" wx:key="index"  >
+<view class="cont_one">
+<view class="one_left">
+<view wx:if="{{item.dataname!=null}}">电话类型:{{item.dataname}}</view>
+<view wx:if="{{item.phone!=null}}">电话号码:{{item.phone}}</view>
+</view>
+<view class="one_right" bindtap="callphone" data-bean="{{item}}">拨打电话</view>
+</view>
+</view>
+<view wx:if="{{list.length==0}}" class="zanwu">暂无应急处置电话</view>
+</view>
+</view>

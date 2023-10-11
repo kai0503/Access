@@ -1,5 +1,7 @@
 <view>
+  <view class="btns" bindtap="jumprecord">查看以往随手拍记录<image src="../../../assets/carousel/yj.png"></image></view>
 <view class="box">
+ 
 <view class="box_title">违章照片</view>
 <view class="box_img">
   <view class="weui-uploader">
@@ -23,4 +25,5 @@
 </view>
 <view bindtap="submit" class="btn">上传</view>
 </view>
+
 </view>

@@ -8,18 +8,31 @@ Page({
   data: {
        list:[]
   },
+  gopdf(e){
+   console.log(e.currentTarget.dataset.bean.fileurl)
+   wx.navigateTo({
+     url: '../files/files?wj='+e.currentTarget.dataset.bean.fileurl,
+   })
+  },
 getlist(){
        wx.request({
-        url: app.globalData.url+'api/safe/getSafeinfo',
+        url: app.globalData.url+'api/pub/getSafedata',
         method:'POST',
         data:{
-          userid:wx.getStorageSync('userid')
+          datatype:'0'
         },
         success:res=>{
           console.log(res)
           if(res.data.code==0){
+            let arr=[]
+            res.data.data.detail[0].file.forEach(item=>{
+              if(item.filetype!='image'){
+                item.fileurl=app.globalData.url.concat(item.fileurl)
+                 arr.push(item)
+              }
+            })
             this.setData({
-              list:res.data.data
+              list:arr
             })
           }
         }
@@ -43,7 +56,7 @@ getlist(){
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getlist()
+   this.getlist()
   },
 
   /**

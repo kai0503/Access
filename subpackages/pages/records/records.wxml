@@ -1,0 +1,21 @@
+<view>
+<view class="box">
+<view class="box_sousuo">
+<input type="text" placeholder="请输入查询内容" value="{{keyword}}" bindchange="getkeyword" />
+<view bindtap="sousuo">搜索</view>
+</view>
+<view class="box_conts">
+  <view class="box_cont" wx:for="{{list}}" wx:key="index" data-bean="{{item}}">
+<view class="cont_one">
+  <view class="one_right"><image src="{{item.proimgurl}}" bindtap="previewImg" data-index="{{index}}"></image></view>
+<view class="one_left">
+<view>录入信息:{{item.safeproblem}}</view>
+<view>录入时间:{{item.findtime}}</view>
+</view>
+
+</view>
+</view>
+</view>
+<view wx:if="{{list.length==0}}" class="zanwu">暂无现场检查记录</view>
+</view>
+</view>

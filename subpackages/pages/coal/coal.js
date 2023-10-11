@@ -1,71 +1,74 @@
 // subpackages/pages/coal/coal.js
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    isChecked1:null,
-    list:[
-      {
-        id:1,
-        isChecked:false
-      },{
-        id:2,
-        isChecked:true
-      },{
-        id:3,
-        isChecked:false
-      },{
-        id:4,
-        isChecked:false
-      },{
-        id:5,
-        isChecked:false
-      },{
-        id:6,
-        isChecked:false
-      },{
-        id:7,
-        isChecked:false
-      },{
-        id:8,
-        isChecked:false
-      },{
-        id:9,
-        isChecked:false
-      },{
-        id:10,
-        isChecked:false
-      },{
-        id:11,
-        isChecked:false
-      },{
-        id:12,
-        isChecked:false
-      },{
-        id:13,
-        isChecked:false
-      },{
-        id:14,
-        isChecked:false 
-      },{
-        id:15,
-        isChecked:false
-      },{
-        id:16,
-        isChecked:false
-      },
-    ]
+    jdqnum:'',
+    parthnum:'',
+    state:'',
+    jdqname:'',
+    list:[]
   },
   getid(item){
-       console.log(item.currentTarget.dataset.bean.id,this.data.isChecked1)
+       console.log(item.currentTarget.dataset.bean.jdqnum,item.currentTarget.dataset.bean.parthnum,this.data.state)
+       this.setData({
+        jdqnum:item.currentTarget.dataset.bean.jdqnum,
+        parthnum:item.currentTarget.dataset.bean.parthnum,
+        jdqname:item.currentTarget.dataset.bean.jdqname
+       })
+       wx.request({
+         url: app.globalData.url+'api/pub/updateJdq',
+         method:'POST',
+         data:{
+           jdqnum:this.data.jdqnum,
+           pathnum:this.data.parthnum,
+           state:this.data.state
+         },
+         success:res=>{
+           console.log(res)
+           if(res.data.msg=='ON修改成功'){
+             wx.showToast({
+               title:this.data.jdqname+'开启成功',
+               icon:'none'
+             })
+           }else if(res.data.msg=='OFF修改成功'){
+            wx.showToast({
+              title:this.data.jdqname+'关闭成功',
+              icon:'none'
+            })
+           }
+         }
+       })
   },
-  changeSwitch(e){
-     console.log(e.detail.value)
-     this.setData({
-      isChecked1:e.detail.value
-     })
+ off(){
+    this.setData({
+      state:'OFF'
+    })
+ },
+ open(){
+  this.setData({
+    state:'ON'
+  })
+ },
+  getlist(){
+      wx.request({
+        url: app.globalData.url+'api/pub/getJdqdata',
+        method:'POST',
+        data:{
+          userid:wx.getStorageSync('userid')
+        },
+        success:res=>{
+          console.log(res)
+          if(res.data.code==0){
+            this.setData({
+              list:res.data.data
+            })
+          }
+        }
+      })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -85,7 +88,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+     this.getlist()
   },
 
   /**

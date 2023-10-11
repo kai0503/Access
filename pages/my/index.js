@@ -12,7 +12,9 @@ Page({
     imgs:[],
     isChecked1:false,
     isCheckedvideo:false,
-    fg:1
+    testisopen:false,
+    fg:1,
+    dzgk:''
   },
   qhdz(){
    this.setData({
@@ -31,9 +33,9 @@ Page({
       isChecked1:e.detail.value
     })
     if(e.detail.value==true){
-      e.detail.value=0
-    }else{
       e.detail.value=1
+    }else{
+      e.detail.value=0
     }
     console.log(e.detail.value)
     wx.request({
@@ -70,6 +72,35 @@ Page({
       method:'POST',
       data:{
         open:e.detail.value,
+      },
+      success:(res)=>{
+        console.log(res)
+        if(res.data.code==0){
+          wx.showToast({
+            title: '设置成功',
+            icon:'success'
+          })
+        }
+      }
+    })
+  },
+  changeSwitch2(e){
+    console.log(e.detail.value)
+    wx.setStorageSync('check', e.detail.value)
+    this.setData({
+      testisopen:e.detail.value
+    })
+    if(e.detail.value==true){
+      e.detail.value=1
+    }else{
+      e.detail.value=0
+    }
+    console.log(e.detail.value)
+    wx.request({
+      url:app.globalData.url+'api/user/updateSetUp',
+      method:'POST',
+      data:{
+        testisopen:e.detail.value,
       },
       success:(res)=>{
         console.log(res)
@@ -219,22 +250,44 @@ wx.scanCode({
     var n = wx.getStorageSync("userinfo");
     let ischeck=wx.getStorageSync('setup').isopen
    let ischeckvideo=wx.getStorageSync('open')
+   let ksopen=wx.getStorageSync('setup').testisopen
+   let dzgl=wx.getStorageSync('wxuser').codeno
+   console.log(dzgl)
+   this.setData({
+    dzgk:dzgl
+  })
     if(ischeck==1){
+      this.setData({
+        isChecked1:true
+      })
+    }else if(ischeck==0){
       this.setData({
         isChecked1:false
       })
-    }else if(ischeck==0){
-      isChecked1:true
     }
+
+    if(ksopen==1){
+      this.setData({
+        testisopen:true
+      })
+    }else if(ksopen==0){
+      this.setData({
+        testisopen:false
+      })
+    }
+
+
     if(ischeckvideo==0){
       this.setData({
         isCheckedvideo:false
       })
     }else if(ischeckvideo==1){
-      isCheckedvideo:true
+      this.setData({
+        isCheckedvideo:true
+      })
     }
    // console.log(n)
-  console.log(ischeck)
+  console.log(this.data.isChecked1,this.data.testisopen,this.data.isCheckedvideo)
     this.setData({
       nickName:n.nickName,
       //isChecked1:ischeck,

@@ -3,7 +3,7 @@
   width: 92%;
   margin-left: 50%;
   transform: translate(-50%,0);
-  padding-top: 50rpx;
+  padding-top: 10rpx;
 }
 .box_title{
   border-left: 2px solid blue;
@@ -93,5 +93,27 @@ text-align: center;
 margin-left: 50%;
 transform: translate(-50%,0);
 position: relative;
-margin-top: 500rpx;
+margin-top: 529rpx;
+  }
+  .btns{
+    width: 750rpx;
+    height: 76rpx;
+    background-color: #FFEFB9;
+    opacity: 1;
+    font-size: 32rpx;
+    font-family: PingFang SC-Bold, PingFang SC;
+    font-weight: 400;
+    color: #FFA644;
+    line-height: 76rpx;
+    text-align: left;
+    padding-left: 37rpx;
+    margin-bottom: 30rpx;
+    font-weight: bold;
+  }
+  .btns image{
+    width: 42rpx;
+    height: 42rpx;
+    position: relative;
+    left: 17rpx;
+    top: 9rpx;
   }

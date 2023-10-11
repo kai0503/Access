@@ -26,6 +26,14 @@ Page({
        },
        success:(res)=>{
          console.log(res,'11111111111')
+         if(res.data.code==0){
+
+            wx.switchTab({
+              url: '/pages/index/index',
+             })
+        
+         }
+
        }
      })
   },
@@ -169,9 +177,6 @@ Page({
          })
        setTimeout(()=>{
          wx.setStorageSync('comein', true)
-        wx.switchTab({
-          url: '/pages/index/index',
-         })
        },2000)
       }else {
         wx.showToast({
@@ -209,6 +214,17 @@ Page({
      },
      success:(res)=>{
        console.log(res,'22222222222')
+       if(res.data.code==0){
+       wx.showToast({
+         title: '更换成功',
+         icon:'success'
+       })
+       setTimeout(()=>{
+        wx.switchTab({
+          url: '/pages/index/index',
+         })
+       },2000)
+       }
        // if(res.data.code==0){
        //   wx.showToast({
        //     title: '人脸照片修改成功',

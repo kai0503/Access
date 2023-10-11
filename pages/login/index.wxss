@@ -137,6 +137,7 @@ align-items: center;
     opacity: 1;
     align-self: center;
     margin: auto;
+    position: relative;
   }
   .show-view2-title{
     
@@ -161,4 +162,13 @@ align-items: center;
   .htmlSnipviewtxt{
     padding: 20rpx; 
     display: block;
+  }
+  .wx-radio-input {
+    width: 27rpx !important;
+    height: 27rpx !important;
+  }
+  .close{
+    position: absolute;
+    right: -10rpx;
+    top: -22rpx;
   }

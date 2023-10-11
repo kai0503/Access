@@ -1,0 +1,5 @@
+<view>
+<view class="box" >
+  <image src="{{imgs}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg" ></image>
+</view>
+</view>

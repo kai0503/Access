@@ -251,7 +251,11 @@ Page({
            console.log("用户不存在");
           } else {
           // console.log(app.globalData.wechatId,)
-
+          this.setData({
+            nickName:wx.getStorageSync('phone'),
+            password:wx.getStorageSync('password'),
+            checked:true
+          })
             wx.setStorageSync('userid', res.data.data.id)
             this.getimg()
             wx.showToast({
@@ -277,6 +281,7 @@ Page({
             // wx.switchTab({
             //   url: '/pages/index/index',
             // })
+            
             this.denglu()
           }
           

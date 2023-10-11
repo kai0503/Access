@@ -1,0 +1,18 @@
+<view>
+<view class="box">
+<!-- <view class="box_sousuo">
+<input type="text" placeholder="请输入查询内容" />
+<view>搜索</view>
+</view> -->
+<view class="box_cont" wx:for="{{list}}" wx:key="index"  bindtap="gopdf" data-bean="{{item}}">
+<view class="cont_one">
+<view class="one_left">
+<view>文件名称:{{item.filename}}</view>
+<view>文件类型:图片</view>
+</view>
+<view class="one_right"><image src="../../../assets/carousel/y.png"></image></view>
+</view>
+</view>
+<view wx:if="{{list.length==0}}" class="zanwu">暂无应急处置数据</view>
+</view>
+</view>
