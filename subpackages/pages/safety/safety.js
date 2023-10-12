@@ -10,9 +10,31 @@ Page({
   },
   gopdf(e){
    console.log(e.currentTarget.dataset.bean.fileurl)
-   wx.navigateTo({
-     url: '../files/files?wj='+e.currentTarget.dataset.bean.fileurl,
+   wx.showLoading({
+     title: '正在打开中',
    })
+
+   wx.downloadFile({
+    // 示例 url，并非真实存在
+    url: e.currentTarget.dataset.bean.fileurl,
+    success: function (res) {
+      const filePath = res.tempFilePath
+      wx.openDocument({
+        filePath: filePath,
+        success: function (res) {
+          console.log('打开文档成功')
+          wx.hideLoading({
+            success: (res) => {},
+          })
+        }
+      })
+    }
+  })
+
+
+  //  wx.navigateTo({
+  //    url: '../files/files?wj='+e.currentTarget.dataset.bean.fileurl,
+  //  })
   },
 getlist(){
        wx.request({

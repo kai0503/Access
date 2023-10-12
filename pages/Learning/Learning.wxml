@@ -25,9 +25,10 @@
 <view class="modal-content">
 <view class="content_title">提示</view>
 <view class="content_cont">{{xinxi}}</view>
-</view>
 <view class="modal-footer" wx:if="{{time>0}}">倒计时({{time}})</view>
-<view class="modal-footer" wx:if="{{time==0}}" bindtap="queren">确认</view>
+<view class="modal-footers"  wx:if="{{time==0}}" bindtap="queren">确认</view>
+</view>
+
 </view>
 </view>
 </view>

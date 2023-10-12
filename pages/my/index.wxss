@@ -191,3 +191,9 @@ color: #3B3B4D;
   width: 32rpx;
   height: 32rpx;
 }
+.zt_jc{
+  font-size: 26rpx;
+font-family: PingFang SC-Medium, PingFang SC;
+font-weight: bold;
+color: #000000;
+}

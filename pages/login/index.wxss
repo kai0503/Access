@@ -164,8 +164,8 @@ align-items: center;
     display: block;
   }
   .wx-radio-input {
-    width: 27rpx !important;
-    height: 27rpx !important;
+    width: 35rpx !important;
+    height: 35rpx !important;
   }
   .close{
     position: absolute;
