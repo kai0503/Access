@@ -9,6 +9,7 @@ Page({
     peoplelist:{},
     pjdate:'',
     time:null,
+    stafftype:'',
     ec: {
       lazyLoad: true // 延迟加载
     },
@@ -26,7 +27,7 @@ Page({
        },
        success:res=>{
          console.log(res)
-         if(res.data.code==0&&this.data.fg==true){
+         if(res.data.code==0&&this.data.fg==true&&this.data.stafftype==true){
           wx.showModal({
       title: '提示',
       content: '您还没有进行岗位评价，请前往评价',
@@ -128,6 +129,13 @@ Page({
     // })
   },
   onShow(){
+    let abs=wx.getStorageSync('wxuser').stafftype
+    if(abs==2||abs==0){
+      this.setData({
+        stafftype:true
+      })
+    }
+   
     this.echartsComponnet = this.selectComponent('#mychart');
     this.getData(); //获取数据
     this.getNowDate()

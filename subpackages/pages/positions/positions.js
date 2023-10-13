@@ -184,9 +184,9 @@ console.log(this.data.sjdf)
               icon:'none'
             })
             setTimeout(()=>{
-              wx.navigateBack({
-                delta:1
-              })
+             wx.switchTab({
+               url: '../../../pages/Management/Management',
+             })
             },500)
           }else{
             wx.showToast({

@@ -1,9 +1,9 @@
 <view class="box">
 <view class="item">
-<view class="item_one" bindtap="jumpwdxx">
+<view class="item_one" bindtap="jumpwdxx" wx:if="{{stafftype==2||stafftype==0}}">
 <image src="../../assets/carousel/wdxx.png"></image>
 </view>
-<view class="item_one" bindtap="jumpwdks">
+<view class="item_one" bindtap="jumpwdks" wx:if="{{stafftype==2||stafftype==0}}">
 <image src="../../assets/carousel/wdks.png"></image>
 </view>
 <view class="item_one" bindtap="jumpksjg">

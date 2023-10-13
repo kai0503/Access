@@ -1,18 +1,18 @@
 <view class="box">
 <view class="item">
-<view class="item_one" bindtap="jumpwz">
+<view class="item_one" bindtap="jumpwz" wx:if="{{stafftype==2||stafftype==0}}">
 <image src="../../assets/carousel/fwz.png"></image>
 </view>
-<view class="item_one" bindtap="QR">
+<view class="item_one" bindtap="QR" wx:if="{{stafftype==2||stafftype==0}}">
 <image src="../../assets/carousel/dgdw.png"></image>
 </view>
-<view class="item_one" bindtap="jumprygw">
+<view class="item_one" bindtap="jumprygw" wx:if="{{stafftype==2||stafftype==0}}">
 <image src="../../assets/carousel/rygw.png"></image>
 </view>
-<view class="item_one" bindtap="jumpcoal">
+<view class="item_one" bindtap="jumpcoal" wx:if="{{stafftype==2}}">
 <image src="../../assets/carousel/mcgl.png"></image>
 </view>
-<view class="item_one" bindtap="jumpxcjc">
+<view class="item_one" bindtap="jumpxcjc" wx:if="{{stafftype==2||stafftype==0}}">
 <image src="../../assets/carousel/xcjc.png"></image>
 </view>
 <view class="item_one" bindtap="jumpsafety">
