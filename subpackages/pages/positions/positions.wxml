@@ -1,11 +1,79 @@
 
 <view class="box">
-   <view class="item" wx:if="{{score!=''}}">
-    <view class="item_one">
-    <view class="one_left">当前分数:</view>
-    <view class="one_right">{{score}}</view>
+<view class="item">
+<view class="item_one">
+<view class="one_left"><text>*</text>所在部门班组</view>
+<view class="one_right">{{orgname}}</view>
+</view>
+<view class="item_one">
+<view class="one_left"><text>*</text>人员姓名</view>
+<view class="one_right">{{name}}</view>
+</view>
+<view class="item_one">
+<view class="one_left"><text>*</text>评价类型</view>
+<view class="one_right">
+   <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="picker">
+   {{array[index]}}
     </view>
-   </view>
-   <view class="kf" wx:if="{{score==''}}">您的评价良好，暂未扣分</view>
-   </view>
-
+  </picker>
+  <image src="../../../assets/carousel/xyl.png"></image>
+</view>
+</view>
+<view class="item_one">
+<view class="one_left"><text>*</text>日期</view>
+<view class="one_right">{{pjdate}}</view>
+</view>
+<view class="item_one">
+<view class="one_left"><text>*</text>责任制扣分</view>
+<view class="one_right">
+   <input type="number" placeholder="请输入扣的分数" maxlength="2" value="{{zrkou}}" bindchange="getzrkou"  />
+</view>
+</view>
+<view class="item_one">
+<view class="one_left"><text>*</text>扣分原因</view>
+<view class="one_right">
+<input type="text" placeholder="请输入扣分原因" value="{{zrreason}}" bindchange="getzrreason" />
+</view>
+</view>
+<view class="item_one">
+<view class="one_left">岗位评分标准</view>
+<view class="one_right" bindtap="gwpf">
+<image src="../../../assets/carousel/word.png" style="margin-right: 10rpx;"></image>
+<view>查看文档</view>
+</view>
+</view>
+<view class="item_one">
+<view class="one_left"><text>*</text>附加项扣分</view>
+<view class="one_right">
+   <input type="number" placeholder="请输入附加项扣分分数" maxlength="2" value="{{fjkou}}" bindchange="getfjkou" />
+</view>
+</view>
+<view class="item_one">
+<view class="one_left"><text>*</text>附加项扣分原因</view>
+<view class="one_right">
+   <input type="number" placeholder="请输入附加项扣分原因" value="{{fjreason}}" bindchange="getreason" />
+</view>
+</view>
+<view class="item_one">
+<view class="one_left">附加项标准</view>
+<view class="one_right" bindtap="fjbz">
+<image src="../../../assets/carousel/word.png" style="margin-right: 10rpx;"></image>
+<view>查看文档</view>
+</view>
+</view>
+<view class="item_one">
+<view class="one_left"><text>*</text>实际得分</view>
+<view class="one_right">{{sjdf<0?'0':sjdf}}</view>
+</view>
+<view class="item_one">
+<view class="one_left"><text>*</text>上月评级得分</view>
+<view class="one_right">{{months}}</view>
+</view>
+<view class="item_one">
+<view class="one_left"><text>*</text>上季度评级得分</view>
+<view class="one_right">{{jds}}</view>
+</view>
+</view>
+<view class="btn" bindtap="submit">提交</view>
+</view>

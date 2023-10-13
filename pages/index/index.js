@@ -7,6 +7,8 @@ Page({
    */
   data: {
     peoplelist:{},
+    pjdate:'',
+    time:null,
     ec: {
       lazyLoad: true // 延迟加载
     },
@@ -14,12 +16,122 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  getpj(){
+     wx.request({
+       url: app.globalData.url+'api/pub/isPj',
+       method:'POST',
+       data:{
+         userid:wx.getStorageSync('userid'),
+         pjdate:this.data.pjdate
+       },
+       success:res=>{
+         console.log(res)
+         if(res.data.code==0&&this.data.fg==true){
+          wx.showModal({
+      title: '提示',
+      content: '您还没有进行岗位评价，请前往评价',
+      confirmText: "前去评价",
+      showCancel:false,
+      success (res) {
+        if (res.confirm) {
+         wx.navigateTo({
+           url: '../../subpackages/pages/positions/positions',
+         })
+        } else if (res.cancel) {
+        }
+      }
+    })
+         }else{
+        
+         }
+       }
+     })
+  },
+  getNowDate: function () {
+    var date = new Date();
+    var year = date.getFullYear() //年
+    var month = date.getMonth() + 1//月
+    var day = date.getDate()//日
+  
+    var hour = date.getHours()//时
+    var minute = date.getMinutes()//分
+    var second = date.getSeconds()//秒
+    var week=date.getDay()
+  if(month<10){
+    month="0"+month
+  }else{
+    month=month+""
+  }
+  if(day<10){
+    day="0"+day
+  }else{
+    day=day+""
+  }
+    var xiaoshi = "";
+    if (hour < 10) {
+        xiaoshi = "0" + hour;
+    } else {
+        xiaoshi = hour + "";
+    }
+  
+    var fenzhong = "";
+    if (minute < 10) {
+        fenzhong = "0" + minute;
+    } else {
+        fenzhong = minute + "";
+    }
+  
+    var miao = "";
+    if (second < 10) {
+        miao = "0" + second;
+    } else {
+        miao = second + "";
+    }
+    let time='星期'+['日','一','二','三','四','五','六','日',][week]
+    let timehourl=xiaoshi
+    this.setData({
+      findtime:xiaoshi + ':' + fenzhong + ':' + miao,
+      pjdate:year + '-' + month + '-' + day,
+      time:time
+    })
+    if(time=='星期五'&&timehourl>10){
+      this.setData({
+        fg:true
+      })
+    }else{
+      this.setData({
+        fg:false
+      })
+    }
+    // console.log(time)
+    // if(time>'星期五 10:00'){
+    //   console.log('true')
+    // }else{
+    //   console.log('false')
+    // }
+  },
   onLoad: function (options) {
-    
+  
+
+    // wx.showModal({
+    //   title: '提示',
+    //   content: '您还没有进行岗位评价，请前往评价',
+    //   confirmText: "前去评价",
+    //   showCancel:false,
+    //   success (res) {
+    //     if (res.confirm) {
+    //       console.log('用户点击确定')
+    //     } else if (res.cancel) {
+    //       console.log('用户点击取消')
+    //     }
+    //   }
+    // })
   },
   onShow(){
     this.echartsComponnet = this.selectComponent('#mychart');
     this.getData(); //获取数据
+    this.getNowDate()
+  this.getpj()
   },
   getData: function () {
   	/**

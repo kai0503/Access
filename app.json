@@ -1,6 +1,10 @@
 {
   "pages": [
     "pages/login/index",
+    "pages/Management/Management",
+    
+    
+    
     "pages/my/index",
     "pages/Learning/Learning",
     "pages/information/information",
@@ -23,8 +27,7 @@
     "pages/my/message/info/index",
     "pages/examination/index",
     "pages/result/result",
-    "pages/fraction/fraction",
-    "pages/Management/Management"
+    "pages/fraction/fraction"
   ],
   "subPackages": [
     {

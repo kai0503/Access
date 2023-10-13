@@ -19,8 +19,10 @@ Page({
     url: e.currentTarget.dataset.bean.fileurl,
     success: function (res) {
       const filePath = res.tempFilePath
+      console.log(res)
       wx.openDocument({
         filePath: filePath,
+        fileType: "docx",
         success: function (res) {
           console.log('打开文档成功')
           wx.hideLoading({
