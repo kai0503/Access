@@ -31,12 +31,12 @@ Page({
            console.log(res)
            if(res.data.msg=='ON修改成功'){
              wx.showToast({
-               title:this.data.jdqname+'开启成功',
+               title:this.data.jdqname+'关闭成功',
                icon:'none'
              })
            }else if(res.data.msg=='OFF修改成功'){
             wx.showToast({
-              title:this.data.jdqname+'关闭成功',
+              title:this.data.jdqname+'开启成功',
               icon:'none'
             })
            }
@@ -45,12 +45,12 @@ Page({
   },
  off(){
     this.setData({
-      state:'OFF'
+      state:'ON'
     })
  },
  open(){
   this.setData({
-    state:'ON'
+    state:'OFF'
   })
  },
   getlist(){

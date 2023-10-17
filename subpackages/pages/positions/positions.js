@@ -174,7 +174,8 @@ console.log(this.data.sjdf)
           zrreason:this.data.zrreason,
           fjkou:this.data.fjkou,
           fjreason:this.data.fjreason,
-          id:this.data.id
+          id:this.data.id,
+          score:this.data.sjdf
         },
         success:res=>{
           console.log(res)

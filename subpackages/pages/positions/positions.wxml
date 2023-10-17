@@ -52,7 +52,7 @@
 <view class="item_one">
 <view class="one_left"><text>*</text>附加项扣分原因</view>
 <view class="one_right">
-   <input type="number" placeholder="请输入附加项扣分原因" value="{{fjreason}}" bindchange="getreason" />
+   <input type="text" placeholder="请输入附加项扣分原因" value="{{fjreason}}" bindchange="getreason" />
 </view>
 </view>
 <view class="item_one">

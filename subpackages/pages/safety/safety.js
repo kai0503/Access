@@ -9,34 +9,47 @@ Page({
        list:[]
   },
   gopdf(e){
-   console.log(e.currentTarget.dataset.bean.fileurl)
-   wx.showLoading({
-     title: '正在打开中',
+    console.log(e.currentTarget.dataset.bean.fileurl)
+    wx.getSystemInfo({
+      success: function (res) {
+       console.log(res.platform)
+       if(res.platform=='ios'){
+ wx.navigateTo({
+     url: '../files/files?wj='+e.currentTarget.dataset.bean.fileurl,
    })
+       }else{
+        wx.showLoading({
+          title: '正在打开中',
+        })
+     
+        wx.downloadFile({
+         // 示例 url，并非真实存在
+         url: e.currentTarget.dataset.bean.fileurl,
+         success: function (res) {
+           const filePath = res.tempFilePath
+           console.log(res)
+           wx.openDocument({
+             filePath: filePath,
+             fileType: "docx",
+             success: function (res) {
+               console.log('打开文档成功')
+               wx.hideLoading({
+                 success: (res) => {},
+               })
+             }
+           })
+         }
+       })
+     
+       }
+      }
+    })
 
-   wx.downloadFile({
-    // 示例 url，并非真实存在
-    url: e.currentTarget.dataset.bean.fileurl,
-    success: function (res) {
-      const filePath = res.tempFilePath
-      console.log(res)
-      wx.openDocument({
-        filePath: filePath,
-        fileType: "docx",
-        success: function (res) {
-          console.log('打开文档成功')
-          wx.hideLoading({
-            success: (res) => {},
-          })
-        }
-      })
-    }
-  })
 
 
-  //  wx.navigateTo({
-  //    url: '../files/files?wj='+e.currentTarget.dataset.bean.fileurl,
-  //  })
+   
+
+  
   },
 getlist(){
        wx.request({
@@ -66,7 +79,7 @@ getlist(){
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+   
   },
 
   /**
