@@ -100,10 +100,11 @@ Page({
       url: app.globalData.url+'api/courseware/getinfo',
       method:'POST',
       data:{
-       userid:wx.getStorageSync('userid')
+       userid:wx.getStorageSync('userid'),
+       type:'1'
       },
       success:res=>{
-     console.log(res)
+     console.log(res,'111111111111')
       let arr=[]
       if(res.data.code==0){
        res.data.data.kj.forEach(item=>{
@@ -180,6 +181,7 @@ Page({
        examlevel:5
       },
       success:(res)=>{
+        console.log(res)
        if(res.data.code==1){
         wx.showToast({
          title: '请去学习资料，暂时还未达到学习时长',
@@ -194,8 +196,6 @@ Page({
     })
   },
   sjks(){
-
-
     wx.request({
       url: app.globalData.url+'api/user/selectSetUp',
       method:'POST',

@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-       list:[]
+       list:[],
+       findtime:''
   },
   goxxjx(e){
      console.log(e.currentTarget.dataset.bean.id)
@@ -22,7 +23,7 @@ getlist(){
         url: app.globalData.url+'api/safe/getSafeinfo',
         method:'POST',
         data:{
-          userid:'1111111111'
+          userid:'1111111111',
         },
         success:res=>{
           console.log(res)
@@ -34,11 +35,58 @@ getlist(){
         }
        })
 },
+getNowDate: function () {
+ 
+ 
+  var date = new Date();
+  var year = date.getFullYear() //年
+  var month = date.getMonth() + 1//月
+  var day = date.getDate()//日
+
+  var hour = date.getHours()//时
+  var minute = date.getMinutes()//分
+  var second = date.getSeconds()//秒
+if(month<10){
+  month="0"+month
+}else{
+  month=month+""
+}
+if(day<10){
+  day="0"+day
+}else{
+  day=day+""
+}
+  var xiaoshi = "";
+  if (hour < 10) {
+      xiaoshi = "0" + hour;
+  } else {
+      xiaoshi = hour + "";
+  }
+
+  var fenzhong = "";
+  if (minute < 10) {
+      fenzhong = "0" + minute;
+  } else {
+      fenzhong = minute + "";
+  }
+
+  var miao = "";
+  if (second < 10) {
+      miao = "0" + second;
+  } else {
+      miao = second + "";
+  }
+  
+  this.setData({
+    findtime: year + '-' + month + '-' + day + ' ' + xiaoshi + ':' + fenzhong + ':' + miao
+  })
+console.log(this.data.findtime)
+},
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+  this.getNowDate()
   },
 
   /**

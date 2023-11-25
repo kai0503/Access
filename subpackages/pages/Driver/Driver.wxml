@@ -7,9 +7,9 @@
 <view class="ke"  wx:for="{{lists}}" wx:key="index" wx:for-item="item" >
   <view class="ketang" bindtap="govideo" data-bean="{{item}}">
 <view class="keone">
-<image src="http://203.195.156.104:8013/contract/wl.jpg" style="width: 180rpx;height: 180rpx;" wx:if="{{item.coursewaretype==3}}"></image>
-<image src="http://203.195.156.104:8013/contract/MP4.png" style="width: 180rpx;height: 180rpx;" wx:if="{{item.coursewaretype==2}}"></image>
-<image src="http://203.195.156.104:8013/contract/pdf.jpg" style="width: 180rpx;height: 180rpx;" wx:if="{{item.coursewaretype==1}}"></image>
+<image src="http://wsny.sdlczq.cn:8013/contract/wl.jpg" style="width: 180rpx;height: 180rpx;" wx:if="{{item.coursewaretype==3}}"></image>
+<image src="http://wsny.sdlczq.cn:8013/contract/MP4.png" style="width: 180rpx;height: 180rpx;" wx:if="{{item.coursewaretype==2}}"></image>
+<image src="http://wsny.sdlczq.cn:8013/contract/pdf.jpg" style="width: 180rpx;height: 180rpx;" wx:if="{{item.coursewaretype==1}}"></image>
 </view>
 <view class="ketwo">
 <view style="margin: 10rpx 0 5rpx 10rpx;font-size: 29rpx; color: #959597;">创建时间:{{item.createtime}}</view>

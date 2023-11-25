@@ -48,6 +48,15 @@ getlist(){
         }
        })
 },
+jumpproblem(e){
+  if(e.currentTarget.dataset.bean.dealstate==0){
+    wx.navigateTo({
+      url: '../problem/problem?id='+e.currentTarget.dataset.bean.id,
+    })
+  }
+  console.log(e.currentTarget.dataset.bean.id)
+ 
+},
 getlists(){
   this.setData({
     pageNum:this.data.pageNum+1

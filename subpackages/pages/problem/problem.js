@@ -12,6 +12,7 @@ Page({
     userid:'',
     remark:'',
     flag:true,
+    mainid:''
   },
   bindTextAreaBlur(e){
      console.log(e.detail.value)
@@ -29,14 +30,15 @@ Page({
     }else{
       if(this.data.flag==true){
         wx.request({
-          url: app.globalData.url+'api/safe/saveViolation',
+          url: app.globalData.url+'api/safe/saveViolationsub',
           method:'POST',
           data:{
             userid:this.data.userid,
             safeproblem:this.data.safeproblem,
             findtime:this.data.findtime,
             imageurl:this.data.imageurl,
-            remark:this.data.remark
+            remark:this.data.remark,
+            mainid:this.data.mainid
           },
           success:res=>{
             console.log(res)
@@ -61,7 +63,7 @@ Page({
             }else{
               wx.showToast({
                 title: res.data.msg,
-                icon:'error'
+                icon:'none'
               })
             }
           }
@@ -234,7 +236,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options.id)
+    this.setData({
+      mainid:options.id
+    })
   },
 
   /**

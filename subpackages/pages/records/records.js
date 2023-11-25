@@ -9,7 +9,8 @@ Page({
        list:[],
        imgs:[],
        pageNum:1,
-       keyword:''
+       keyword:'',
+       infoid:''
   },
   getkeyword(e){
      console.log(e)
@@ -31,7 +32,8 @@ getlist(){
           userid:wx.getStorageSync('userid'),
           keyword:this.data.keyword,
           pageSize:10,
-          pageNum:this.data.pageNum
+          pageNum:this.data.pageNum,
+          infoid:this.data.infoid
         },
         success:res=>{
           console.log(res)
@@ -64,7 +66,8 @@ getlists(){
      userid:wx.getStorageSync('userid'),
      keyword:this.data.keyword,
      pageSize:10,
-     pageNum:this.data.pageNum
+     pageNum:this.data.pageNum,
+     infoid:this.data.infoid
    },
    success:res=>{
      console.log(res)
@@ -103,7 +106,10 @@ previewImg(e){
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options)
+    this.setData({
+      infoid:options.id
+    })
   },
 
   /**

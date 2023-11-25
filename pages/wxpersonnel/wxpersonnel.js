@@ -86,7 +86,16 @@ this.setData({
      time:this.data.hidetime
     },
     success:(res)=>{
-    //  console.log(res)
+      console.log(res)
+      if(res.data.code==0){
+        wx.showToast({
+          title: res.data.msg,
+        })
+      }else{
+        wx.showToast({
+          title: res.data.msg,
+        })
+      }
     }
   })
   },

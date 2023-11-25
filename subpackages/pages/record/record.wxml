@@ -5,12 +5,13 @@
 <view bindtap="sousuo">搜索</view>
 </view>
 <view class="box_conts">
-  <view class="box_cont" wx:for="{{list}}" wx:key="index" data-bean="{{item}}">
+  <view class="box_cont" wx:for="{{list}}" wx:key="index" data-bean="{{item}}" bindtap="jumpproblem">
 <view class="cont_one">
   <view class="one_right"><image src="{{item.problemimage}}" bindtap="previewImg" data-index="{{index}}"></image></view>
 <view class="one_left">
 <view>拍摄内容:{{item.problem}}</view>
 <view>拍摄时间:{{item.findtime}}</view>
+<view>问题类型：<text wx:if="{{item.dealstate==0}}" style="color: red;">待解决</text><text wx:if="{{item.dealstate==1}}">已解决</text></view>
 </view>
 
 </view>

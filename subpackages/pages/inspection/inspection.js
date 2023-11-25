@@ -11,7 +11,9 @@ Page({
     safeproblem:'',
     userid:'',
     findtime:'',
-    infoid:''
+    infoid:'',
+    flag:true,
+    remark:''
   },
   remarkinput(e){
      console.log(e.detail.value)
@@ -19,47 +21,77 @@ Page({
       safeproblem:e.detail.value
      })
   },
+  bindTextAreaBlur(e){
+    console.log(e)
+    this.setData({
+      safeproblem:e.detail.value
+     })
+  },
+  getaddress(e){
+    console.log(e)
+    this.setData({
+      remark:e.detail.value
+    })
+   },
   submit(){
-    console.log(this.data.imageurl,this.data.safeproblem,this.data.userid,this.data.findtime,this.data.infoid)
-    if(this.data.imageurl==''||this.data.safeproblem==''){
+  
+    console.log(this.data.imageurl,this.data.safeproblem)
+    if(this.data.imageurl==''||this.data.safeproblem==''||this.data.remark==''){
       wx.showToast({
         title:'请填写完整的信息',
         icon:'none'
       })
     }else{
-      wx.request({
-        url: app.globalData.url+'api/safe/saveProblem',
-        method:'POST',
-        data:{
-          userid:this.data.userid,
-          safeproblem:this.data.safeproblem,
-          findtime:this.data.findtime,
-          imageurl:this.data.imageurl,
-          infoid:this.data.infoid
-        },
-        success:res=>{
-          console.log(res)
-          if(res.data.code==0){
-            wx.showToast({
-              title: res.data.msg,
-              icon:'success'
+      if(this.data.flag==true){
+        wx.request({
+          url: app.globalData.url+'api/safe/saveProblem',
+          method:'POST',
+          data:{
+            userid:this.data.userid,
+            safeproblem:this.data.safeproblem,
+            findtime:this.data.findtime,
+            imageurl:this.data.imageurl,
+            infoid:this.data.infoid,
+            remark:this.data.remark
+          },
+          success:res=>{
+            console.log(res)
+            this.setData({
+              flag:false
             })
-           setTimeout(() => {
-            wx.navigateBack({
-              delta:2
-            })
-           }, 1000);
-          }else{
-            wx.showToast({
-              title: res.data.msg,
-              icon:'error'
-            })
+            setTimeout(()=>{
+             this.setData({
+               flag:true
+             })
+            },5000)
+            if(res.data.code==0){
+
+              wx.showToast({
+                title: res.data.msg,
+                icon:'success'
+              })
+               this.setData({
+                imageurl:'',
+                safeproblem:'',
+                imgs:[],
+                remark:''
+               })
+            }else{
+              wx.showToast({
+                title: res.data.msg,
+                icon:'error'
+              })
+            }
           }
-        }
-      })
+        })
+      }else{
+       
+      }
+     
     }
   },
   chooseImg: function (e) {
+    console.log('1111111')
     var that = this;
     var imgs = this.data.imgs;
     if (imgs.length >= 9) {
@@ -73,7 +105,9 @@ Page({
      }, 2500);
      return false;
     }
+
     wx.chooseImage({
+     
       count: 1, // 默认9
      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
@@ -96,6 +130,10 @@ Page({
       that.setData({
        imgs: imgs
       });
+      wx.showLoading({
+        title: '上传中',
+        mask:true
+      })
         wx.uploadFile({
             url: app.globalData.url+'api/safe/importsafeImg', //接受图片的接口地址
             filePath: tempFilePaths[0],
@@ -135,7 +173,7 @@ Page({
    },
    jumprecords(){
        wx.navigateTo({
-         url: '../records/records',
+         url: '../records/records?id='+this.data.infoid,
        })
    },
    // 删除图片
@@ -146,6 +184,9 @@ Page({
   this.setData({
    imgs: imgs
   });
+  this.setData({
+    imageurl:''
+  })
  },
   previewImg: function (e) {
     //获取当前图片的下标

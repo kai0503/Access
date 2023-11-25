@@ -14,7 +14,10 @@ Page({
     isCheckedvideo:false,
     testisopen:false,
     fg:1,
-    dzgk:''
+    dzgk:'',
+    orgname:'',
+    image:'',
+    hgFlag:''
   },
   qhdz(){
    this.setData({
@@ -252,9 +255,13 @@ wx.scanCode({
    let ischeckvideo=wx.getStorageSync('open')
    let ksopen=wx.getStorageSync('setup').testisopen
    let dzgl=wx.getStorageSync('wxuser').codeno
-   console.log(dzgl)
+   console.log(app.globalData.url.concat(wx.getStorageSync('wxuser').contract))
+   let img=app.globalData.url.concat(wx.getStorageSync('wxuser').contract)
    this.setData({
-    dzgk:dzgl
+    dzgk:dzgl,
+    orgname:wx.getStorageSync('wxuser').orgname,
+    image:img.replace(/\\/,"/"),
+    hgFlag:wx.getStorageSync('HG'),
   })
     if(ischeck==1){
       this.setData({

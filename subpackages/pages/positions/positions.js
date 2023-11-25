@@ -116,47 +116,184 @@ console.log(this.data.sjdf)
      })
   },
   gwpf(){
-    console.log(this.data.gwfile)
-    wx.downloadFile({
-      // 示例 url，并非真实存在
-      url: this.data.gwfile,
-      success: function (res) {
-        const filePath = res.tempFilePath
-        wx.openDocument({
-          filePath: filePath,
-          fileType: "docx",
+
+    var that=this;
+   
+    if(that.data.gwfile.charAt(that.data.gwfile.length-1)===','){
+      that.data.gwfile=that.data.gwfile.slice(0,-1)
+    }
+    let pdfReg = /^.+(\.pdf)$/
+    let wordReg = /^.+(\.doc|\.docx)$/
+    console.log(that.data.gwfile)
+   wx.getSystemInfo({
+     success: function (res) {
+      console.log(res.platform)
+      if(res.platform=='ios'){
+wx.navigateTo({
+    url: '../files/files?wj='+that.data.gwfile,
+  })
+      }else{
+       if(pdfReg.test(that.data.gwfile)){
+         console.log('pdf')
+         wx.showLoading({
+           title: '正在打开中',
+           mask:true,
+         })
+      
+         wx.downloadFile({
+          // 示例 url，并非真实存在
+          url: that.data.gwfile,
           success: function (res) {
-            console.log('打开文档成功')
-            wx.hideLoading({
-              success: (res) => {},
+            const filePath = res.tempFilePath
+            console.log(res)
+            wx.openDocument({
+              filePath: filePath,
+              fileType: "pdf",
+              success: function (res) {
+                console.log('打开文档成功')
+                wx.hideLoading({
+                  success: (res) => {},
+                })
+              }
             })
           }
         })
+       }else if(wordReg.test(that.data.gwfile)){
+         console.log('word')
+         wx.showLoading({
+           title: '正在打开中',
+           mask:true,
+         })
+      
+         wx.downloadFile({
+          // 示例 url，并非真实存在
+          url: that.data.gwfile,
+          success: function (res) {
+            const filePath = res.tempFilePath
+            console.log(res)
+            wx.openDocument({
+              filePath: filePath,
+              fileType: "docx",
+              success: function (res) {
+                console.log('打开文档成功')
+                wx.hideLoading({
+                  success: (res) => {},
+                })
+              }
+            })
+          }
+        })
+       }
       }
-    })
+     }
+   })
+
+
+
+   
   },
   fjbz(){
-    wx.downloadFile({
-      // 示例 url，并非真实存在
-      url: this.data.fjfile,
-      success: function (res) {
-        const filePath = res.tempFilePath
-        wx.openDocument({
-          filePath: filePath,
-          fileType: "docx",
-          success: function (res) {
-            console.log('打开文档成功')
-            wx.hideLoading({
-              success: (res) => {},
-            })
-          }
-        })
+    var that=this;
+   
+     if(that.data.fjfile.charAt(that.data.fjfile.length-1)===','){
+      that.data.fjfile=that.data.fjfile.slice(0,-1)
+     }
+     let pdfReg = /^.+(\.pdf)$/
+     let wordReg = /^.+(\.doc|\.docx)$/
+     console.log(that.data.fjfile)
+    wx.getSystemInfo({
+      success: function (res) {
+       console.log(res.platform)
+       if(res.platform=='ios'){
+ wx.navigateTo({
+     url: '../files/files?wj='+that.data.fjfile,
+   })
+       }else{
+        if(pdfReg.test(that.data.fjfile)){
+          console.log('pdf')
+          wx.showLoading({
+            title: '正在打开中',
+            mask:true,
+          })
+       
+          wx.downloadFile({
+           // 示例 url，并非真实存在
+           url: that.data.fjfile,
+           success: function (res) {
+             const filePath = res.tempFilePath
+             console.log(res)
+             wx.openDocument({
+               filePath: filePath,
+               fileType: "pdf",
+               success: function (res) {
+                 console.log('打开文档成功')
+                 wx.hideLoading({
+                   success: (res) => {},
+                 })
+               }
+             })
+           }
+         })
+        }else if(wordReg.test(that.data.fjfile)){
+          console.log('word')
+          wx.showLoading({
+            title: '正在打开中',
+            mask:true,
+          })
+       
+          wx.downloadFile({
+           // 示例 url，并非真实存在
+           url: that.data.fjfile,
+           success: function (res) {
+             const filePath = res.tempFilePath
+             console.log(res)
+             wx.openDocument({
+               filePath: filePath,
+               fileType: "docx",
+               success: function (res) {
+                 console.log('打开文档成功')
+                 wx.hideLoading({
+                   success: (res) => {},
+                 })
+               }
+             })
+           }
+         })
+        }
+
+
+
+
+
+
+
+     
+     
+       }
       }
     })
+
+    // wx.downloadFile({
+    //   // 示例 url，并非真实存在
+    //   url: this.data.fjfile,
+    //   success: function (res) {
+    //     const filePath = res.tempFilePath
+    //     wx.openDocument({
+    //       filePath: filePath,
+    //       fileType: "docx,pdf",
+    //       success: function (res) {
+    //         console.log('打开文档成功')
+    //         wx.hideLoading({
+    //           success: (res) => {},
+    //         })
+    //       }
+    //     })
+    //   }
+    // })
   },
   submit(){
     console.log(this.data.userid,this.data.orgid,this.data.pjtype,this.data.pjdate,this.data.zrkou,this.data.zrreason,this.data.fjkou,this.data.fjreason,this.data.id)
-    if(this.data.zrkou==''||this.data.zrreason==''||this.data.fjkou==''||this.data.fjreason==''){
+    if(this.data.zrkou==''||(this.data.zrreason==''&&this.data.zrkou!=0)||this.data.fjkou==''||(this.data.fjreason==''&&this.data.fjkou!=0)){
       wx.showToast({
         title: '请填写完整信息',
         icon:'none'

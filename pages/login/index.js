@@ -199,6 +199,7 @@ Page({
              wx.setStorageSync('open', res.data.data.open)
               wx.setStorageSync('setup', res.data.data.setup)
               wx.setStorageSync('wxuser', res.data.data.userinfo)
+              wx.setStorageSync('HG', res.data.data.hgFlag)
               wx.setStorageSync('userid', res.data.data.userinfo.id)
               wx.setStorageSync('contract', res.data.data.userinfo.contract)
               this.setData({

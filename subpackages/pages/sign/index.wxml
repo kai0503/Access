@@ -59,17 +59,17 @@
 </view>
 </view>
 </view>
-<view class="box_one" style="padding-top: 150rpx;" wx:if="{{flag}}">
+<view class="box_one" style="padding-top: 150rpx;">
  <view class="one_title">6.上传检查图片</view>
  <view class="weui-uploader">
-    <view class='pics' wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
-        <image class='weui-uploader__img' src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg">
-           <!-- <icon class="icon-small" type="cancel" size="23" data-index="{{index}}" bindtap="deleteImg"></icon>  -->
+    <view class='pics' wx:for="{{imgs}}" wx:for-item="item" wx:key="*this" >
+        <image class='weui-uploader__img' src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="chooseImg" bindlongtap="previewImg">
+           <!-- <icon class="icon-small" type="cancel" size="23" data-index="{{index}}" bindtap="deleteImg"></icon>  bindtap="previewImg"  -->
            <!-- <icon class="icon-small" type="success" size="23" data-index="{{index}}" bindtap="deleteImg"></icon>  -->
         </image>
         <image  src="../../../assets/carousel/x.png" style="width: 50rpx;height: 50rpx;position: absolute;right: 0rpx;" ata-index="{{index}}" bindtap="deleteImg"></image>
     </view>
-    <view class="tp_cont {{tj_ycang?'':'hide'}}" bindtap="chooseImg">
+    <view class="tp_cont {{tj_ycang?'':'hide'}}" bindtap="chooseImg" wx:if="{{imgs.length==0}}">
    
       <view class="tp_add"><text style="display: block;">+</text>上传检查图片</view>
     </view>

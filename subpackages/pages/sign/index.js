@@ -19,7 +19,9 @@ Page({
     imgs: [],
     data:'',
     nowTime:'',
-    orgname:''
+    orgname:'',
+    imageurl:'',
+    flag:true
   },
 
   /**
@@ -106,42 +108,57 @@ Page({
   })
   },
   postval(){
-       console.log(this.data.isActive,this.data.isActives,this.data.isActivess,this.data.isActivesss,this.data.isActivessss,this.data.value)
-       if(this.data.isActive==null||this.data.isActives==null||this.data.isActivess==null||this.data.isActivesss==null||this.data.isActivessss==null){
+    
+       console.log(this.data.isActive,this.data.isActives,this.data.isActivess,this.data.isActivesss,this.data.isActivessss,this.data.value,this.data.imageurl)
+       if(this.data.isActive==null||this.data.isActives==null||this.data.isActivess==null||this.data.isActivesss==null||this.data.isActivessss==null||this.data.imageurl==''){
         wx.showToast({
          title: '请完善检查项目选项',
          icon:'none'
        })
        }else{
-        wx.request({
-          url: app.globalData.url+'api/user/scanQrcode',
-          method:'POST',
-          data:{
-           userid:wx.getStorageSync('userid'),
-           qrcodeId:this.data.ID,
-           isdevice:this.data.isActive,
-           isfighting:this.data.isActives,
-           issafety:this.data.isActivess,
-           ishealth:this.data.isActivesss,
-           istemperature:this.data.isActivessss,
-           contment:this.data.value
-          },
-          success:(res)=>{
-         console.log(res.data)
-           if(res.data.code==0){
-           // console.log('111')
-            wx.showToast({
-             title:res.data.msg,
-             icon:'success'
-           })
-          setTimeout(()=>{
-            wx.navigateBack({
-              delta: 1,
-            })
-          },2000)
-           }
-          }
-        })
+       
+        
+         if(this.data.flag==true){
+          wx.request({
+            url: app.globalData.url+'api/user/scanQrcode',
+            method:'POST',
+            data:{
+             userid:wx.getStorageSync('userid'),
+             qrcodeId:this.data.ID,
+             isdevice:this.data.isActive,
+             isfighting:this.data.isActives,
+             issafety:this.data.isActivess,
+             ishealth:this.data.isActivesss,
+             istemperature:this.data.isActivessss,
+             contment:this.data.value,
+             img:this.data.imageurl
+            },
+            success:(res)=>{
+           console.log(res.data)
+             if(res.data.code==0){
+             // console.log('111')
+             this.setData({
+               flag:false
+             })
+             setTimeout(()=>{
+              this.setData({
+                flag:true
+              })
+             },3000)
+              wx.showToast({
+               title:res.data.msg,
+               icon:'success'
+             })
+            setTimeout(()=>{
+              wx.navigateBack({
+                delta: 1,
+              })
+            },1000)
+             }
+            }
+          })
+         }
+       
        }
   },
   getqd(){
@@ -234,80 +251,86 @@ Page({
 
 },
 chooseImg: function (e) {
- var that = this;
- var imgs = this.data.imgs;
- if (imgs.length >= 9) {
-  this.setData({
-   lenMore: 1
-  });
-  setTimeout(function () {
-   that.setData({
-    lenMore: 0
+  console.log('1111111')
+  var that = this;
+  var imgs = this.data.imgs;
+  if (imgs.length >= 9) {
+   this.setData({
+    lenMore: 1
    });
-  }, 2500);
-  return false;
- }
- wx.chooseImage({
-  // count: 1, // 默认9
-  sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-  sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-  success: function (res) {
-   // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-   var tempFilePaths = res.tempFilePaths;
-   var imgs = that.data.imgs;
-   // console.log(tempFilePaths + '----');
-   for (var i = 0; i < tempFilePaths.length; i++) {
-    if (imgs.length >= 9) {
-     that.setData({
-      imgs: imgs
-     });
-     return false;
-    } else {
-    imgs.push(tempFilePaths[i]);
-     console.log(tempFilePaths[i]);
-    }
-   }
-   that.setData({
-    imgs: imgs
-   });
-   console.log(that.data.imgs)
-     wx.uploadFile({
-         url: app.globalData.url+'api/upload/importImg', //接受图片的接口地址
-         filePath: that.data.imgs,
-         name: 'file',
-         formData: {
-             'user': 'test'
-         },
-         success(res) {
-           console.log(res)
-           var result = JSON.parse(res.data);
-           console.log(result.data.slice(8))
-           if(result.code==0){
-             // 上传完成需要更新 fileList
-        
-           // 将图片信息添加到fileList数字中
-           // 更新存放图片的数组
-           console.log(result.data)
-           that.setData({
-               data:result.data.slice(8)
-           });
-        console.log(that.data.data)
-       // that.data.fileList.push(file.url)
-           wx.hideLoading();//停止loading
-          }else{
-           wx.hideLoading();//停止loading
-           wx.showToast({
-               icon:"error",
-               title: '请上传正确的图片',
-             }) 
-          }
-             //do something
-         }
-     })
-
+   setTimeout(function () {
+    that.setData({
+     lenMore: 0
+    });
+   }, 2500);
+   return false;
   }
- });
-},
+
+  wx.chooseImage({
+   
+    count: 1, // 默认9
+   sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+   sourceType: ['camera'], // 可以指定来源是相册还是相机，默认二者都有    'album', 
+   success: function (res) {
+    // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+    var tempFilePaths = res.tempFilePaths;
+    var imgs = that.data.imgs;
+    // console.log(tempFilePaths + '----');
+    for (var i = 0; i < tempFilePaths.length; i++) {
+     if (imgs.length >= 9) {
+      that.setData({
+       imgs: imgs
+      });
+      return false;
+     } else {
+     imgs[0]=tempFilePaths[i];
+      console.log(tempFilePaths[i]);
+     }
+    }
+    that.setData({
+     imgs: imgs
+    });
+    wx.showLoading({
+      title: '上传中',
+      mask:true
+    })
+      wx.uploadFile({
+          url: app.globalData.url+'api/safe/importsafeImg', //接受图片的接口地址
+          filePath: tempFilePaths[0],
+          name: 'file',
+          formData: {
+              'user': 'test'
+          },
+          success(res) {
+            console.log(res)
+            var result = JSON.parse(res.data);
+            console.log(result.data.slice(17))
+            if(result.code==0){
+              // 上传完成需要更新 fileList
+         
+            // 将图片信息添加到fileList数字中
+            // 更新存放图片的数组
+            console.log(result.data)
+            that.setData({
+              imageurl:result.data.slice(17)
+            });
+         console.log(that.data.imageurl)
+        // that.data.fileList.push(file.url)
+            wx.hideLoading();//停止loading
+           }else{
+            wx.hideLoading();//停止loading
+            wx.showToast({
+                icon:"error",
+                title: '请上传正确的图片',
+              }) 
+           }
+              //do something
+          }
+      })
+
+   }
+  });
+ },
   // 删除图片
   deleteImg: function (e) {
    var imgs = this.data.imgs;

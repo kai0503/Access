@@ -1,4 +1,5 @@
 // pages/Management/Management.js
+let app=getApp()
 Page({
 
   /**

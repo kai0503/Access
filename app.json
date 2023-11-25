@@ -56,7 +56,8 @@
         "pages/pictures/pictures",
         "pages/picturesimg/picturesimg",
         "pages/record/record",
-        "pages/records/records"
+        "pages/records/records",
+        "pages/problem/problem"
       ]
     }
   ],

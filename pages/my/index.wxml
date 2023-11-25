@@ -17,7 +17,6 @@
   </block>
 </view>
 <view class="dzgk">
-<view class="dzgk_one" wx:if="{{fg==1}}">电子工卡</view>
 <view class="dzgk_one" wx:if="{{fg==2}}">特种证</view>
 <view class="dzgk_two" wx:if="{{fg==1}}">电子工卡</view>
 <view class="dzgk_two" wx:if="{{fg==2}}">特种证</view>
@@ -25,6 +24,13 @@
 <view class="dzgk_three" wx:if="{{fg==2}}">12345</view>
 <!-- <view class="dzgk_four" wx:if="{{fg==1}}" bindtap="qhdz">切换特种证 ></view>
 <view class="dzgk_four" wx:if="{{fg==2}}" bindtap="qhtz">切换电子工卡 ></view> -->
+<view class="dzgk_three">所属公司:{{orgname}}</view>
+<view class="dzgk_three" wx:if="{{hgFlag==0||hgFlag==null}}">照片状态:未上传</view>
+<view class="dzgk_three" wx:if="{{hgFlag==1}}">照片状态:已上传，符合要求</view>
+<view class="dzgk_three" wx:if="{{hgFlag==2}}">照片状态:不符合要求，请重新上传</view>
+<view class="gkzp">
+<image src="{{image}}"></image>
+</view>
 </view>
 <view class="qxkz">
 <view class="kqlx" wx:if="{{stafftype==2}}">

@@ -58,8 +58,7 @@ font-weight: 400;
 color: #3B3B4D;
 }
 .one_left view{
-  height: 50rpx;
-  line-height: 50rpx;
+  margin: 15rpx 0rpx;
 }
 .one_right{
   width: 32rpx;
