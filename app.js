@@ -19,8 +19,8 @@ App({
   //   })
   // },
   globalData: {
-url: "https://zkqx.sdlczq.cn/xjmj/",  
-//url: "http://192.168.2.2:8013/",
+url: "https://zkqx.sdlczq.cn/xjmj/",
+//url: "http://192.168.2.12:8013/",
 //url: "http://192.168.2.32:8013/",
    //url: "http://192.168.1.11:8013/",
     // userInfo: null,

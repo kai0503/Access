@@ -17,7 +17,8 @@ Page({
     dzgk:'',
     orgname:'',
     image:'',
-    hgFlag:''
+    hgFlag:'',
+    userid:''
   },
   qhdz(){
    this.setData({
@@ -115,6 +116,11 @@ Page({
         }
       }
     })
+  },
+  jumpdriver(){
+  wx.navigateTo({
+    url: '../../subpackages/pages/driverimg/driverimg',
+  })
   },
   chagepass(){
    wx.navigateTo({
@@ -260,7 +266,7 @@ wx.scanCode({
    this.setData({
     dzgk:dzgl,
     orgname:wx.getStorageSync('wxuser').orgname,
-    image:img.replace(/\\/,"/"),
+    //image:img.replace(/\\/,"/"),
     hgFlag:wx.getStorageSync('HG'),
   })
     if(ischeck==1){
@@ -316,10 +322,30 @@ wx.scanCode({
       let list =wx.getStorageSync('list')
       this.setData({
         username:list,
+        userid:wx.getStorageSync('userid'),
         stafftype:wx.getStorageSync('wxuser').stafftype
       })
+      this.getpersonal()
   },
-
+  getpersonal(){
+    wx.request({
+     url:app.globalData.url+'api/wx/myInfo',
+     method:'POST',
+     data:{
+      userid:wx.getStorageSync('userid'),
+      U:'111'
+     },
+     success:(res)=>{
+       console.log(res,'getpersonal')
+     if(res.data.code==0){
+      let img=app.globalData.url.concat(res.data.data.custinfo.contract)
+      this.setData({
+        image:img.replace(/\\/,"/"),
+      })
+     }
+     }
+    })
+},
   /**
    * 生命周期函数--监听页面隐藏
    */

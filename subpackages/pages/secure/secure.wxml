@@ -1,0 +1,7 @@
+<view>
+<view class="box">
+  <web-view src="{{img}}" bindmessage="get_message">
+    </web-view>
+</view>
+</view>
+  

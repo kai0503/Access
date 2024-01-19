@@ -17,6 +17,7 @@ Page({
     pd:''
   },
   uploadFimg(){
+    console.log(this.data.data,'测试中2')
      wx.request({
        url: app.globalData.url+"api/user/imgUp",
        method:'POST',
@@ -32,6 +33,11 @@ Page({
               url: '/pages/index/index',
              })
         
+         }else{
+           wx.showToast({
+             title: res.data.msg,
+             icon:'none'
+           })
          }
 
        }
@@ -65,15 +71,18 @@ Page({
         // 上传完成需要更新 fileList
       if(this.data.pd==0){
        this.setData({
-        data:result.data.substring(result.data.lastIndexOf("/",result.data.lastIndexOf("/")-1)+1)
+       data:result.data.substring(result.data.lastIndexOf("/",result.data.lastIndexOf("/")-1)+1)
+       //data:result.data.substr(result.data.lastIndexOf("/") + 1)
       })
+      console.log(result.data.substring(result.data.lastIndexOf("/",result.data.lastIndexOf("/")-1)+1,))
       }else{
        this.setData({
         data:result.data.substr(result.data.lastIndexOf("/") + 1)
       })
+      console.log(result.data.substr(result.data.lastIndexOf("/") + 1))
       }
-    // console.log(result.data.substr(result.data.lastIndexOf("/") + 1))
-    // console.log(result.data.substring(result.data.lastIndexOf("/",result.data.lastIndexOf("/")-1)+1))
+    // 
+    //
     
    if(this.data.pd==0){
     this.update()
@@ -205,6 +214,7 @@ Page({
     })
   },
   update(){
+    console.log(this.data.data,'测试中1')
    wx.request({
      url: app.globalData.url+"api/user/userImgUp",
      method:'POST',

@@ -21,5 +21,11 @@
 <view class="item_one" bindtap="jumpyjcz">
 <image src="../../assets/carousel/yjcz.png"></image>
 </view>
+<view class="item_one" bindtap="jumpsjxx" wx:if="{{stafftype==4||stafftype==2}}">
+<image src="../../assets/carousel/sjxx.png"></image>
+</view>
+<view class="item_one" bindtap="jumpsecure">
+<image src="../../assets/carousel/yjcz.png"></image>
+</view>
 </view>
 </view>

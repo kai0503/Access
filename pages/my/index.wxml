@@ -58,7 +58,7 @@
 </view> -->
 </view>
 <view class="lb_list">
-<view class="list_one" bindtap="jumpgrzl">
+<view class="list_one" bindtap="jumpgrzl"  wx:if="{{userid!='328800149ff441fda6ee2339ae51337f'}}">
 <view class="one_left">
 <image src="../../assets/carousel/grzl.png"></image><text>个人资料</text>
 </view>
@@ -85,6 +85,14 @@
 <view class="list_one" bindtap="chagepass">
 <view class="one_left">
 <image src="../../assets/carousel/xgmm.png"></image><text>修改密码</text>
+</view>
+<view class="one_right">
+<image  src="../../assets/carousel/y.png"></image>
+</view>
+</view>
+<view class="list_one" bindtap="jumpdriver" wx:if="{{stafftype==4||stafftype==2}}">
+<view class="one_left">
+<image src="../../assets/carousel/jsz.png"></image><text style="position: relative;top: -5rpx;">司机证件信息</text>
 </view>
 <view class="one_right">
 <image  src="../../assets/carousel/y.png"></image>

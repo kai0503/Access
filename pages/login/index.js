@@ -162,6 +162,7 @@ Page({
         'content-type': 'application/json'
       },
       success: (res) => {
+        console.log(res)
       console.log("app.globalData.wechatId：" + res.data.data)
         app.globalData.wechatId = res.data.data.openid
         if(wx.getStorageSync('wxuser')!=''){
@@ -202,6 +203,8 @@ Page({
               wx.setStorageSync('HG', res.data.data.hgFlag)
               wx.setStorageSync('userid', res.data.data.userinfo.id)
               wx.setStorageSync('contract', res.data.data.userinfo.contract)
+              wx.setStorageSync('drivingno', res.data.data.userinfo.drivingno)
+              wx.setStorageSync('travelno', res.data.data.userinfo.travelno)
               this.setData({
                 userid:res.data.data.userinfo.id
               })
@@ -220,6 +223,9 @@ Page({
           wx.switchTab({
             url: '/pages/index/index',
           }) 
+          // wx.navigateTo({
+          //   url: '../../subpackages/pages/driverimg/driverimg',
+          // })
         }
                         },500)
           }else{
@@ -274,7 +280,7 @@ Page({
            
           //  console.log(this.data.contract)
            
-          if(wx.getStorageSync('contract')==null){
+          if(wx.getStorageSync('contract')==null||wx.getStorageSync('contract')==''){
             wx.redirectTo({
               url: '/pages/my/message/list/index',
             })
@@ -324,8 +330,18 @@ Page({
       success:(res)=>{
        console.log(res)
         if(res.data.code==0){
-       
-          wx.setStorageSync('contract',res.data.data.userinfo.contract)
+          // wx.setStorageSync('wxuser', res.data.data.userinfo)
+          // wx.setStorageSync('contract',res.data.data.userinfo.contract)
+
+
+          wx.setStorageSync('open', res.data.data.open)
+          wx.setStorageSync('setup', res.data.data.setup)
+          wx.setStorageSync('wxuser', res.data.data.userinfo)
+          wx.setStorageSync('HG', res.data.data.hgFlag)
+          wx.setStorageSync('userid', res.data.data.userinfo.id)
+          wx.setStorageSync('contract', res.data.data.userinfo.contract)
+          wx.setStorageSync('drivingno', res.data.data.userinfo.drivingno)
+          wx.setStorageSync('travelno', res.data.data.userinfo.travelno)
           this.setData({
             contract:res.data.data.userinfo.contract
           })
@@ -334,6 +350,7 @@ Page({
       }
     })
   },
+
  getUserProfile(){
   // console.log('222')
     wx.getUserProfile({

@@ -111,6 +111,11 @@ Page({
     //   console.log('false')
     // }
   },
+  sjdl(){
+    wx.navigateTo({
+      url: '../../subpackages/pages/driverimg/driverimg',
+    })
+     },
   onLoad: function (options) {
   
 
@@ -130,7 +135,7 @@ Page({
   },
   onShow(){
     let abs=wx.getStorageSync('wxuser').stafftype
-    if(abs==2||abs==0){
+    if(abs==2||abs==0||abs==1){
       this.setData({
         stafftype:true
       })

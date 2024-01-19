@@ -13,6 +13,11 @@ Page({
      url: '../../subpackages/pages/regulations/regulations',
    })
   },
+  jumpsjxx(){
+   wx.navigateTo({
+     url: '../../subpackages/pages/driverimg/driverimg',
+   })
+  },
   jumpxcjc(){
       // wx.navigateTo({
       //   url: '../../subpackages/pages/inspection/inspection',
@@ -30,6 +35,11 @@ Page({
    wx.navigateTo({
      url: '../../subpackages/pages/emergency/emergency',
    })
+  },
+  jumpsecure(){
+       wx.navigateTo({
+         url: '../../subpackages/pages/secure/secure',
+       })
   },
   jumpcoal(){
   wx.navigateTo({

@@ -40,6 +40,7 @@
   </view>
   </view>
 </view> -->
+
 <view class="item">
  <text class="login_title">登录</text>
  <view class="login_input"><input type="number" value="{{nickName}}" bindchange="getName"  placeholder="请输入您的手机号"/></view>

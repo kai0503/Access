@@ -1,0 +1,33 @@
+<view>
+		<view class="box">
+			<view class="box_title">证件信息
+			</view>
+			<view class="box_img">
+				<view class="img_chong" bindtap="chooseImgs" wx:if="{{imgss.length==0}}">
+					<view><image src="../../../assets/carousel/jsz.png"></image></view>
+					<view>上传驾驶证图片</view>
+				</view>
+				<view class='pics' wx:for="{{imgss}}"  wx:for-item="item" wx:key="*this">
+				    <image class='weui-uploader__img' src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="chooseImgs" bindlongtap="chakanjs">
+				    
+				    </image>
+								
+				</view>
+			</view>
+      <view class="box_img">
+				<view class="img_chong" bindtap="chooseImgss" wx:if="{{imgsss.length==0}}">
+					<view><image src="../../../assets/carousel/xsz.png"></image></view>
+					<view>上传行驶证图片</view>
+				</view>
+				<view class='pics' wx:for="{{imgsss}}"  wx:for-item="item" wx:key="*this">
+				    <image class='weui-uploader__img' src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="chooseImgss" bindlongtap="chakanxs">
+				    
+				    </image>
+								
+				</view>
+			</view>
+     
+      <view class="submit" bindtap="submit">提交</view>
+		</view>
+		
+	</view>

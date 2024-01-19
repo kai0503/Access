@@ -15,8 +15,10 @@
 <view class="item_one" bindtap="jumpkqlx" wx:if="{{stafftype!=4}}">
 <image src="../../assets/carousel/kqlx.png"></image>
 </view>
+<view wx:if="{{userid!='328800149ff441fda6ee2339ae51337f'}}">
 <view class="item_one" bindtap="jumpsjpx" wx:if="{{stafftype==4||stafftype==2}}">
 <image src="../../assets/carousel/skpx.png"></image>
+</view>
 </view>
 <view class="item_one" bindtap="sjks" wx:if="{{stafftype==4||stafftype==2}}">
 <image src="../../assets/carousel/sjks.png"></image>

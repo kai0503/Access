@@ -196,6 +196,25 @@ Page({
     })
   },
   sjks(){
+    if(wx.getStorageSync('drivingno')==null||wx.getStorageSync('travelno')==null){
+      wx.showToast({
+        title: '请去个人中心上传自己的司机证件信息',
+        icon:'none'
+      })
+      return
+    }else if(wx.getStorageSync('drivingno')==null||wx.getStorageSync('drivingno')==''){
+      wx.showToast({
+        title: '请去个人中心上传自己的驾驶证照片',
+        icon:'none'
+      })
+      return
+    }else if(wx.getStorageSync('travelno')==null||wx.getStorageSync('travelno')==''){
+      wx.showToast({
+        title: '请去个人中心上传自己的行驶证照片',
+        icon:'none'
+      })
+      return
+    }
     wx.request({
       url: app.globalData.url+'api/user/selectSetUp',
       method:'POST',
@@ -246,6 +265,9 @@ Page({
    */
   onShow: function () {
     this.getuser()
+    this.setData({
+      userid:wx.getStorageSync('userid')
+    })
   },
 
   /**

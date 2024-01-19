@@ -57,7 +57,9 @@
         "pages/picturesimg/picturesimg",
         "pages/record/record",
         "pages/records/records",
-        "pages/problem/problem"
+        "pages/problem/problem",
+        "pages/driverimg/driverimg",
+        "pages/secure/secure"
       ]
     }
   ],
