@@ -7,11 +7,24 @@ Page({
    */
   data: {
     imgs: [],
+    items: [
+      {name: '选项1', value: 'value1', checked: false},
+      {name: '选项2', value: 'value2', checked: false},
+      {name: '选项3', value: 'value3', checked: false}
+    ],
     imageurl:'',
     safeproblem:'',
     userid:'',
     remark:'',
     flag:true,
+    array: ['人员违章', '装置违章', '火灾报警',],
+    index: 0
+  },
+  pickerChange: function (e) {
+    this.setData({
+      index: e.detail.value
+    })
+    console.log('当前选择：', this.data.array[e.detail.value])
   },
   bindTextAreaBlur(e){
      console.log(e.detail.value)

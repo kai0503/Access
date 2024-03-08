@@ -1,4 +1,5 @@
 let app=getApp()
+import btnClick from '../../utils/btn_click';
 Page({
   data: {
    gongsi:'',
@@ -27,26 +28,32 @@ Page({
          })
    },
   yiji(){
-   wx.request({
-    url: app.globalData.url+'api/paper/getinfo',
-    method:'POST',
-    data:{
-     userid:wx.getStorageSync('userid'),
-     examlevel:0
-    },
-    success:(res)=>{
-     if(res.data.code==1){
-      wx.showToast({
-        title: '请去学习资料，暂时还未达到学习时长',
-        icon:'none'
-      })
-     }else{
-      wx.navigateTo({
-       url: '/pages/papar/papar?examlevel='+0,
+    if (btnClick.preventDuplicateClicks()) {
+      return
+    }else{
+      console.log('11111')
+      wx.request({
+       url: app.globalData.url+'api/paper/getinfo',
+       method:'POST',
+       data:{
+        userid:wx.getStorageSync('userid'),
+        examlevel:0
+       },
+       success:(res)=>{
+        if(res.data.code==1){
+         wx.showToast({
+           title: '请去学习资料，暂时还未达到学习时长',
+           icon:'none'
+         })
+        }else{
+         wx.navigateTo({
+          url: '/pages/papar/papar?examlevel='+0,
+        })
+        }
+       }
      })
-     }
     }
-  })
+ 
   
   
   },

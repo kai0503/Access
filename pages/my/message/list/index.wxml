@@ -7,5 +7,5 @@
 ></camera>
 <!-- 拍照按钮 -->
 <button type="primary" bindtap="takePhoto" class="pz">拍照</button>
-<view class="wz">拍照时请把脸庞露出来，对准五官</view>
-<view class="kk">人员最好处在空旷区域，旁边不要有遮挡物</view>
+<!-- <view class="wz">拍照时请把脸庞露出来，对准五官</view>
+<view class="kk">人员最好处在空旷区域，旁边不要有遮挡物</view> -->

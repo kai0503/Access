@@ -1,5 +1,5 @@
 /* pages/takephoto/takephoto.wxss */
-.takephoto{
+/* .takephoto{
     width: 100%;
   }
   
@@ -56,5 +56,5 @@
     height: 100rpx;
     line-height: 100rpx;
     text-align: center;
-  }
+  } */
   

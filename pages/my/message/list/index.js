@@ -17,7 +17,6 @@ Page({
     pd:''
   },
   uploadFimg(){
-    console.log(this.data.data,'测试中2')
      wx.request({
        url: app.globalData.url+"api/user/imgUp",
        method:'POST',
@@ -136,66 +135,67 @@ Page({
        })
      }//拍照成功结束
    })//调用相机结束
-   //acess_token获取，qs:需要多次尝试
-   wx.request({
-     url: 'https://aip.baidubce.com/oauth/2.0/token',//是真实的接口地址
-     data: {
-      grant_type: 'client_credentials',
-      client_id: 'vHkqSXRqFYC1j5qMZHBKFFKD',//用你创建的应用的API Key
-      client_secret: 'kfE83zidc6lFlNTuHoAghbzTZa5DWKDC'//用你创建的应用的Secret Key
-     },
-     header: {
-      'Content-Type': 'application/json' // 默认值
-     },
-     success(res){
-         console.log(res)
-       that.setData({
-        token: res.data.access_token//获取到token
-       })
-       console.log(res.data.access_token)
-     }
-   })
+   that.afterRead()
+  // acess_token获取，qs:需要多次尝试
+  //  wx.request({
+  //    url: 'https://aip.baidubce.com/oauth/2.0/token',//是真实的接口地址
+  //    data: {
+  //     grant_type: 'client_credentials',
+  //     client_id: 'vHkqSXRqFYC1j5qMZHBKFFKD',//用你创建的应用的API Key
+  //     client_secret: 'kfE83zidc6lFlNTuHoAghbzTZa5DWKDC'//用你创建的应用的Secret Key
+  //    },
+  //    header: {
+  //     'Content-Type': 'application/json' // 默认值
+  //    },
+  //    success(res){
+  //        console.log(res)
+  //      that.setData({
+  //       token: res.data.access_token//获取到token
+  //      })
+  //      console.log(res.data.access_token)
+  //    }
+  //  })
   // console.log(this.data.nickName)
    //上传人脸进行注册-----
   // console.log(this.data.base64)
-   wx.request({
-    url: 'https://aip.baidubce.com/rest/2.0/face/v3/faceset/user/add?access_token=' + this.data.token,
-    method: 'POST',
-    data: {
-      image: this.data.base64,
-      image_type: 'BASE64',
-      group_id: 'xjmj_xcx',//用户组id
-      user_id:wx.getStorageSync('userid'),//这里设置每张人脸的昵称
-      liveness_control:'HIGH'
-     },
-     header: {
-      'Content-Type': 'application/json' // 默认值
-     },
-     success(res){
-      that.setData({
-        msg:res.data.error_msg
-      })
-      console.log(res)  
-      //做成功判断
-      if(that.data.msg == 'SUCCESS'){ 
-        that.afterRead()
-        wx.showToast({
-          title: '注册成功',
-          icon: 'success',
-          duration: 2000
-         })
-       setTimeout(()=>{
-         wx.setStorageSync('comein', true)
-       },2000)
-      }else {
-        wx.showToast({
-          title: '请再次录取人脸',
-          icon: 'loading',
-          duration: 500
-        })
-      }
-     }
-   }),
+  //  wx.request({
+  //   url: 'https://aip.baidubce.com/rest/2.0/face/v3/faceset/user/add?access_token=' + this.data.token,
+  //   method: 'POST',
+  //   data: {
+  //     image: this.data.base64,
+  //     image_type: 'BASE64',
+  //     group_id: 'xjmj_xcx',//用户组id
+  //     user_id:wx.getStorageSync('userid'),//这里设置每张人脸的昵称
+  //     liveness_control:'HIGH'
+  //    },
+  //    header: {
+  //     'Content-Type': 'application/json' // 默认值
+  //    },
+  //    success(res){
+  //     that.setData({
+  //       msg:res.data.error_msg
+  //     })
+  //     console.log(res)  
+  //     //做成功判断
+  //     if(that.data.msg == 'SUCCESS'){ 
+  //       that.afterRead()
+  //       wx.showToast({
+  //         title: '注册成功',
+  //         icon: 'success',
+  //         duration: 2000
+  //        })
+  //      setTimeout(()=>{
+  //        wx.setStorageSync('comein', true)
+  //      },2000)
+  //     }else {
+  //       wx.showToast({
+  //         title: '请再次录取人脸',
+  //         icon: 'loading',
+  //         duration: 500
+  //       })
+  //     }
+  //    }
+  //  }),
     // 失败尝试
      wx.showToast({
       title: '请继续录取',

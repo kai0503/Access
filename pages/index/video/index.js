@@ -27,23 +27,21 @@ Page({
   },
 
   bianhua(e){
-     // console.log(this.data.aa)
-   //console.log(e.detail.currentTime)
-console.log(parseInt(e.detail.currentTime))
+// console.log(parseInt(e.detail.currentTime))
 this.setData({
  hidetime:parseInt(e.detail.currentTime)
 })
-    if(e.detail.currentTime>this.data.rand&&e.detail.currentTime<this.data.rands&&this.data.aa){
-      //console.log('成功啦')
-      this.setData({
-        query:e.detail.currentTime
-    })
-    //console.log(this.data.aa,'测试过后')
-    wx.redirectTo
-    ({
-       url: '/pages/my/message/info/index?inittime='+e.detail.currentTime,
-     })
-    }
+//     if(e.detail.currentTime>this.data.rand&&e.detail.currentTime<this.data.rands&&this.data.aa){
+//       //console.log('成功啦')
+//       this.setData({
+//         query:e.detail.currentTime
+//     })
+//     //console.log(this.data.aa,'测试过后')
+//     wx.redirectTo
+//     ({
+//        url: '/pages/my/message/info/index?inittime='+e.detail.currentTime,
+//      })
+//     }
    },
    play(e) {
     //执行全屏方法  

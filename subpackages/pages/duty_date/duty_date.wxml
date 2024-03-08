@@ -1,0 +1,39 @@
+<view class="table">
+        <view class="tr bg-w">
+          <view class="th">序号</view>
+          <view class="th">重点部位</view>
+          <view class="th">应到</view>
+          <view class="th">实到</view>
+          <view class="th">上次时间</view>
+        </view>
+        <block wx:for="{{list}}" wx:key="index" wx:for-item="item"  >
+          <view class="tr bg-g" bindtap="jump_sort" data-bean="{{item}}">
+            <view class="td">{{index+1}}</view>
+            <view class="td">{{item.address}}</view>
+            <view class="td"  style="font-size: 30rpx;">{{item.resultDate?item.resultDate:0}}</view>
+            <view class="td" style="font-size: 30rpx;" wx:if="{{item.result=='N'}}">{{item.num?item.num:0}}</view>
+            <view class="td" style="font-size: 30rpx;color: red;" wx:if="{{item.result=='Y'}}">{{item.num?item.num:0}}</view>
+            <view class="td"  wx:if="{{item.num}}">{{item.createtime}}</view>
+            <view class="td" wx:if="{{!item.num}}">本日未去</view>
+          </view>
+        </block>
+      </view>
+
+
+
+      <!-- <block wx:for="{{list}}" wx:key="index" wx:for-item="item"  >
+          <view class="tr bg-g" v-if="index % 2 == 0" bindtap="jump_sort" data-bean="{{item}}">
+            <view class="td">{{index+1}}</view>
+            <view class="td">{{item.address}}</view>
+            <view class="td">{{item.num}}</view>
+            <view class="td">{{item.resultDate}}</view>
+            <view class="td">{{item.resultDate}}</view>
+          </view>
+          <view class="tr" v-else bindtap="jump_sort" data-bean="{{item}}">
+            <view class="td">{{index+1}}</view>
+            <view class="td">{{item.address}}</view>
+            <view class="td">{{item.address}}</view>
+            <view class="td">{{item.address}}</view>
+            <view class="td">{{item.resultDate}}</view>
+          </view>
+        </block> -->

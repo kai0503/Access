@@ -1,0 +1,20 @@
+<view>
+<view class="box">
+<view class="item_one" bindtap="jumpday">
+<view class="one_left">
+ <view class="left_one">到岗到位日表</view>
+</view>
+<view class="one_right">
+<image src="../../../assets/carousel/cz.png"></image>
+</view>
+</view>
+<view class="item_one" style="background: linear-gradient(150deg, #E5F1FF 0%, #EFF6FF 100%);" bindtap="jumpmonth">
+<view class="one_left">
+ <view class="left_one">到岗到位月表</view>
+</view>
+<view class="one_right">
+<image src="../../../assets/carousel/dh.png"></image>
+</view>
+</view>
+</view>
+</view>

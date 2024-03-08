@@ -51,7 +51,6 @@
 <view class="title_rs">{{item.value}}</view>
 </view>
 </view></scroll-view>
-<view bindtap="sjdl" style="font-size: 35rpx;">司机登录</view>
 </view>
 </view>
 

@@ -53,13 +53,13 @@ Page({
           if(this.data.isClose==true){
             
             this.setData({
-              loadtime:setTimeout(()=>{
+              // loadtime:setTimeout(()=>{
                
-                wx.redirectTo({
-                  url: '/pages/my/message/info/index',
-                })
+              //   wx.redirectTo({
+              //     url: '/pages/my/message/info/index',
+              //   })
                
-              },this.data.random1)
+              // },this.data.random1)
             })
           }else{
 

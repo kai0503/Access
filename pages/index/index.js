@@ -17,6 +17,83 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  QR(){
+    wx.scanCode({
+      success:(res)=>{
+        console.log(res)
+        if(res.result!=''){
+          this.setData({
+            ID:res.result
+          })
+          // if(res.result.substr(0,1)=='D'){
+          //   wx.navigateTo({
+          //     url: '../wxindex/wxindex?ID='+this.data.ID,
+          //   })
+          // }else{
+          //   wx.navigateTo({
+          //     url: '../../subpackages/pages/sign/index?ID='+this.data.ID,
+          //   })
+          // }
+         
+          wx.request({
+            url: app.globalData.url+'api/user/scanQrcode',
+            method:'POST',
+            data:{
+               qrcodeId:res.result
+            },
+            success:(res)=>{
+              console.log(res)
+              if(res.data.code==0){
+                if(res.data.data.codeno!=null&&res.data.data.codeno.substr(0,1)=='D'){
+            wx.navigateTo({
+              url: '../wxindex/wxindex?ID='+res.data.data.codeno,
+            })
+          }else{
+            wx.navigateTo({
+              url: '../../subpackages/pages/sign/index?ID='+res.data.data,
+            })
+          }
+              }else{
+                wx.showToast({
+                  title:res.data.msg,
+                  icon:'error'
+                })
+              }
+            }
+          })
+    
+        }
+      }
+     })
+  },
+  getqd(){
+     wx.request({
+       url:app.globalData.url+'api/getAddress',
+       method:'POST',
+       data:{
+         userid:wx.getStorageSync('userid')
+       },
+       success:res=>{
+         var that=this;
+         console.log(res)
+         if(res.data.code==1){
+          wx.showModal({
+            title: '提示',
+            content: '您需要去进行签到',
+            success: function (res) {
+                if (res.confirm) {
+                    console.log('用户点击确定')
+                    that.QR()
+                } 
+                else if (res.cancel) {
+                    console.log('用户点击取消')
+                }
+              }
+            })
+         }
+       }
+     })
+  },
   getpj(){
      wx.request({
        url: app.globalData.url+'api/pub/isPj',
@@ -27,7 +104,7 @@ Page({
        },
        success:res=>{
          console.log(res)
-         if(res.data.code==0&&this.data.fg==true&&this.data.stafftype==true){
+         if(res.data.code==0&&this.data.stafftype==true){//&&this.data.fg==true
           wx.showModal({
       title: '提示',
       content: '您还没有进行岗位评价，请前往评价',
@@ -117,7 +194,7 @@ Page({
     })
      },
   onLoad: function (options) {
-  
+    this.getqd()
 
     // wx.showModal({
     //   title: '提示',
@@ -134,6 +211,7 @@ Page({
     // })
   },
   onShow(){
+    console.log('1234')
     let abs=wx.getStorageSync('wxuser').stafftype
     if(abs==2||abs==0||abs==1){
       this.setData({
@@ -145,6 +223,7 @@ Page({
     this.getData(); //获取数据
     this.getNowDate()
   this.getpj()
+ 
   },
   getData: function () {
   	/**

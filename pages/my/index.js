@@ -227,6 +227,11 @@ wx.scanCode({
       }
      })
   },
+  jumpdgdw(){
+    wx.navigateTo({
+      url: '../../subpackages/pages/duty_place/duty_place',
+    })
+  },
   jumpgrzl(){
  wx.navigateTo({
    url: '/pages/my/info/index',
@@ -342,6 +347,11 @@ wx.scanCode({
       this.setData({
         image:img.replace(/\\/,"/"),
       })
+      if(wx.getStorageSync('contract')!=res.data.data.custinfo.contract){
+        console.log('111')
+        wx.setStorageSync('contract', res.data.data.custinfo.contract)
+      }
+       
      }
      }
     })

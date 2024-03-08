@@ -58,9 +58,17 @@
 </view> -->
 </view>
 <view class="lb_list">
-<view class="list_one" bindtap="jumpgrzl"  wx:if="{{userid!='328800149ff441fda6ee2339ae51337f'}}">
+<view class="list_one" bindtap="jumpgrzl">
 <view class="one_left">
 <image src="../../assets/carousel/grzl.png"></image><text>个人资料</text>
+</view>
+<view class="one_right">
+<image  src="../../assets/carousel/y.png"></image>
+</view>
+</view>
+<view class="list_one" bindtap="jumpdgdw">
+<view class="one_left">
+<image src="../../assets/carousel/grzl.png"></image><text>到岗到位总表</text>
 </view>
 <view class="one_right">
 <image  src="../../assets/carousel/y.png"></image>

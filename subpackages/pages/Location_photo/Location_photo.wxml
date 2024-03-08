@@ -1,0 +1,13 @@
+<view>
+		<view class="box">
+			<view class="box_title">签到地点<text>111111</text>
+			</view>
+      <view class="box_img">
+			<view class="img_title">签到照片</view>
+				<view class='pics'>
+				    <image src="../../../assets//carousel/cz.png"></image>		
+				</view>
+			</view>
+		</view>
+		
+	</view>
