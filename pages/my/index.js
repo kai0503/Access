@@ -229,7 +229,7 @@ wx.scanCode({
   },
   jumpdgdw(){
     wx.navigateTo({
-      url: '../../subpackages/pages/duty_place/duty_place',
+      url: '../../subpackages/pages/duty_date/duty_date',
     })
   },
   jumpgrzl(){

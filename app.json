@@ -59,10 +59,8 @@
         "pages/problem/problem",
         "pages/driverimg/driverimg",
         "pages/secure/secure",
-        "pages/duty_place/duty_place",
         "pages/duty_date/duty_date",
-        "pages/Location_photo/Location_photo",
-        "pages/duty_month/duty_month"
+        "pages/Location_photo/Location_photo"
       ]
     }
   ],

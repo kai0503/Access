@@ -94,7 +94,7 @@ text-align: center;
 margin-left: 50%;
 transform: translate(-50%,0);
 position: relative;
-margin-top: 442rpx;
+margin-top: 241rpx;
   }
   .btns{
     width: 750rpx;

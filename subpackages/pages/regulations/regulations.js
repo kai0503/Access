@@ -21,8 +21,9 @@ Page({
     index: 0
   },
   pickerChange: function (e) {
+    console.log(e.detail.value)
     this.setData({
-      index: e.detail.value
+      index: e.detail.value,
     })
     console.log('当前选择：', this.data.array[e.detail.value])
   },
@@ -49,7 +50,8 @@ Page({
             safeproblem:this.data.safeproblem,
             findtime:this.data.findtime,
             imageurl:this.data.imageurl,
-            remark:this.data.remark
+            remark:this.data.remark,
+            type:this.data.index
           },
           success:res=>{
             console.log(res)

@@ -1,4 +1,4 @@
-<view class="table">
+<!-- <view class="table">
         <view class="tr bg-w">
           <view class="th">序号</view>
           <view class="th">重点部位</view>
@@ -14,26 +14,43 @@
             <view class="td" style="font-size: 30rpx;" wx:if="{{item.result=='N'}}">{{item.num?item.num:0}}</view>
             <view class="td" style="font-size: 30rpx;color: red;" wx:if="{{item.result=='Y'}}">{{item.num?item.num:0}}</view>
             <view class="td"  wx:if="{{item.num}}">{{item.createtime}}</view>
-            <view class="td" wx:if="{{!item.num}}">本日未去</view>
+            <view class="td" wx:if="{{!item.num}}" style="font-size: 30rpx;color: red;" >本日未去</view>
           </view>
         </block>
+      </view> -->
+      <view>
+  <view class="nav">
+            <!-- 选项卡水平方向滑动，scroll-with-animation是滑动到下一个选项时，有一个延时效果 -->
+            <scroll-view class="tab-scroll" scroll-x="true" scroll-with-animation :scroll-left="scrollLeft" scroll-y="true">
+                <view class="tab-scroll_box">
+                    <!-- 选项卡类别列表 -->
+                    <view class="tab-scroll_item" wx:for="{{category}}"  wx:key="category"   class='{{item.checked?"active":"tab-scroll_item"}}' data-id='{{item.id}}' bindtap="chenked">
+                            {{item.name}}
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+        <view class="table">
+        <view class="tr bg-w">
+          <view class="th">序号</view>
+          <view class="th">重点部位</view>
+          <view class="th">应到</view>
+          <view class="th">实到</view>
+          <view class="th">上次时间</view>
+        </view>
+        <scroll-view scroll-y="true" style="height: 82vh;">
+          <block wx:for="{{list}}" wx:key="index" wx:for-item="item"  >
+          <view class="tr bg-g" bindtap="jump_sort" data-bean="{{item}}">
+            <view class="td">{{index+1}}</view>
+            <view class="td">{{item.address}}</view>
+            <view class="td"  style="font-size: 30rpx;">{{item.resultDate?item.resultDate:0}}</view>
+            <view class="td" style="font-size: 30rpx;" wx:if="{{item.result=='N'}}">{{item.num?item.num:0}}</view>
+            <view class="td" style="font-size: 30rpx;color: red;" wx:if="{{item.result=='Y'}}">{{item.num?item.num:0}}</view>
+            <view class="td"  wx:if="{{item.num}}">{{item.createtime}}</view>
+            <view class="td" wx:if="{{!item.num&&type==0}}" style="font-size: 30rpx;color: red;" >本日未去</view>
+            <view class="td" wx:if="{{!item.num&&type==1}}" style="font-size: 30rpx;color: red;" >本月未去</view>
+          </view>
+        </block>
+        </scroll-view>
       </view>
-
-
-
-      <!-- <block wx:for="{{list}}" wx:key="index" wx:for-item="item"  >
-          <view class="tr bg-g" v-if="index % 2 == 0" bindtap="jump_sort" data-bean="{{item}}">
-            <view class="td">{{index+1}}</view>
-            <view class="td">{{item.address}}</view>
-            <view class="td">{{item.num}}</view>
-            <view class="td">{{item.resultDate}}</view>
-            <view class="td">{{item.resultDate}}</view>
-          </view>
-          <view class="tr" v-else bindtap="jump_sort" data-bean="{{item}}">
-            <view class="td">{{index+1}}</view>
-            <view class="td">{{item.address}}</view>
-            <view class="td">{{item.address}}</view>
-            <view class="td">{{item.address}}</view>
-            <view class="td">{{item.resultDate}}</view>
-          </view>
-        </block> -->
+</view>

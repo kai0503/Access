@@ -1,4 +1,4 @@
-
+/* 
 .table {
   border: 0px solid darkgray;
   background-color: #fff;
@@ -33,6 +33,143 @@
   justify-content: center;
   background: #3366FF;
   color: #fff;
+  display: flex;
+  height: 100rpx;
+  font-size: 33rpx;
+} */
+.box{
+  width: 100vw;
+  height: 100vh;
+}
+.box_item{
+  margin-top: 10rpx;
+  width: 100%;
+  display: flex;
+  background-color: blue;
+  color: white;
+  height: 70rpx;
+  line-height: 50rpx;
+}
+.box_item view{
+  margin-top: 10rpx;
+  flex-grow: 1;
+  text-align: center;
+}
+.box_title{
+  width: 100%;
+  display: flex;
+  background-color: blue;
+  color: white;
+  height: 70rpx;
+  line-height: 50rpx;
+}
+.box_title view{
+  margin-top: 10rpx;
+  flex-grow: 1;
+  text-align: center;
+}
+
+
+
+
+
+.nav{
+  border-top: 1rpx solid #f2f2f2;
+  background-color: white; 
+  height: 100rpx;
+  margin: 10rpx 0rpx;
+  width: 95%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+.tab-scroll{
+  flex: 1;
+  overflow: hidden;
+  box-sizing: border-box;
+ 
+}
+.tab-scroll_box{
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  box-sizing: border-box;
+ 
+}
+.tab-scroll_item{
+  line-height: 60rpx;
+  flex-shrink: 0;
+width: 50%;
+  padding-bottom:10px;
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  padding-top: 10px;
+border-radius: 10rpx;
+
+}
+.active {
+  position: relative;
+  color: white;
+  font-weight: 600;
+background-color: #00B578;
+border-radius: 10rpx;
+color: white;
+line-height: 60rpx;
+  flex-shrink: 0;
+width: 50%;
+  padding-bottom:10px;
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  padding-top: 10px;
+border-radius: 10rpx;
+}
+
+
+
+
+
+.table {
+  width: 95%;
+  margin-left: 50%;
+  margin-top: 20rpx;
+  transform: translateX(-50%);
+  border: 0px solid darkgray;
+  background-color: #fff;
+}
+.tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 100rpx;
+  font-size: 25rpx;
+}
+.td {
+    width:40%;
+    margin-top: 1rpx;
+     justify-content: center;
+     align-items: center;
+     padding: 20rpx 0rpx;
+     display: flex;
+    text-align: center;
+    word-wrap: break-word;
+}
+.bg-w{
+  background: snow;
+  line-height: 100rpx;
+}
+.bg-g{
+ border-bottom: 1rpx solid rgba(0,0,0,0.08);
+  margin-bottom: 20rpx;
+}
+.th {
+  width: 40%;
+  justify-content: center;
+  background: #F4F7FC;
+  font-family: PingFang SC, PingFang SC;
+  font-weight: 400;
+  font-size: 14px;
+  color: #7986A0;
   display: flex;
   height: 100rpx;
   font-size: 33rpx;

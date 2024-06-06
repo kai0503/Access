@@ -6,8 +6,41 @@ Page({
    * 页面的初始数据
    */
   data: {
+    category:[
+      {
+          id:0,
+          name:'到岗到位日表',
+          checked:true
+      },
+      {
+          id:1,
+          name:'到岗到位月表',
+      }
+  ],
+  type:0,
+  isActive:0,
     list:[],
     pageNum:1
+  },
+  chenked(e){
+    console.log(e)
+    let id = e.currentTarget.dataset.id
+    console.log(id)
+    for (let i = 0; i < this.data.category.length; i++) {
+      if (this.data.category[i].id == id) {
+        //当前点击的位置为true即选中
+        this.data.category[i].checked = true;    
+      }
+      else {
+        //其他的位置为false
+      this.data.category[i].checked = false;
+      }
+    }
+    this.setData({
+      category: this.data.category,
+      type:id
+    });
+    this.getlist()
   },
   getlist(){
   wx.request({
@@ -15,9 +48,7 @@ Page({
     method:'POST',
     data:{
       userid:wx.getStorageSync('userid'),
-      type:0,
-      pageSize:20,
-      pageNum:this.data.pageNum
+      type:this.data.type,
     },
     success:res=>{
       console.log(res)
@@ -29,37 +60,11 @@ Page({
     }
   })
   },
-  getlists(){
-    this.setData({
-      pageNum:this.data.pageNum+1
-    })
-    console.log(this.data.pageNum)
-    wx.showLoading({
-      title: '加载中',
-      icon:'loading'
-    })
-    wx.request({
-      url: app.globalData.url+'api/getAddressCount',
-      method:'POST',
-      data:{
-        userid:wx.getStorageSync('userid'),
-        type:0,
-        pageSize:10,
-        pageNum:this.data.pageNum
-      },
-      success:res=>{
-        console.log(res)
-      }
-    })
-
-
-
-  },
   jump_sort(e){
     console.log('111')
-   console.log(e)
+   console.log(e.currentTarget.dataset.bean.addressid)
    wx.navigateTo({
-     url: '../Location_photo/Location_photo',
+     url: '../Location_photo/Location_photo?addressid='+e.currentTarget.dataset.bean.addressid,
    })
   },
   /**

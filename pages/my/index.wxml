@@ -66,7 +66,7 @@
 <image  src="../../assets/carousel/y.png"></image>
 </view>
 </view>
-<view class="list_one" bindtap="jumpdgdw">
+<view class="list_one" bindtap="jumpdgdw" wx:if="{{stafftype==0||stafftype==2}}">
 <view class="one_left">
 <image src="../../assets/carousel/grzl.png"></image><text>到岗到位总表</text>
 </view>
@@ -82,7 +82,7 @@
 <image  src="../../assets/carousel/y.png"></image>
 </view>
 </view>
-<view class="list_one" bindtap="jumpkscs" wx:if="{{stafftype==2}}">
+<view class="list_one" bindtap="jumpkscs" wx:if="{{stafftype==0}}">
 <view class="one_left">
 <image src="../../assets/carousel/kscs.png"></image><text>考试次数</text>
 </view>
