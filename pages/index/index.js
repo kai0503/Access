@@ -7,6 +7,8 @@ Page({
    */
   data: {
     peoplelist:{},
+    list_form:[],
+    message:'',
     pjdate:'',
     time:null,
     stafftype:'',
@@ -225,6 +227,12 @@ Page({
   this.getpj()
  
   },
+  jump_people(e){
+  console.log(e.currentTarget.dataset.bean.orgid)
+  wx.navigateTo({
+    url: '../../subpackages/pages/Company_personnel/Company_personnel?orgid='+e.currentTarget.dataset.bean.orgid,
+  })
+  },
   getData: function () {
   	/**
   	 * 此处的操作：
@@ -236,12 +244,17 @@ Page({
       success: (res) => {
         console.log(res)
       if(res.data.code==0){
+        let old_form=JSON.parse(JSON.stringify(res.data.data))
         this.setData({
-          peoplelist:res.data.data
+          peoplelist:res.data.data,
         })
-        dataList = res.data.data.everyNum;
+        dataList = JSON.parse(JSON.stringify(old_form.pubPeoplenum.sort((a,b)=>b.value-a.value).slice(0,10)));
         console.log(dataList)
-  		this.init_echarts();//初始化图表
+      this.init_echarts();//初始化图表
+      this.setData({
+        list_form:JSON.parse(JSON.stringify(old_form.pubPeoplenum.sort((a,b)=>b.value-a.value)))
+      })
+      console.log(this.data.list_form,'list_form')
       }
       }
 	});
@@ -267,7 +280,8 @@ Page({
         left: 'center'
       },
       tooltip: {
-        trigger: 'item'
+        trigger: 'item',
+        position: [-10, 50]
       },
       legend: {
         orient: 'vertical',

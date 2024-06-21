@@ -1,5 +1,8 @@
-<!-- 创建容器-此区域用于展示图表 -->
 <view class="box">
+<view class="box_index">
+<image src="../../assets/carousel/index_top.png"></image>
+<view class="index_title"></view>
+</view>
 <view class="box_one">
 <view>
 <view class="rs">{{peoplelist.nbnum}}</view>
@@ -14,43 +17,49 @@
 <view class="name">总人数</view>
 </view>
 <view>
-<view class="rs">{{peoplelist.vehicleno}}</view>
-<view class="name">车数</view>
-</view>
-<view>
-<view class="rs">{{peoplelist.testnum}}</view>
-<view class="name">学习完成</view>
+<view class="rs">{{peoplelist.pubPeoplenum.length}}</view>
+<view class="name">入场单位数</view>
 </view>
 <view>
 <view class="rs">{{peoplelist.hgnum}}</view>
-<view class="name">合格人数</view>
+<view class="name">累计培训合格人数</view>
+</view>
+<view>
+<view class="rs">{{peoplelist.aqdate}}</view>
+<view class="name">安全生产天数</view>
 </view>
 
 </view>
-<view class="box_title">
-数据占比
-</view>
-  <view class="cont">
-  <!-- 使用 ec-canvas 组件，此处的命名为引入组件路径前面的定义 key 键的名字 -->
-  <!-- 需要设置 id canvas-id ec 三个属性 -->
-  <!-- id canvas-id ec名称可以自己定义，符合命名规范即可 -->
-  <ec-canvas id="mychart" canvas-id="mychart-line" ec="{{ ec }}" force-use-old-canvas="true"></ec-canvas>
-</view>
-<view class="box_title">
-  两外单位人数
-</view>
-<view class="box_dw">
-<view class="dw_title">
-<view class="title_mc">单位名称</view>
-<view class="title_rs">人数</view>
-</view>
-<scroll-view scroll-y="true" style="height: 35vh;">
-  <view class="dw_gs">
-<view wx:for="{{peoplelist.pubPeoplenum}}" data-index="{{index}}">
-<view class="title_mc">{{item.name}}</view>
-<view class="title_rs">{{item.value}}</view>
-</view>
-</view></scroll-view>
+<view class="box_by">
+<view class="by_first">安全寄语</view>
+<view class="by_last">
+  <van-notice-bar text="{{peoplelist.aqmsg}}" color="#000" width='700rpx' font-size="1500rpx" background='none' speed="10"  scrollable></van-notice-bar>
 </view>
 </view>
-
+<view class="box_titles">
+								<view class="title_one">数据占比</view>
+								<view class="bg_bgn"></view>
+							</view>
+              <view class="cont">
+                <ec-canvas id="mychart" canvas-id="mychart-line" ec="{{ ec }}" force-use-old-canvas="true"></ec-canvas>
+              </view>
+              <view class="box_titless">
+								<view class="title_one">两外单位人数</view>
+								<view class="bg_bgns"></view>
+							</view>
+              <view class="box_bottom">
+              <view class="bottom_cont">
+              <view class="cont_title">
+              <view class="bottom_left">单位名称</view>
+              <view class="bottom_right">人数</view>
+              </view>
+              <view class="cont_cont" wx:for="{{list_form}}" data-index="{{index}}" data-bean="{{item}}" bindtap="jump_people">
+                <view class="bottom_left">{{item.name}}</view>
+              <view class="bottom_right">{{item.value}}</view>
+              </view>
+            
+            
+              </view>
+              
+              </view>
+</view>
