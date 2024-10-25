@@ -1,0 +1,18 @@
+<view>
+<view class="box">
+<view class="box_conts">
+  <view class="box_cont" wx:for="{{list}}" wx:key="index">
+<view class="cont_one">
+  <view class="one_right"><image src="{{item.problemimage}}" bindtap="previewImg" data-index="{{index}}"></image></view>
+<view class="one_left">
+<view>问题内容:{{item.problem}}</view>
+<view>拍摄时间:{{item.findtime}}</view>
+<view>解决方式：<text wx:if="{{item.remark==null}}" style="color: red;">待解决</text><text wx:if="{{item.remark!=null}}">{{item.remark}}</text></view>
+</view>
+
+</view>
+</view>
+</view>
+<view wx:if="{{list.length==0}}" class="zanwu">暂无问题反馈记录</view>
+</view>
+</view>

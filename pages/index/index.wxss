@@ -190,6 +190,10 @@ border: 1rpx solid #ECECEC;
 width: 70%;
 border-right: 1rpx solid #ECECEC;
 text-align: center;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+
 }
 .bottom_right{
   width: 30%;
@@ -206,4 +210,34 @@ text-align: center;
 font-weight: 400;
 font-size: 24rpx;
 color: #333333;
+}
+.box_people_type{
+  margin-top: 20rpx;
+  width: 92%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  position: relative;
+  top: -102rpx;
+  background: #FFFFFF;
+border-radius: 20rpx 20rpx 20rpx 20rpx;
+}
+.box_people_type view{
+  flex-grow: 1;
+  text-align: center;
+}
+.one_top{
+  margin-bottom: 16rpx;
+  font-family: D-DIN, D-DIN;
+font-weight: 700;
+font-size: 48rpx;
+color: #3B3B4D;
+margin-top: 20rpx;
+}
+.one_bottom{
+  font-family: PingFang SC, PingFang SC;
+font-weight: 400;
+font-size: 24rpx;
+color: #666666;
+margin-bottom: 20rpx;
 }

@@ -233,6 +233,12 @@ Page({
     url: '../../subpackages/pages/Company_personnel/Company_personnel?orgid='+e.currentTarget.dataset.bean.orgid,
   })
   },
+  jump_type(e){
+    const type = e.currentTarget.dataset.type;
+  wx.navigateTo({
+    url: '../../subpackages/pages/people_type/people_type?type='+type,
+  })
+  },
   getData: function () {
   	/**
   	 * 此处的操作：

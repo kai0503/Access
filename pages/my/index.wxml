@@ -68,7 +68,23 @@
 </view>
 <view class="list_one" bindtap="jumpdgdw" wx:if="{{stafftype==0||stafftype==2}}">
 <view class="one_left">
-<image src="../../assets/carousel/grzl.png"></image><text>到岗到位总表</text>
+<image src="../../assets/carousel/gw.png"></image><text>到岗到位总表</text>
+</view>
+<view class="one_right">
+<image  src="../../assets/carousel/y.png"></image>
+</view>
+</view>
+<view class="list_one" bindtap="jumpdgfk">
+<view class="one_left">
+<image src="../../assets/carousel/wtfk.png"></image><text>问题反馈</text>
+</view>
+<view class="one_right">
+<image  src="../../assets/carousel/y.png"></image>
+</view>
+</view>
+<view class="list_one" bindtap="jumppeople" wx:if="{{stafftype==0||stafftype==2}}">
+<view class="one_left">
+<image src="../../assets/carousel/clry.png"></image><text>车辆人员信息</text>
 </view>
 <view class="one_right">
 <image  src="../../assets/carousel/y.png"></image>

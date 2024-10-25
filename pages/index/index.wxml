@@ -9,7 +9,7 @@
 <view class="name">职工人数</view>
 </view>
 <view>
-<view class="rs">{{peoplelist.wxnum}}</view>
+<view class="rs">{{peoplelist.allnum-peoplelist.nbnum}}</view>
 <view class="name">两外人数</view>
 </view>
 <view>
@@ -43,10 +43,33 @@
               <view class="cont">
                 <ec-canvas id="mychart" canvas-id="mychart-line" ec="{{ ec }}" force-use-old-canvas="true"></ec-canvas>
               </view>
+              <view class="box_titles">
+								<view class="title_one">人员类型</view>
+								<view class="bg_bgns" style="width: 145rpx;"></view>
+							</view>
+              <view class="box_people_type">
+              <view class="people_one" bindtap="jump_type" data-type="2">
+              <view class="one_top">{{peoplelist.dqnum||0}}</view>
+              <view class="one_bottom">短协人数</view>
+              </view>
+              <view class="people_one" bindtap="jump_type" data-type="1">
+              <view class="one_top">{{peoplelist.wxnum||0}}</view>
+              <view class="one_bottom">长协人数</view>
+              </view>
+              <view class="people_one" bindtap="jump_type" data-type="0">
+              <view class="one_top">{{peoplelist.nbnum||0}}</view>
+              <view class="one_bottom">本厂人数</view>
+              </view>
+              <view class="people_one" bindtap="jump_type" data-type="4">
+              <view class="one_top">{{peoplelist.qtnum||0}}</view>
+              <view class="one_bottom">其他人数</view>
+              </view>
+              </view>
               <view class="box_titless">
 								<view class="title_one">两外单位人数</view>
 								<view class="bg_bgns"></view>
 							</view>
+              
               <view class="box_bottom">
               <view class="bottom_cont">
               <view class="cont_title">

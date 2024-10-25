@@ -1,0 +1,13 @@
+<view class="box">
+ <view class="box_list" wx:for="{{list}}" wx:key="index" wx:for-item="item" data-index="index">
+  <view wx:if="{{item.name}}">姓名:<text>{{item.name}}</text></view>
+  <view wx:if="{{item.vehicleno}}">车牌号:<text>{{item.vehicleno}}</text></view>
+  <view wx:if="{{item.code}}">身份证:<text>{{item.code}}</text></view>
+  <view wx:if="{{item.phone}}">手机号:<text>{{item.phone}}</text></view>
+  <view wx:if="{{item.stockname}}">物料名:<text>{{item.stockname}}</text></view>
+  <view wx:if="{{item.createtime}}">进厂时间:<text>{{item.createtime}}</text></view>
+  <view wx:if="{{item.phone}}" id="btn"  bindtap="set_phone" data-bean="{{item}}">拨打电话</view>
+
+ </view>
+ <view class="box_info" wx:if="{{list.length==0}}">暂无人员信息</view>
+</view>

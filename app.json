@@ -2,7 +2,6 @@
   "pages": [
     "pages/login/index",
     "pages/index/index",
-    
     "pages/Management/Management",
     "pages/my/index",
     "pages/Learning/Learning",
@@ -62,7 +61,12 @@
         "pages/secure/secure",
         "pages/duty_date/duty_date",
         "pages/Location_photo/Location_photo",
-        "pages/Company_personnel/Company_personnel"
+        "pages/Company_personnel/Company_personnel",
+        "pages/people_type/people_type",
+        "pages/Problem_feedback/Problem_feedback",
+        "pages/people_record/people_record",
+        "pages/people_number/people_number",
+        "pages/Personnel_information/Personnel_information"
       ]
     }
   ],

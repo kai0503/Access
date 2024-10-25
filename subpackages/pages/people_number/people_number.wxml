@@ -1,0 +1,14 @@
+<view class="box">
+  <view class="box_bottom">
+              <view class="bottom_cont">
+              <view class="cont_title">
+              <view class="bottom_left">姓名</view>
+              <view class="bottom_right">手机号</view>
+              </view>
+              <view class="cont_cont" wx:for="{{list_form}}" data-index="{{index}}" data-bean="{{item}}" bindtap="jump_people">
+                <view class="bottom_left">{{item.name}}</view>
+              <view class="bottom_right">{{item.phone}}</view>
+              </view>
+            </view>
+ </view>
+</view>

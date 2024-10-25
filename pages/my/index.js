@@ -122,6 +122,16 @@ Page({
     url: '../../subpackages/pages/driverimg/driverimg',
   })
   },
+  jumppeople(){
+  wx.navigateTo({
+    url: '../../subpackages/pages/Personnel_information/Personnel_information',
+  })
+  },
+  jumpdgfk(){
+      wx.navigateTo({
+        url: '../../subpackages/pages/Problem_feedback/Problem_feedback',
+      })
+  },
   chagepass(){
    wx.navigateTo({
    url:'../../subpackages/pages/changpass/index'

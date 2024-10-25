@@ -46,6 +46,7 @@
             <view class="td"  style="font-size: 30rpx;">{{item.resultDate?item.resultDate:0}}</view>
             <view class="td" style="font-size: 30rpx;" wx:if="{{item.result=='N'}}">{{item.num?item.num:0}}</view>
             <view class="td" style="font-size: 30rpx;color: red;" wx:if="{{item.result=='Y'}}">{{item.num?item.num:0}}</view>
+            <view class="td" style="font-size: 30rpx;" wx:if="{{!item.result}}">{{item.num?item.num:0}}</view>
             <view class="td"  wx:if="{{item.num}}">{{item.createtime}}</view>
             <view class="td" wx:if="{{!item.num&&type==0}}" style="font-size: 30rpx;color: red;" >本日未去</view>
             <view class="td" wx:if="{{!item.num&&type==1}}" style="font-size: 30rpx;color: red;" >本月未去</view>
